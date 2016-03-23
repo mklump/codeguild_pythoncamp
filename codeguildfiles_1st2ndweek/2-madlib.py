@@ -8,24 +8,36 @@ Accept three random words, and create a random constructed string with the three
 
 def get_3_random_words():
 	"""
-	Prompts the user three random words individually one at a time.
+	Prompts the user for three random words individually one at a time.
+	:returns: A list of the 3 random words
 	"""
+	three_words_list = []
 	print('Please input first word: ')
-	word1 = input()
+	three_words_list.append(input())
 	print('Please input second word: ')
-	word2 = input()
+	three_words_list.append(input())
 	print('Please input third word: ')
-	word3 = input()
-	return word1 + ' ' + word2 + ' ' + word3
+	three_words_list.append(input())
+	return three_words_list
 
-def print_madlib(word_list = []):
+def get_madlib_str(three_words_list):
 	"""
-	Accepts 3 random supplied words as a list for the returned random string construction.
-	:param l: Is a list of 3 expected random supplied words, and the type is list().
-	:returns: The randomized string
+	Accepts the three random word list, and gives back the madlib
+	:param 1: A list of the 3 random words not more than 3 words long
+	:returns: The madlib string
 	"""
-	return 'Your ' + word_list[0] + ', your ' + word_list[1] + ', and your ' + word_list[2] + ', are accepted!'
+	words = three_words_list
+	return 'Your {}, your {}, and your {} are accepted!'.format(words[0], words[1], words[2])
 
-word_list = get_3_random_words().split(' ')
+def print_madlib(madlib):
+	"""
+	Prints the madlib string to console standard out
+	:param l: madlib is the constructed string ready for printing
+	"""
+	print(madlib)
 
-print(print_madlib(word_list))
+# begin main_program/test
+word_list = get_3_random_words()
+madlib = get_madlib_str()
+print_madlib(madlib)
+# end main_program/test

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Guess_Number.py</StartupFile>
+    <StartupFile>hangman_nongraphical.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,6 +31,7 @@
     <Compile Include="Die_Roller.py" />
     <Compile Include="Farckle_DiceRoll.py" />
     <Compile Include="Guess_Number.py" />
+    <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
