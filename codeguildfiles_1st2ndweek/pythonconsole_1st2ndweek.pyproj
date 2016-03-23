@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>hangman_nongraphical.py</StartupFile>
+    <StartupFile>file_processing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,7 @@
     <Compile Include="class_to_students_datastructure.py" />
     <Compile Include="Die_Roller.py" />
     <Compile Include="Farckle_DiceRoll.py" />
+    <Compile Include="file_processing.py" />
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
@@ -37,6 +38,10 @@
     <Compile Include="pig_latin_translation.py" />
     <Compile Include="random_module.py" />
     <Compile Include="voting_both.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Clarissa_BigBook.txt" />
+    <Content Include="wiki-100k.txt" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
   <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
