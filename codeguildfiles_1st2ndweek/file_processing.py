@@ -128,8 +128,8 @@ def get_dict_of_dicts_from_pairings(list_of_pairs):
 
 def print_first_ten_on_dict_of_dicts(dicts):
 	"""
-	Prints to console standard out the first ten data elements of the dictionary of dictionaries
-	data structure.
+	This help function prints to console standard out the first ten data elements of the
+	dictionary of dictionaries data structure.
 	:param 1: dictionary of dictionary data structure to print
 	"""
 	print('\nThe first ten data elements of the constructed dictonary were:')
@@ -140,15 +140,31 @@ def print_first_ten_on_dict_of_dicts(dicts):
 		if print_count > 10:
 			break
 
-def get_next_most_frequent_word(word_input):
+def get_next_most_frequent_word(word_input, list_word_pairings):
 	"""
-	Accepts a word input, and returns the next most freqent word following that word based on
-	the parsed output from the sorted pairings list data structure.
-	:param 1: word_input for which to look for the next following word for
+	This helper function accepts a word input, and returns the next most freqent word following
+	that word based on the pairings word output.
+	:param 1: word_input for which to look for the next following from the pairing data
+	:param 2: sorted list of word pairings outputed from last main loop execution
 	:returns: the next most likely appearing word that follows the input_word as a string
 	"""
-	retval = ''
-	return retval
+	for leftword in list_word_pairings:
+		if word_input == leftword[0].split()[0]:
+			return leftword
+
+def print_word_pair(word_pair):
+	"""
+	This helper function prints the next most likely word pair.
+	"""
+	print('The most likely pair is \"{}\".'.format(word_pair))
+
+def get_word_input_for_print_next():
+	"""
+	This helper function ask the user for a word input, and return that as a string.
+	:returns: word input for print next pairing as a string
+	"""
+	print('Input word before as most likely pairing?:')
+	return input()
 
 def execute_main_loop():
 	"""
@@ -164,8 +180,9 @@ def execute_main_loop():
 
 	dictionary = get_dict_of_dicts_from_pairings(listsort)
 	print_first_ten_on_dict_of_dicts(dictionary)
-	word_before
-	get_next_most_frequent_word(word_before)
+	word_before = get_word_input_for_print_next()
+	word_after = get_next_most_frequent_word(word_before, listsort)  # listsort variable should still contain the dual word list as pairs
+	print_word_pair(word_after)
 
 # end def execute_main_loop():
 

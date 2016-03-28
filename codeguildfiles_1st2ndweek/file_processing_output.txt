@@ -1,0 +1,41 @@
+This program will read in a book title text file, and perform calculations on it.
+Press enter to accept default text book, ./Clarissa_BigBook.txt, or other text file to load:
+The top ten most frequest words are:
+to : occured 37890 times
+the : occured 31225 times
+I : occured 27677 times
+of : occured 23936 times
+and : occured 23446 times
+a : occured 17177 times
+that : occured 14102 times
+my : occured 13956 times
+in : occured 13923 times
+be : occured 11023 times
+Press enter to accept default text book, ./Clarissa_BigBook.txt, or other text file to load:
+
+The top ten most frequest word pairings are:
+of the : occured 1617 times
+to be : occured 1586 times
+I have : occured 1443 times
+in the : occured 1187 times
+I am : occured 1122 times
+that I : occured 1106 times
+to the : occured 1094 times
+as I : occured 768 times
+I will : occured 726 times
+of my : occured 723 times
+
+The first ten data elements of the constructed dictonary were:
+{ compromising : {1, 'with'} }
+{ perpetrated : {1, 'outrage,'} }
+{ inclement : {1, 'weather'} }
+{ me. : {1, 'Has'} }
+{ curses. : {1, 'She'} }
+{ physicians : {1, 'prescribe'} }
+{ fountain : {1, 'so'} }
+{ incumbent : {1, 'will'} }
+{ love?--But : {'about', 1} }
+{ proceedings, : {1, 'there'} }
+{ first: : {'but', 1} }
+Input word before as most likely pairing?: the
+The most likely pair is "('the same', 250)".

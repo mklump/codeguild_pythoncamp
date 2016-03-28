@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clarissa_BigBook.txt" />
+    <Content Include="file_processing_output.txt" />
     <Content Include="wiki-100k.txt" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
