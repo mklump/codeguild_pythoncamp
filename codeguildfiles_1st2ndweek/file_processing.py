@@ -26,7 +26,7 @@ def show_program_intro():
 	"""
 	print('This program will read in a book title text file, and perform calculations on it.')
 
-def read_booktxt_to_dictionary(book_title, pairing=False):
+def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add additional boolean flag to execute additional logic, instead refactor again.
 	"""
 	This helper function accepts a book title that is a flat text file as a relative path, and then
 	returns the words and the unique count of each word of that book text file as a dictionary.
@@ -72,7 +72,7 @@ def sort_dict_data(data):
 	:param 1: data as the unsorted dictionary as a dict
 	:returns: the sorted dictionary data as a list
 	"""
-	listsort = sorted(data.items(), key = operator.itemgetter(1))
+	listsort = sorted(data.items(), key=operator.itemgetter(1)) # Do not leave space on KEY assignment here only
 	listsort.reverse()
 	return listsort
 
