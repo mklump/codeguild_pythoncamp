@@ -42,6 +42,7 @@ E.g. December 30th has 1" of rain on average.
 * Allow someone to type in a date in the future and, using the average value predict the amount of rain.
 """
 import urllib.request
+import operator
 import re
 
 def show_program_intro():
@@ -76,7 +77,7 @@ def parse_regex_daily_total(rain_total):
 	:param 1: raw rain total data from URL
 	:returns: the data for the rain totals as a dictionary with key as the date, and value as the rain total for that day
 	"""
-	dailytotal_list = {}
+	dailytotal_dict = {}
 	match = ''
 	for row in rain_total:
 		match = re.search('([0-9]*-[A-Z]*-[0-9]*)[ ]*([0-9]*)', row) # match exactly two string groups and return them
@@ -84,8 +85,8 @@ def parse_regex_daily_total(rain_total):
 			continue
 		if False == match.string.strip().split()[0][0].isdigit():
 			continue
-		dailytotal_list[match.group(1)] = match.group(2)
-	return dailytotal_list
+		dailytotal_dict[match.group(1)] = match.group(2) # keeps types consistanct instead of int() cast, data type first as str()
+	return dailytotal_dict
 
 def sort_rain_dictionary(raindata_dict):
 	"""
@@ -107,10 +108,11 @@ def get_day_highest_rainfall(raindata_list):
 	"""
 	retval = []
 	rain = 0
+	#rain = max(raindata_list, key=lambda x: x[1]) # does not work on lists, only dictionaries
 	for row in raindata_list:
 		if '' == row[1]:
 			continue
-		if int(rain) < int(row[1]):
+		if int(rain) < int(row[1]): # Use MAX(accepts a key argument) built in fuction, keeps types consistanct instead of int() cast
 			retval = row
 			rain = row[1]
 	return retval
@@ -120,7 +122,54 @@ def print_highest_rainfall(rainfall):
 	This helper function prints out the highest rainfall from the specified found value.
 	:param 1: rainfall as the highest rain fall value found from the data stream
 	"""
-	print('The highest rain fall value found was: {} on {}'.format(rainfall[1], rainfall[0]))
+	print('The highest rain fall value found was: {} on {}.'.format(rainfall[1], rainfall[0]))
+
+def get_year_with_most_rain(totals_list):
+	"""
+	This helper function accepts the total amount of rain fall list per day in hundreths of inches,
+	calcuates the highest rainfall for all the recorded and retrieved data and returns that value.
+	:param 1: totals_list as all retrieved and calcuable rainfall data
+	:returns: the year with the most rain as dictionary single entry search by value
+	"""
+	rain_by_year = {}
+	for row in totals_list:
+		year = row[0].split('-')[2]
+		if None == rain_by_year.get(year):
+			rain_by_year[year] = 0
+		if '' == row[1]:
+			continue
+		rain_by_year[year] += int(row[1])
+	max_value = max(rain_by_year.items(), key=max_rain_compare) # .items() always searches based on the structure given, here .items() returns the dictionary as a tuple only.
+	#year_most_rain = { key : value for key, value in rain_by_year.items() if value == max_value[1] } # find key/year in the dictionary by value/rain reverse thinking.
+	return { max_value[0] : max_value[1] }
+
+def max_rain_compare(rain_by_year):
+	"""
+	This helper function accepts the rain_by_year.items() key, value as a list of two tuples, and returns
+	second element to sort by.
+	:param 1: rain_by_year.items() key, value as a list of two tuples
+	:returns: the second element of the items() two tuples collection to sort by
+	"""
+	return rain_by_year[1]
+
+def get_key_with_max_value(dictionary):
+     """
+	 Helper function that accepts a given dictionary, and return the key with the associated maximum value.
+	 a) create a list of the dict's keys and values; 
+     b) return the key with the max value
+	 """  
+     values = list(dictionary.values())
+     keys = list(dictionary.keys())
+     return keys[values.index(max(values))]
+
+def print_year_most_rain(year_highest_rain):
+	"""
+	Accepts the calculated year with the most rain as a dictionary and prints it to console standard out.
+	:param 1: year_highest_rain is the year with the highest rain as an int
+	"""
+	# [ [key, value] for key, value in year_highest_rain.items() ]
+	for row in year_highest_rain:
+		print('The year with the highest rain amount was: {} with rain amount {}.'.format(row, year_highest_rain[row]))
 
 # begin program main/test
 show_program_intro()
@@ -130,4 +179,6 @@ totals_dict = parse_regex_daily_total(byte_lines)
 totals_list = sort_rain_dictionary(totals_dict)
 highest_rainfall = get_day_highest_rainfall(totals_list)
 print_highest_rainfall(highest_rainfall)
+year_highest_rain = get_year_with_most_rain(totals_list)
+print_year_most_rain(year_highest_rain)
 # end program main/test
