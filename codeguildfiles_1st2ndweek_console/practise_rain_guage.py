@@ -20,6 +20,7 @@ with urllib.request.urlopen('http://www.gutenberg.org/ebooks/1342.txt.utf-8') as
 ```
 
 Use that module to read [the history of the gauge at Sunnyside School](http://or.water.usgs.gov/non-usgs/bes/sunnyside.rain). It looks like:
+URL replaced with David's github.com account: https://raw.githubusercontent.com/selassid/codeguild/master/sunnyside.rain
 ```
 TEXT HEADER...
 
@@ -58,7 +59,7 @@ def read_rain_gauge_sunnyside_school():
 	This help function opens a byte stream against the requested hard code URL, and retrieves the byte stream from URL request.
 	:returns: the Sunny Side School rain totals as requested utf-8 text lines in hundredths of inches per day/hour
 	"""
-	with urllib.request.urlopen('http://or.water.usgs.gov/non-usgs/bes/sunnyside.rain') as sunnyside_rain:
+	with urllib.request.urlopen('https://raw.githubusercontent.com/selassid/codeguild/master/sunnyside.rain') as sunnyside_rain:
 		byte_lines = [byte_line.decode('utf-8') for byte_line in sunnyside_rain]
 	# end with block/close byte stream
 	return byte_lines
@@ -151,9 +152,10 @@ def get_year_with_most_rain(totals_list):
 		if '' == row[1]:
 			continue
 		rain_by_year[year] += int(row[1])
-	max_value = max(rain_by_year.items(), key=max_rain_compare) # .items() always searches based on the structure given, here .items() returns the dictionary as a tuple only.
+	max_value = max(rain_by_year.items(), key=max_rain_compare) # use .items() and always searches based on the structure given, here .items() returns the dictionary as a tuple only.
+	retval = { max_value[0] : max_value[1] }
 	#year_most_rain = { key : value for key, value in rain_by_year.items() if value == max_value[1] } # find key/year in the dictionary by value/rain reverse thinking.
-	return { max_value[0] : max_value[1] }
+	return retval
 
 def max_rain_compare(rain_by_year):
 	"""

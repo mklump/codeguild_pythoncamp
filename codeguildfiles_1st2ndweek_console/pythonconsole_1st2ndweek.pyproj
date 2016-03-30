@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>practice_road_trip.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -46,7 +45,9 @@
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="file_processing_output.txt" />
     <Content Include="practise_rain_gauge_output.txt" />
+    <Content Include="practise_road_trip_output.txt" />
     <Content Include="rain_data_sample_input.txt" />
+    <Content Include="sunnyside.rain.txt" />
     <Content Include="wiki-100k.txt" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
