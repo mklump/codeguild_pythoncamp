@@ -18,17 +18,17 @@ city_to_accessible_cities = {
 }
 ```
 Traveling from one city to an adjacent one is called a **hop**.
-?
+
 For this sort of problem, you'll want to iteratively visit cities you know you can access while updating:
 1. Cities you can access.
 1. Cities you've been to.
 1. Cities you haven't been to.
-?
+
 * Let the user enter a city.
 Print out all the cities connected to that city.
 * Let the user enter a city.
 Print out all cities that could be reached through two hops.
-?
+
 ## Advanced
 * Let the user enter a city and a number of hops.
 Print out all cities that could be reached through that number of hops.
@@ -64,5 +64,5 @@ city_to_accessible_cities = {
 }
 
 show_program_intro()
-
+city = get_user_input_city()
 # end program main/test
