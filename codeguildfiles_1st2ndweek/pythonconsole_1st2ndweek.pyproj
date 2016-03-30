@@ -45,6 +45,7 @@
   <ItemGroup>
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="file_processing_output.txt" />
+    <Content Include="portland_rain_gauge_output.txt" />
     <Content Include="rain_data_sample_input.txt" />
     <Content Include="wiki-100k.txt" />
   </ItemGroup>
