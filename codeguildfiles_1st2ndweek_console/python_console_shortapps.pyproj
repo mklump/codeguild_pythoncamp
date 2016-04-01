@@ -4,13 +4,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>practise_rain_guage.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>practise_automatic_teller_machine.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>pythonconsole_1st2ndweek</Name>
+    <Name>python_console_shortapps</Name>
     <RootNamespace>pythonconsole_1st2ndweek</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -37,11 +38,15 @@
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
     <Compile Include="practice_road_trip.py" />
+    <Compile Include="practise_automatic_teller_machine.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="practise_rain_guage.py" />
     <Compile Include="random_module.py" />
     <Compile Include="voting_both.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="practise_accounts.txt" />
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="file_processing_output.txt" />
     <Content Include="practise_rain_gauge_output.txt" />
