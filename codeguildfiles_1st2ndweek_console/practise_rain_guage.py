@@ -89,25 +89,25 @@ def parse_regex_daily_total(rain_total):
 		dailytotal_dict[match.group(1)] = match.group(2) # keeps types consistanct instead of int() cast, data type first as str()
 	return dailytotal_dict
 
-def sort_rain_dictionary(raindata_dict):
+def sort_rain_dictionary(raindata_dict_from_urlstream):
 	"""
 	The helper function accepts a dictionary for the rain, then sorts the data by date in desending order as the return value.
 	:param 1: raindata_dict is the rain data dictionary to sort
 	:returns: the sorted dictionary as a list return value without loss of data
 	"""
-	data = [ [key, value] for key, value in raindata_dict.items() ]
-	data = sorted(data) # Do not leave space on KEY assignment here only
-	data.reverse()
-	retval = data # { key : value for key, value in data } # may need later for list comprehention cast back to dictionary
-	return retval
+	data_from_dictionary_to_sort = raindata_dict_from_urlstream.items() #[ [key, value] for key, value in raindata_dict.items() ] # .items() already gives the unpacking of the dictionary items
+	data_from_dictionary_to_sort = sorted(data_from_dictionary_to_sort, reverse=True) # Sort accept a second arguement kyword reverse=True Do not leave space on KEY assignment here only
+	#data_from_dictionary_to_sort.reverse()
+	return_value = data_from_dictionary_to_sort # { key : value for key, value in data } # may need later for list comprehention cast back to dictionary
+	return return_value
 
-def get_day_highest_rainfall(raindata_list):
+def get_day_highest_rainfall(raindata_list_raw_values_from_urlstream):
 	"""
 	This helper function finds the largest daily rainfall total for a single day.
 	:param 1: the SORTED raindata_list as the rain fall totals per day as a list
 	:returns: the largest rain fall recorded for all recorded days as a list
 	"""
-	list_with_nonempty_values = remove_emptystring_values(raindata_list)		   # casting the comparison key to another type to compare is undesirable, first cast the type to the correct data type, then store it in the list for comparison.
+	list_with_nonempty_values = remove_emptystring_values(raindata_list_raw_values_from_urlstream) # casting the comparison key to another type to compare is undesirable, first cast the type to the correct data type, then store it in the list for comparison.
 	highest_day_rain = max(list_with_nonempty_values, key=lambda row: int(row[1])) # lambda expression works IFF there is NO empty string bad data before cast to int! '' Empty string data in second element column must first be removed from source.
 	#for row in raindata_list:
 	#	if '' == row[1]:
@@ -117,7 +117,7 @@ def get_day_highest_rainfall(raindata_list):
 	#		rain = row[1]
 	return highest_day_rain
 
-def remove_emptystring_values(raindata_list):
+def remove_emptystring_values(raindata_list_raw_values_from_urlstream):
 	"""
 	The incomming data source for the rain totals at the URL has '' Empty string for totals bad data!
 	We are the ones that must deal with this. This helper fuction accepts the raw list source, and removes
@@ -125,10 +125,11 @@ def remove_emptystring_values(raindata_list):
 	:param 1: raindata_list raw rain totals data as list
 	:returns: same raindata_list raw data with '' rain total values REMOVED
 	"""
-	for row in raindata_list: # Use ONLY THIS LOOP FORM or while loop similar form to remove bad data from list of lists!!!
+	for row in raindata_list_raw_values_from_urlstream: # Use ONLY THIS LOOP FORM or while loop similar form to remove bad data from list of lists!!!
 		if '' == row[1]:
-			raindata_list.remove(row)
-	return raindata_list # [ raindata_list.remove(row) for row in raindata_list if '' == row[1] ] # list conprehention will NEVER work for removing bad data from a list of lists, use only the prior form!
+			raindata_list_raw_values_from_urlstream.remove(row)
+	raindata_list_with_bad_data_removed = raindata_list_raw_values_from_urlstream
+	return raindata_list_with_bad_data_removed # [ raindata_list.remove(row) for row in raindata_list if '' == row[1] ] # list conprehention will NEVER work for removing bad data from a list of lists, use only the prior form!
 
 def print_highest_rainfall(rainfall):
 	"""
