@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>practice_road_trip.py</StartupFile>
+    <StartupFile>practise_rain_guage.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
