@@ -92,8 +92,8 @@ def sort_dict_data(data):
 	:param 1: data as the unsorted dictionary as a dict
 	:returns: the sorted dictionary data as a list
 	"""
-	listsort = sorted(data.items(), key=operator.itemgetter(1)) # Do not leave space on KEY assignment here only
-	listsort.reverse()
+	listsort = sorted(data.items(), key=operator.itemgetter(1), reverse=True) # Do not leave space on KEY assignment here only
+	#listsort.reverse()
 	return listsort
 
 def print_top_ten_frequent(data, pairing=False):
