@@ -34,25 +34,44 @@ def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add ad
 	:param 2: pairing bool flag set to False if reading single words, or True if reading pairing
 	:returns: text word contents of book_title as a dict
 	"""
-	retval_dict = {}
-	line_list = []
+	dictionary_of_collected_keywords_and_their_counts = {}
+	line_of_raw_booktext_list = []
 	with open(book_title) as book:
 		data_book = book.readlines()
 		for line in data_book:
-			line_list = line.strip().split()
+			line_of_raw_booktext_list = line.strip().split()
 			if True == pairing:
-				line_list = [' '.join(line_list[i:i+2]) for i in range(0, len(line_list), 2)]
-				line_list = get_valid_pairings(line_list)
-			for word in line_list:
-				if word not in retval_dict:
-					retval_dict[word] = 1
-				else:
-					retval_dict[word] += 1
+				line_of_raw_booktext_list = get_word_pairs_sep_by_space_not_single_words(line_of_raw_booktext_list)
+			dictionary_of_collected_keywords_and_their_counts = get_count_by_each_parsed_word_as_dictionary_key(line_of_raw_booktext_list)
 	# end with block/close file
-	return retval_dict
+	return dictionary_of_collected_keywords_and_their_counts
 # end def read_booktxt_to_dictionary(book_title):
 
-def get_valid_pairings(line_list):
+def get_word_pairs_sep_by_space_not_single_words(line_of_raw_singlewords_list):
+	"""
+	This helper function is called only if we are collecting pairs of words, not single words from the book text.
+	:param 1: line_of_raw_booktext_list as raw text data read in from the book as a list
+	:returns: word pairs required for the word pairs list processing as list
+	"""
+	line_of_parsed_wordpairs_list = [' '.join(line_of_raw_singlewords_list[i:i+2]) for i in range(0, len(line_of_raw_singlewords_list), 2)]
+	removed_singles_parsed_wordpairs_list = remove_singlewords_from_pairings(line_of_parsed_wordpairs_list)
+	return removed_singles_parsed_wordpairs_list
+
+def get_count_by_each_parsed_word_as_dictionary_key(list_of_each_line_split_words):
+	"""
+	This helper function accepts each parsed line from the book text, and counts each individual word as each word or phrase occurs.
+	:param 1: list_of_each_line_split_words is the parsed incomming text line already split up by delimited spaces
+	:returns: The dictionary of individual words as the keys collected and each individual one word's count occurance.
+	"""
+	individual_words_dictionary_collector = {}
+	for word in list_of_each_line_split_words:
+		if word not in individual_words_dictionary_collector:
+			individual_words_dictionary_collector[word] = 1
+		else:
+			individual_words_dictionary_collector[word] += 1
+	return individual_words_dictionary_collector
+
+def remove_singlewords_from_pairings(word_pairs_with_singles):
 	"""
 	Accepts a single line of the book read in as a list, and checks to see if the elements
 	of that list of extracted word pairings are in fact valid pairings. If the word pairing
@@ -60,11 +79,12 @@ def get_valid_pairings(line_list):
 	:param 1: The line of which to perform the word pair checking as a list
 	:returns: The corrected word pairing as a list
 	"""
-	for pair in line_list:
-		pair = pair.strip()
-		if ' ' not in pair:
-			line_list.remove(pair)
-	return line_list
+	for word_pair in word_pairs_with_singles:
+		word_pair = word_pair.strip()
+		if ' ' not in word_pair:
+			word_pairs_with_singles.remove(word_pair)
+	word_pairs_without_singles = word_pairs_with_singles
+	return word_pairs_without_singles
 
 def sort_dict_data(data):
 	"""
