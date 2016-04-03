@@ -107,7 +107,7 @@ def create_an_account_for_user(list_of_all_accounts_known, starting_account_bala
 
 def main():
 	"""
-	Main function/test driver of execution for this main console program.
+	Main function/test driver main single thread of execution for this console program.
 	"""
 	user_answer = prompt_user_what_to_do_next()
 	while 'q' != user_answer:

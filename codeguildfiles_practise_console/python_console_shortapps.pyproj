@@ -41,7 +41,7 @@
     <Compile Include="practise_automatic_teller_machine.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="practise_rain_guage.py" />
+    <Compile Include="practise_rain_gauge.py" />
     <Compile Include="random_module.py" />
     <Compile Include="voting_both.py" />
   </ItemGroup>

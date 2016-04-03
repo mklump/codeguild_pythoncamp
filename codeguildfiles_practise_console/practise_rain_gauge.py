@@ -43,8 +43,9 @@ E.g. December 30th has 1" of rain on average.
 * Allow someone to type in a date in the future and, using the average value predict the amount of rain.
 """
 import urllib.request
-import operator
 import re
+#import operator
+#import os
 
 def show_program_intro():
 	"""
@@ -184,14 +185,18 @@ def print_year_most_rain(year_highest_rain_daily_total):
 	list_print_out = list(year_highest_rain_daily_total.items()) # cast the dictionary for output as properly taught be calling the .items() method of the dictionary type
 	print('The year with the highest rain amount was: {} with rain amount {}.'.format(list_print_out[0][0], list_print_out[0][1]))
 
-# begin program main/test
-show_program_intro()
-byte_lines = read_rain_gauge_sunnyside_school()
-#print_rain_guage_output(byte_lines)
-totals_dict = parse_regex_daily_total(byte_lines)
-totals_list = sort_rain_dictionary(totals_dict)
-highest_rainfall = get_day_highest_rainfall(totals_list)
-print_highest_rainfall(highest_rainfall)
-year_highest_rain = get_year_with_most_rain(totals_list)
-print_year_most_rain(year_highest_rain)
-# end program main/test
+def main():
+	"""
+	Main function/test driver main single thread of execution for this console program. The call stack in the order in which the functions appear.
+	"""
+	show_program_intro()
+	byte_lines = read_rain_gauge_sunnyside_school()
+	#print_rain_guage_output(byte_lines)
+	totals_dict = parse_regex_daily_total(byte_lines)
+	totals_list = sort_rain_dictionary(totals_dict)
+	highest_rainfall = get_day_highest_rainfall(totals_list)
+	print_highest_rainfall(highest_rainfall)
+	year_highest_rain = get_year_with_most_rain(totals_list)
+	print_year_most_rain(year_highest_rain)
+
+main()
