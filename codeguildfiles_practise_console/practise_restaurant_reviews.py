@@ -5,8 +5,6 @@ Program exercise file input/output in Python
 By: Matthew James K, Peter Dziuba, Matthew Voelpel
 Date: 4/4/2016
 LAB/STEP requirements:
-
-Matt, Matt, Peter 
 ?
 Practice: Restaurant Reviews
 We're going to make a mini version of Yelp. There are local business listings and users can post reviews, with a rating and some text, of each business.
@@ -67,7 +65,7 @@ raw_review_data = [
 Re-implement the searching by name above.
 Implement searching for reviews by user: Prompt for the a name of a user, and print out all reviews for that user.?
 """
-?
+
 class Review:
   def __init__(self, business_name, user_name, rating, review):
     self.business_name = business_name
@@ -78,25 +76,25 @@ class Review:
 def __str__(self):
     my_str = "{} rating: {}".format(self.review, self.rating)
     return my_str
-?
+
 class Business:
     def __init__(self, business_name):
         self.business_name = business_name
 
 def __str__(self):
 	return '{}'.format(self.business_name)
-?
+
     # def return_average(self):
     #     my_value_counter = 0
     #     for i in self.review_list:
     #         my_value_counter += i['rating']
     #     my_average = (my_value_counter/len(self.review_list))
     #     return my_average
-?
+
 class User:
   def __init__(self, user_name):
     self.user_name = user_name
-?
+
 # def query_dict_for_reviews(dict, user_input_string):
 #     for i in dict:
 #         if user_business_search in i['business_name']:
@@ -109,9 +107,9 @@ class User:
 #             my_new_business = Business(i['business_name'], my_list)
 #             print('Average: {}'.format(total_average))
 #             print(my_list[0])
-?
-?
-?
+
+
+
 # raw_business_review_data = [
 #   {
 #     'business_name': 'Salt & Straw',
@@ -130,25 +128,25 @@ class User:
 #     ],
 #   },
 # ]
-?
+
 # salt_and_straw_rating_list = []
 # voodoo_donuts_rating_list = []
-?
+
 # for i in raw_business_review_data[0]['reviews']:
 #   salt_and_straw_rating_list.append(i)
-?
+
 # for i in raw_business_review_data[1]['reviews']:
 #   voodoo_donuts_rating_list.append(i)
-?
+
 # rating_counter_salt = 0
 # rating_counter_voodoo = 0
-?
+
 # for i in salt_and_straw_rating_list:
 #   rating_counter_salt += i['rating']
-?
+
 # for i in voodoo_donuts_rating_list:
 #   rating_counter_voodoo += i['rating']
-?
+
 # voodoo_donuts = Business('Voodoo Donuts', voodoo_donuts_rating_list)
 # salt_and_straw = Business("Salt & Straw", salt_and_straw_rating_list)
 
@@ -158,7 +156,7 @@ def search_by_name(dict, user_input_string):
           my_average = get_average_by_search(dict, user_input_string)
           my_string = 'Average Rating: {}. Review: {}'.format(my_average, i['text'])
     return my_string
-?
+
 def get_average_by_search(dict, user_input_string):
     average_counter = 0
     for i in dict:
@@ -166,7 +164,7 @@ def get_average_by_search(dict, user_input_string):
             average_counter += i['rating']
     my_average = (average_counter/len(i))
     return my_average
-?
+
 def search_by_user(dict, user_input_string):
     review_list = []
     count_number = 1
@@ -179,8 +177,8 @@ def search_by_user(dict, user_input_string):
                 my_line = "{} {} {}".format(i['text'], i['rating'], i['business_name'])
             review_list.append(my_line)
     return review_list
-?
-?
+
+
 raw_business_data = [
   {
     'business_name': 'Salt & Straw',

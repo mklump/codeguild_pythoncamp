@@ -78,7 +78,7 @@ class ATMBankAccount:
 		"""
 		with open('./practise_accounts.txt', mode='wt') as accounts_and_balances_to_write_out:
 			for accounts in list_of_all_accounts_known:
-				accounts_and_balances_to_write_out.writelines('{0} {1}'.format(accounts.account_id, accounts.balance));
+				accounts_and_balances_to_write_out.writelines('{0} {1}\n'.format(accounts.account_id, accounts.balance));
 		# end of withblock, close open file writing
 
 	def read_in_account_numbers_and_balances():
@@ -88,7 +88,7 @@ class ATMBankAccount:
 		with associated balances.
 		"""
 		accounts_balances = []
-		with open('./practise_accounts.txt') as all_known_accounts_and_balances:
+		with open('./practise_accounts.txt', mode='rt') as all_known_accounts_and_balances:
 			customer_accounts_balances = all_known_accounts_and_balances.readlines()
 			for account_and_balance in customer_accounts_balances:
 				account_entry = account_and_balance.strip().split()
@@ -126,6 +126,14 @@ def prompt_user_for_starting_balance():
 	print('What starting account balance do you want to have for your new account?')
 	return input()
 
+def print_out_account_balances(list_of_all_accounts_known):
+	"""
+	The helper function prints to standard out all of the user's accounts, and there balances.
+	:param 1: list_of_all_accounts_known as the list of all known working accounts as a list to output.
+	"""
+	for account in list_of_all_accounts_known:
+		print('{0} {1}\n'.format(accounts.account_id, accounts.balance))
+
 def main():
 	"""
 	Main function/test driver main single thread of execution for this console program.
@@ -136,7 +144,8 @@ def main():
 		if '1' == user_answer:
 			starting_account_balance_ammount = prompt_user_for_starting_balance()
 			create_an_account_for_user(list_of_all_accounts_known, int(starting_account_balance_ammount))
-		#elif '2' == user_answer:
+		elif '2' == user_answer:
+
 		#elif '3' == user_answer:
 		#elif '4' == user_answer:
 		#elif '5' == user_answer:
