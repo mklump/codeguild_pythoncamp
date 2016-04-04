@@ -23,6 +23,10 @@ Advanced
 ?Save the account balance to a file after each operation. Read that balance on startup so the balance persists across program starts.
 ?Add to each account class an account ID number.
 ?Allow the user to open more than one account. Let them perform all of the above operations by account number.
+
+Added Friday 10:52AM, and being summarily ignored because this was not part of the original design:
+•Add a function called  get_standing  have it return a bool with whether the account has less than $1000 in it.
+•Predatorily charge a transaction fee every time a withdrawal or deposit happens if the account is in bad standing.
 """
 
 class ATMBankAccount:
@@ -56,19 +60,30 @@ class ATMBankAccount:
 			)
 
 	def deposit_to_account(ID_account_to_deposit_to, money_amount_to_deposit):
+			raise NotImplementedError
 		return
 
 	def check_if_enough_funds_for_withdrawal(ID_account_to_check_amount, amount_needed_for_withdrawl):
+			raise NotImplementedError
 		return
 
 	def withdrawl_fund_from_account(ID_account_to_withdrawl_from, money_amount_to_withdrawl):
+			raise NotImplementedError
 		return
 
 	def calculate_half_percent_interest_on_account(ID_account_to_give_interest):
+			raise NotImplementedError
 		return
 
-	def write_out_account_numbers_and_balances(self):
-		return
+	def write_out_account_numbers_and_balances(list_of_all_accounts_known):
+		"""
+		This class method will write out all accounts and their balances to the local file practise_accounts.txt.
+		:param 1: list_of_all_accounts_known as the list of all known working accounts to write out to the file.
+		"""
+		with open('./practise_accounts.txt', mode='wt') as accounts_and_balances_to_write_out:
+			for accounts in list_of_all_accounts_known:
+				accounts_and_balances_to_write_out.writelines('{0} {1}'.format(accounts.account_id, accounts.balance));
+		# end of withblock, close open file writing
 
 	def read_in_account_numbers_and_balances():
 		"""
@@ -102,8 +117,18 @@ def create_an_account_for_user(list_of_all_accounts_known, starting_account_bala
 	:param 2: starting_account_balance_amount as the newly created starting account balance as an integer
 	:returns: list_of_all_accounts_known with the newly created account
 	"""
-	last_account_num_in_the_list = 0
-	return
+	#account_numbers, balance_ammounts = zip(*zip(list_of_all_accounts_known)) # Error - cannot unzip single object, only list of two elements
+	last_unique_account_ID = list_of_all_accounts_known[len(list_of_all_accounts_known) - 1].account_id
+	new_account = ATMBankAccount(str(int(last_unique_account_ID) + 1), str(starting_account_balance_amount))
+	return list_of_all_accounts_known.append(new_account)
+
+def prompt_user_for_starting_balance():
+	"""
+	This helper function asks the user for what the starting account balance should be, and returns that number.
+	:returns: the starting account balance of the new account as an integer.
+	"""
+	print('What starting account balance do you want to have for your new account?')
+	return input()
 
 def main():
 	"""
@@ -112,13 +137,16 @@ def main():
 	user_answer = prompt_user_what_to_do_next()
 	while 'q' != user_answer:
 		list_of_all_accounts_known = ATMBankAccount.read_in_account_numbers_and_balances()
-		if 1 == user_answer:
-		#elif 2 == user_answer:
-		#elif 3 == user_answer:
-		#elif 4 == user_answer:
-		#elif 5 == user_answer:
-		#elif 6 == user_answer:
+		if '1' == user_answer:
+			starting_account_balance_ammount = prompt_user_for_starting_balance()
+			create_an_account_for_user(list_of_all_accounts_known, int(starting_account_balance_ammount))
+		#elif '2' == user_answer:
+		#elif '3' == user_answer:
+		#elif '4' == user_answer:
+		#elif '5' == user_answer:
+		#elif '6' == user_answer:
 		#user_answer = prompt_user_what_to_do_next()
-	ATMBankAccount.write_out_account_numbers_and_balances()
+		break
+	ATMBankAccount.write_out_account_numbers_and_balances(list_of_all_accounts_known)
 
 main()
