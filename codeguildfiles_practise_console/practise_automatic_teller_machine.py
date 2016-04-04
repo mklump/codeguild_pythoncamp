@@ -60,20 +60,16 @@ class ATMBankAccount:
 			)
 
 	def deposit_to_account(ID_account_to_deposit_to, money_amount_to_deposit):
-			raise NotImplementedError
-		return
+		raise NotImplementedError
 
 	def check_if_enough_funds_for_withdrawal(ID_account_to_check_amount, amount_needed_for_withdrawl):
-			raise NotImplementedError
-		return
+		raise NotImplementedError
 
 	def withdrawl_fund_from_account(ID_account_to_withdrawl_from, money_amount_to_withdrawl):
-			raise NotImplementedError
-		return
+		raise NotImplementedError
 
 	def calculate_half_percent_interest_on_account(ID_account_to_give_interest):
-			raise NotImplementedError
-		return
+		raise NotImplementedError
 
 	def write_out_account_numbers_and_balances(list_of_all_accounts_known):
 		"""

@@ -37,11 +37,15 @@
     <Compile Include="hello.py" />
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
+    <Compile Include="practice_restaurant_reviews.py" />
     <Compile Include="practice_road_trip.py" />
     <Compile Include="practise_automatic_teller_machine.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="practise_rain_gauge.py" />
+    <Compile Include="practise_restaurant_reviews.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="random_module.py" />
     <Compile Include="voting_both.py" />
   </ItemGroup>
