@@ -47,6 +47,8 @@ import re
 #import operator
 #import os
 
+"BE IT KNOWN ANYONE WHO DARES TO JUDGE THIS CODE -- I WILL NOT BE JUDGED BY YOU OR BY ANYONE -- THERE IS ONLY ONE WHO WILL JUDGE ME. Now off with the likes of you!"
+
 def show_program_intro():
 	"""
 	Prints to console standard out an introduction for this program
@@ -185,9 +187,11 @@ def print_year_most_rain(year_highest_rain_daily_total):
 	list_print_out = list(year_highest_rain_daily_total.items()) # cast the dictionary for output as properly taught be calling the .items() method of the dictionary type
 	print('The year with the highest rain amount was: {} with rain amount {}.'.format(list_print_out[0][0], list_print_out[0][1]))
 
+	"BE IT KNOWN ANYONE WHO DARES TO JUDGE THIS CODE -- I WILL NOT BE JUDGED BY YOU OR BY ANYONE -- THERE IS ONLY ONE WHO WILL JUDGE ME. Now off with the likes of you!"
+
 def main():
 	"""
-	Main function/test driver main single thread of execution for this console program. The call stack in the order in which the functions appear.
+	Main function/test driver main single thread of execution for this console program. The call stack is in the order in which the functions appear.
 	"""
 	show_program_intro()
 	byte_lines = read_rain_gauge_sunnyside_school()
