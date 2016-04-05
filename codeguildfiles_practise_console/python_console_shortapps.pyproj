@@ -35,6 +35,9 @@
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
+    <Compile Include="practice_blackjack_hand.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
     <Compile Include="practice_restaurant_reviews.py" />

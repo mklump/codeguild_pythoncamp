@@ -5,10 +5,10 @@ Program exercise file input/output in Python
 By: Matthew James K, Peter Dziuba, Matthew Voelpel
 Date: 4/4/2016
 LAB/STEP requirements:
-?
+
 Practice: Restaurant Reviews
 We're going to make a mini version of Yelp. There are local business listings and users can post reviews, with a rating and some text, of each business.
-?
+
 Make a class that represents a review: it will have "rating" and "review text" fields.
 Make a class that represents a business: it will have "name" and a list of reviews fields.
 Load the following data into those classes. Don't use raw_business_review_data for any further operations.
@@ -32,12 +32,12 @@ raw_business_review_data = [
 ]
 Add a function to the business class that returns the average rating.
 Implement searching by name: Prompt for the a name of a business, and print out the average rating for that business and one review.
-?
+
 Add a user class: it will have a "user name" field.
-?
+
 Add a "user name" field to the review class.
 In real life, data like this is not hierarchical. This is so you can ask questions like "what are all the reviews I wrote?" Let's denormalize or break apart the hierarchy we currently have.
-?
+
 Add a "business name" field to the review class.
 Remove the list of reviews field from the business class.
 Load the following data into those refactored classes. Don't use these variables for any further operations.
@@ -63,34 +63,32 @@ raw_review_data = [
   {'user_name': 'Abby', 'business_name': 'Voodoo Donuts', 'rating': 2, 'text': 'Diabetes inducing.'},
 ]
 Re-implement the searching by name above.
-Implement searching for reviews by user: Prompt for the a name of a user, and print out all reviews for that user.?
+Implement searching for reviews by user: Prompt for the a name of a user, and print out all reviews for that user.
 """
-import random​
-​
-class Review:
-	def __init__(self, business_name, user_name, rating, review):
-		self.rating = rating
-		self.business_name = business_name
-		self.user_name = user_name
-		self.review = review
+import random
 
-	def __repr__(self):
-		my_str = "{}: {} rating: {}".format(self.business_name,
+class Review:
+    def __init__(self, business_name, user_name, rating, review):
+        self.rating = rating
+        self.business_name = business_name
+        self.user_name = user_name
+        self.review = review
+
+    def __repr__(self):
+        my_str = "{}: {} rating: {}".format(self.business_name,
                                             self.review, self.rating)
-		return my_str
-​
-​
+        return my_str 
+
 class Business:
-	def __init__(self, business_name):
-		self.business_name = business_name
-		​
-	def __repr__(self):
-	    '{}'.format(self.business_name)
-​
-​
+    def __init__(self, business_name):
+        self.business_name = business_name
+        
+    def __repr__(self):
+        '{}'.format(self.business_name)
+
 class User:
-	def __init__(self, user_name):
-		self.user_name = user_name
+    def __init__(self, user_name):
+        self.user_name = user_name
 
 def search_business_name(review_class_list, user_input_string):
     review_list = [i for i in review_class_list
@@ -107,13 +105,13 @@ def search_user_name(review_class_list, user_input_string):
     print(list_of_user_reviews)
 
 def main():
-	business_class_list = [Business(i['business_name']) for i in raw_business_data]
-	user_class_list = [User(i['user_name']) for i in raw_user_data]
-	review_class_list = [Review(i['business_name'], i['user_name'],
-						 i['rating'], i['text']) for i in raw_review_data]
-	user_search = input('Enter a business name\n: ')
-	search_business_name(review_class_list, user_search)
-	user_search_again = input('Enter a user name\n: ')
-	search_user_name(review_class_list, user_search_again)
+    business_class_list = [Business(i['business_name']) for i in raw_business_data]
+    user_class_list = [User(i['user_name']) for i in raw_user_data]
+    review_class_list = [Review(i['business_name'], i['user_name'],
+                         i['rating'], i['text']) for i in raw_review_data]
+    user_search = input('Enter a business name\n: ')
+    search_business_name(review_class_list, user_search)
+    user_search_again = input('Enter a user name\n: ')
+    search_user_name(review_class_list, user_search_again)
 
 main()
