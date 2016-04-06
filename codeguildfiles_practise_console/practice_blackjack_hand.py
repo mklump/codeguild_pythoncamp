@@ -16,12 +16,13 @@ Cards have point values. Aces are 1 or 11, number cards are their number, face c
 import random
 
 class Card:
-    def __init__(self, card_type_of_thirteen, point_value):
+    def __init__(self, card_type_of_thirteen, point_value, suite):
         """
-        Two argument "magic" constructor
+        Three argument "magic" constructor
         """
         self.card_type_of_thirteen = card_type_of_thirteen
         self.point_value = point_value
+        self.suite = suite
 
     def __repr__(self):
         """
@@ -40,14 +41,11 @@ class Card:
 # end class Card:
 
 class Hand:
-    def __init__(self, hand_of_cards_list):
+    def __init__(self, hand_of_cards_list = []):
         """
         Single argument "magic" constructor
         """
-        if None == hand_of_cards_list:
-            self.hand_of_cards_list = [Card] # or list(Card) if the collection is iterable to this init assignment should still work
-        else:
-            self.hand_of_cards_list = hand_of_cards_list
+        self.hand_of_cards_list = hand_of_cards_list #[Card] # or list(Card) if the collection is iterable to this init assignment should still work
 
     def __repr__(self):
         """
@@ -66,16 +64,15 @@ class Hand:
         #end for checking
         return True
 
-    def add_card_to_hand(self, hand_of_cards_list):
+    def add_card_to_hand(self):
         """
         This class function adds a SINGLE Card object to the list(Card) collection and returns the modified list.
-        :param 1: hand_of_cards_list as the list of all presently drawn cards in this hand
         :returns: The modified input list with the new added card just now drawn
         """
         #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace'))
         #accessible through the dot operator such as card_value_type.2 or card_value_type.Jack or card_value_type.Ace
 
-        next_card_drawn = Card(str(), 0)
+        next_card_drawn = Card(str(), 0, str())
         rand_pokercard_type = random.randint(1, 13)
         if 1 == rand_pokercard_type:
             next_card_drawn.card_type_of_thirteen = '2'
@@ -116,12 +113,47 @@ class Hand:
         elif 13 == rand_pokercard_type:
             next_card_drawn.card_type_of_thirteen = 'ACE'
             next_card_drawn.point_value = 11
-        hand_of_cards_list.append(next_card_drawn)
-        return hand_of_cards_list
+        self.hand_of_cards_list.append(next_card_drawn)
+        return self.hand_of_cards_list
+
+    def score_this_hand(self, hand_of_cards_list = []):
+        """
+        This class function accepts the List() [] of Card objects of this self.hand_of_cards_list,
+        and scores this particular Hand based on the card values drawn Card.point_value.
+        :param 1: hand_of_cards_list as the card list of Hand instance member of all presently drawn cards in this hand
+        :returns: The total score based on black jack rules for this Hand
+        """
+        current_points = 0
+        for card in self.hand_of_cards_list:
+            current_points += card.point_value
+            if True == self.is_score_over_twentyone(current_points):
+                self.print_score_busted()
+        return current_points
+
+    def is_score_over_twentyone(self, current_total_points):
+        """
+        This class function tests whether or not the current total score of this Hand is over 21, if it is then this
+        fuction returns True, otherwise False.
+        :returns: True if the score of this Hand.hand_of_cards_list is over 21, other wise False
+        """
+        return current_total_points > 21 #TODO: Test if ACE object is in the hand list, and change it to 1 if over 21!
+
+    def print_score_busted(self):
+        """
+        This class function prints to standard out a message when the total score busts the 21 limit.
+        """
+        print('You busted with your score over 21!')
 # end class Hand:
+
+    def prompt_the_user_to_input_a_hand():
+        """
+        This helper function prompts the user to manually enter a Hand list separated by spaces for scoring.
+        """
 
 def main():
     this_hand_presently_dealt = Hand()
-    this_hand_presently_dealt.add_card_to_hand(this_hand_presently_dealt.hand_of_cards_list)
+    for i in range(6):
+        this_hand_presently_dealt.hand_of_cards_list = this_hand_presently_dealt.add_card_to_hand()
+    this_hand_presently_dealt.score_this_hand()
 
 main()
