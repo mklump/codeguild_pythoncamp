@@ -110,12 +110,6 @@ def get_day_highest_rainfall(raindata_list_raw_values_from_urlstream):
 	"""
 	list_with_nonempty_values = remove_emptystring_values(raindata_list_raw_values_from_urlstream) # casting the comparison key to another type to compare is undesirable, first cast the type to the correct data type, then store it in the list for comparison.
 	highest_day_rain = max(list_with_nonempty_values, key=lambda row: int(row[1])) # lambda expression works IFF there is NO empty string bad data before cast to int! '' Empty string data in second element column must first be removed from source.
-	#for row in raindata_list:
-	#	if '' == row[1]:
-	#		continue
-	#	if int(rain) < int(row[1]): # Use MAX(accepts a key argument) built in fuction, keeps types consistanct instead of int() cast
-	#		retval = row
-	#		rain = row[1]
 	return highest_day_rain
 
 def remove_emptystring_values(raindata_list_raw_values_from_urlstream):
@@ -167,16 +161,6 @@ def max_rain_compare(rain_by_year):
 	:returns: the second element of the items() two tuples collection to sort by
 	"""
 	return rain_by_year[1]
-
-def get_key_with_max_value(dictionary_with_integervalues_to_find_max):
-     """
-	 Helper function that accepts a given dictionary, and return the key with the associated maximum value.
-	 a) create a list of the dict's keys and values; 
-     b) return the key with the max value
-	 """  
-     values = list(dictionary_with_integervalues_to_find_max.values())
-     keys = list(dictionary_with_integervalues_to_find_max.keys())
-     return keys[values.index(max(values))]
 
 def print_year_most_rain(year_highest_rain_daily_total):
 	"""

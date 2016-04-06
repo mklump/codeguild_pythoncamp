@@ -8,17 +8,19 @@ LAB/STEP requirements:
 Practice: Blackjack Hand
 Implement scoring a single hand of blackjack.
 Cards have point values. Aces are 1 or 11, number cards are their number, face cards are all 10. A hand is worth the sum of all the points of the cards in it. An ace is worth 1 when the hand it's a part of would be over 21 if it was worth 11.
-	• Make a class that represents a card.
-	• Make a class that represents a hand.
-	• Add functions that adds a card to a hand, one that scores a hand, and one that returns if the score is over 21.
-	• Allow a user to type in a hand and have it be converted into card objects and then scored.
+	Make a class that represents a card.
+	Make a class that represents a hand.
+	Add functions that adds a card to a hand, one that scores a hand, and one that returns if the score is over 21.
+	Allow a user to type in a hand and have it be converted into card objects and then scored.
 """
+import random
 
 class Card:
-    def __init__(self, point_value):
+    def __init__(self, card_type_of_thirteen, point_value):
         """
-        Single argument "magic" constructor
+        Two argument "magic" constructor
         """
+        self.card_type_of_thirteen = card_type_of_thirteen
         self.point_value = point_value
 
     def __repr__(self):
@@ -35,6 +37,7 @@ class Card:
         Overloaded == equality operator
         """
         return self.point_value == other_card.point_value
+# end class Card:
 
 class Hand:
     def __init__(self, hand_of_cards_list):
@@ -42,7 +45,7 @@ class Hand:
         Single argument "magic" constructor
         """
         if None == hand_of_cards_list:
-            self.hand_of_cards_list = list(Card) # or [Card] to this init assignment should still work
+            self.hand_of_cards_list = [Card] # or list(Card) if the collection is iterable to this init assignment should still work
         else:
             self.hand_of_cards_list = hand_of_cards_list
 
@@ -54,8 +57,71 @@ class Hand:
         return 'Hand({0})'.format(self.hand_of_cards_list)
 
     def __eq__(self, other_hand):
+        """
+        Overloaded == equality operator
+        """
         for card in range(len(self.hand_of_cards_list)):
             if self.hand_of_cards_list[card] != other_hand.hand_of_cards_list[card]:
                 return False
         #end for checking
         return True
+
+    def add_card_to_hand(self, hand_of_cards_list):
+        """
+        This class function adds a SINGLE Card object to the list(Card) collection and returns the modified list.
+        :param 1: hand_of_cards_list as the list of all presently drawn cards in this hand
+        :returns: The modified input list with the new added card just now drawn
+        """
+        #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace'))
+        #accessible through the dot operator such as card_value_type.2 or card_value_type.Jack or card_value_type.Ace
+
+        next_card_drawn = Card(str(), 0)
+        rand_pokercard_type = random.randint(1, 13)
+        if 1 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '2'
+            next_card_drawn.point_value = 2
+        elif 2 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '3'
+            next_card_drawn.point_value = 3
+        elif 3 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '4'
+            next_card_drawn.point_value = 4
+        elif 4 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '5'
+            next_card_drawn.point_value = 5
+        elif 5 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '6'
+            next_card_drawn.point_value = 6
+        elif 6 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '7'
+            next_card_drawn.point_value = 7
+        elif 7 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '8'
+            next_card_drawn.point_value = 8
+        elif 8 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '9'
+            next_card_drawn.point_value = 9
+        elif 9 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = '10'
+            next_card_drawn.point_value = 10
+        elif 10 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = 'JACK'
+            next_card_drawn.point_value = 10
+        elif 11 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = 'QUEEN'
+            next_card_drawn.point_value = 10
+        elif 12 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = 'KING'
+            next_card_drawn.point_value = 10
+        elif 13 == rand_pokercard_type:
+            next_card_drawn.card_type_of_thirteen = 'ACE'
+            next_card_drawn.point_value = 11
+        hand_of_cards_list.append(next_card_drawn)
+        return hand_of_cards_list
+# end class Hand:
+
+def main():
+    this_hand_presently_dealt = Hand()
+    this_hand_presently_dealt.add_card_to_hand(this_hand_presently_dealt.hand_of_cards_list)
+
+main()

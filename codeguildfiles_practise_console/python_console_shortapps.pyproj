@@ -6,7 +6,7 @@
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>practise_automatic_teller_machine.py</StartupFile>
+    <StartupFile>practice_blackjack_hand.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
