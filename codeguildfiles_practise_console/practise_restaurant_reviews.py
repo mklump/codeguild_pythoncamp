@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
+""" 
 Python Coding Bootcamp (pdxcodeguild)
 Program exercise file input/output in Python
 By: Matthew James K, Peter Dziuba, Matthew Voelpel
