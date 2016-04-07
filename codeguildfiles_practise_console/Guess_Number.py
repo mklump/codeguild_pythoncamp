@@ -76,7 +76,6 @@ def print_guesses_output(number_guesses, secret):
 	:param 1: number_guesses is the number of guesses remaining as an integer
 	:param 2: secret is the number being guessed as an integer 1 to 10
 	"""
-	#TODO: finish guess number code refactoring
 
 # begin main program/test
 number_guesses = 3
