@@ -6,7 +6,7 @@
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>practice_blackjack_hand.py</StartupFile>
+    <StartupFile>practise_blackjack_hand.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,13 +35,12 @@
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
-    <Compile Include="practice_blackjack_hand.py">
+    <Compile Include="practise_blackjack_hand.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
-    <Compile Include="practice_restaurant_reviews.py" />
-    <Compile Include="practice_road_trip.py" />
+    <Compile Include="practise_road_trip.py" />
     <Compile Include="practise_automatic_teller_machine.py">
       <SubType>Code</SubType>
     </Compile>
