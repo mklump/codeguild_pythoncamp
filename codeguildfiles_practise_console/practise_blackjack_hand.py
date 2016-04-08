@@ -15,8 +15,8 @@ Cards have point values. Aces are 1 or 11, number cards are their number, face c
 """
 import random
 
-class Card:
-    def __init__(self, card_type_of_thirteen, point_value, suite):
+class Card: # In Python as in all other higher languages, a class is only a container for data and for structuring it.
+    def __init__(self, card_type_of_thirteen, point_value, suite): # A card does not intrinsicly know a point_value attribute until it is scored
         """
         Three argument "magic" constructor/object initializer for SPACE on the PYTHON MANAGED HEAP
         """
@@ -29,13 +29,13 @@ class Card:
         String definition representation of this object. 'this' instead of 'self' but are still the same.
         Prints out the point_value for this particular card.
         """
-        return 'Card({0})'.format(self.point_value)
+        return 'Card({0})'.format(self.point_value) # Rpre should print all stuctures there in the class, not just point_value
 
     def __eq__(self, other_card):
         """
         Overloaded == equality operator
         """
-        return self.point_value == other_card.point_value
+        return self.point_value == other_card.point_value #Equallity applies only if type nad suite are the same, not just point_value
 # end class Card:
 
 class Hand:
@@ -44,21 +44,20 @@ class Hand:
         Two argument "magic" constructor/object initializer for SPACE on the PYTHON MANAGED HEAP
         :param 1: hand_of_cards_list as the list of working Card objects in this/self Hand object
         """
-        self.hand_of_cards_list = hand_of_cards_list #[Card] # or list(Card) if the collection is iterable to this init assignment
-                                                     #should still work
+        self.hand_of_cards_list = hand_of_cards_list # Correct only build the hand_of_cards_list as the only attribute
 
     def __repr__(self):
         """
         String definition representation of this object. 'this' instead of 'self' but are still the same.
         Prints out the point_value for this particular card.
         """
-        return 'Hand({0})'.format(self.hand_of_cards_list)
+        return 'Hand({0})'.format(self.hand_of_cards_list) # Correct on printing the only attribute, formatting the list output can be improved
 
     def __eq__(self, other_hand):
         """
         Overloaded == equality operator
         """
-        for card in range(len(self.hand_of_cards_list)):
+        for card in range(len(self.hand_of_cards_list)): # Comparison using == of two list accomplished the same here on __eq__
             if self.hand_of_cards_list[card] != other_hand.hand_of_cards_list[card]:
                 return False
         #end for checking

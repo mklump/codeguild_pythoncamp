@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-""" 
+"""
 Python Coding Bootcamp (pdxcodeguild)
 Program exercise file input/output in Python
-By: Matthew James K, Peter Dziuba, Matthew Voelpel
+By Lab Partners: Matthew James K, Peter Dziuba, Matthew Voelpel
 Date: 4/4/2016
 LAB/STEP requirements:
 
@@ -77,12 +77,12 @@ class Review:
     def __repr__(self):
         my_str = "{}: {} rating: {}".format(self.business_name,
                                             self.review, self.rating)
-        return my_str 
+        return my_str
 
 class Business:
     def __init__(self, business_name):
         self.business_name = business_name
-        
+
     def __repr__(self):
         '{}'.format(self.business_name)
 
