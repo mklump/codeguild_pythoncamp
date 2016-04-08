@@ -29,9 +29,7 @@ class Card:
         String definition representation of this object. 'this' instead of 'self' but are still the same.
         Prints out the point_value for this particular card.
         """
-        return 'Card({0})'.format(
-            self.point_value
-            )
+        return 'Card({0})'.format(self.point_value)
 
     def __eq__(self, other_card):
         """
@@ -41,12 +39,13 @@ class Card:
 # end class Card:
 
 class Hand:
-    def __init__(self, hand_of_cards_list = []):
+    def __init__(self, hand_of_cards_list=[]):
         """
         Two argument "magic" constructor/object initializer for SPACE on the PYTHON MANAGED HEAP
         :param 1: hand_of_cards_list as the list of working Card objects in this/self Hand object
         """
-        self.hand_of_cards_list = hand_of_cards_list #[Card] # or list(Card) if the collection is iterable to this init assignment should still work
+        self.hand_of_cards_list = hand_of_cards_list #[Card] # or list(Card) if the collection is iterable to this init assignment
+                                                     #should still work
 
     def __repr__(self):
         """
@@ -70,8 +69,10 @@ class Hand:
         This class function adds a single random Card object to the list(Card) collection and returns the modified list.
         :returns: The modified input list with the new added card just now drawn
         """
-        #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace'))
-        #accessible through the dot operator such as card_value_type.2 or card_value_type.Jack or card_value_type.Ace
+        #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8,
+        #9, 10, Jack, Queen, King, Ace'))
+        #accessible through the dot operator such as card_value_type.2 or
+        #card_value_type.Jack or card_value_type.Ace
 
         next_card_to_draw = Card(str(), 0, str())
         rand_pokercard_type = random.randint(1, 13)
@@ -89,9 +90,9 @@ class Hand:
         :param 3: next_card_to_draw as the next selected Card object being worked with to add to the self.hand_of_cards_list
         :returns: associated poker point value of that specific card
         """
-        card_type_lookup = { # TODO: Do not define if-else-elif value constant lookups in Python
-            1 : ['2', 2],         # Instead the Python dictionary replaced switch() in C# and C++ for constant lookups.
-            2 : ['3', 3],
+        card_type_lookup = {      # Do not define if-else-elif value constant lookups in Python
+            1 : ['2', 2],         # Instead the Python dictionary replaced switch() in C# and C++ for
+            2 : ['3', 3],         # constant lookups.
             3 : ['4', 4],
             4 : ['5', 5],
             5 : ['6', 6],
@@ -106,10 +107,10 @@ class Hand:
             }
         next_card_drawn = next_card_to_draw
         for card_type in card_type_lookup:
-            if rand_pokercard_type == card_type: #TODO: String look error on add specific card
-                next_card_drawn.suite = None
+            if rand_pokercard_type == card_type or rand_pokercard_type == card_type_lookup[card_type][0]: #TODO: String look error on add specific card
                 next_card_drawn.card_type_of_thirteen = card_type_lookup[card_type][0]
                 next_card_drawn.point_value = card_type_lookup[card_type][1]
+                next_card_drawn.suite = None
         return next_card_drawn.point_value
 
     def add_specific_card_to_hand(self, specific_card_without_suite):
@@ -121,8 +122,9 @@ class Hand:
         next_card_to_draw = Card(str(), 0, str())
         self.get_card_point_value(specific_card_without_suite, None, next_card_to_draw)
         self.hand_of_cards_list.append(next_card_to_draw)
+        return self.hand_of_cards_list
 
-    def score_this_hand(self, hand_of_cards_list = []):
+    def score_this_hand(self, hand_of_cards_list=[]):
         """
         This class function accepts the List() [] of Card objects of this self.hand_of_cards_list,
         and scores this particular Hand based on the card values drawn Card.point_value.
@@ -132,35 +134,38 @@ class Hand:
         current_points = 0
         for card in self.hand_of_cards_list:
             current_points += card.point_value
-            if True == self.is_score_over_twentyone(current_points):
-                self.print_score_busted(current_points)
-                break                
+            is_score_over = self.is_score_over_twentyone(current_points)
+            current_points = is_score_over[1]
+            if True == is_score_over[0]:
+                print_score_busted(current_points)
+                break
         return current_points
 
-    def is_score_over_twentyone(self, current_total_points):
+    def is_score_over_twentyone(self, current_points): #Python claims pass by OBJECT VALUE.
         """
         This class function tests whether or not the current total score of this Hand is over 21, if it is then this
         fuction returns True, otherwise False.
-        :returns: True if the score of this Hand.hand_of_cards_list is over 21, other wise False
+        :param 1: current_points as the current running total of card value not yet over 21
+        :returns: List of True if the score of this Hand.hand_of_cards_list is over 21, other wise False for the first
+        return value in the list, and also the current_points modified point total without the loss of either state value
         """
+        return_value = [] # This is a test in Pyton on the affectiveness of returning more that one value [a boolean, and an integer]
         for card in self.hand_of_cards_list:
-            if 11 == card.card_type_of_thirteen and current_total_points > 21:
-                current_total_points -= 10
-        return current_total_points > 21
+            current_points = self.modify_points_on_ace_and_over_twentyone(card, current_points)
+        return_value.append(current_points > 21)
+        return_value.append(current_points)
+        return return_value
 
-    def print_score_busted(self, actual_score_of_hand):
+    def modify_points_on_ace_and_over_twentyone(self, card_in_hand, current_points):
         """
-        This class function prints to standard out a message when the total score busts the 21 limit.
-        :param 1: actual_score_of_hand as the current actual score of this hand as an integer
+        This class function modifies the current_points of this hand by -10 points if the current card being tested
+        is an ACE and the score has busted over 21, thus making the ACE's point value 1 instead of 11.
+        :param 1: card_in_hand as the current card in the hand being tested as type Card
+        :param 2: current_points as the current score of this hand to be modified per the black jack rules
         """
-        print('You busted with your score over 21! Actual score was: {0}'.format(actual_score_of_hand))
-
-    def print_score_calculated(self, score_last_hand_calculated):
-        """
-        The class function prints the score of the last Hand of Cards calculated to standard out.
-        :param 1: score_last_hand_calculated as the score calculated of that last hand drawn as an integer
-        """
-        print('The last score calculated of that last Hand of Cards that was drawn was: {0}'.format(score_last_hand_calculated))
+        if 'ACE' == card_in_hand.card_type_of_thirteen and current_points > 21:
+            current_points -= 10
+        return current_points
 # end class Hand:
 
 def prompt_the_user_to_input_a_hand():
@@ -172,7 +177,7 @@ def prompt_the_user_to_input_a_hand():
     print('--> Example: 2 3 4 5 6 7 8 9 10 JACK QUEEN KING ACE <--')
     return input().split(' ')
 
-def test_drawing_a_hand_of_n_random_cards(number_cards_to_randomly_draw = 0):
+def test_drawing_a_hand_of_n_random_cards(number_cards_to_randomly_draw=0):
     """
     This helper function could be considered a Unit Test for a drawing a Hand of 3 Card objects
     for use in the main() harness, and returns nothing.
@@ -183,7 +188,7 @@ def test_drawing_a_hand_of_n_random_cards(number_cards_to_randomly_draw = 0):
     for i in range(int(number_cards_to_randomly_draw)): # Testing drawing a hand of three cards
         test_hand_of_cards.hand_of_cards_list = test_hand_of_cards.add_random_card_to_hand()
     score_of_this_hand = test_hand_of_cards.score_this_hand()
-    test_hand_of_cards.print_score_calculated(score_of_this_hand)
+    print_score_calculated(score_of_this_hand)
 
 def test_drawing_exact_user_defined_hand(user_defined_hand_of_cards):
     """
@@ -197,12 +202,27 @@ def test_drawing_exact_user_defined_hand(user_defined_hand_of_cards):
     for card_name in user_defined_hand_of_cards:
         test_hand_of_cards.hand_of_cards_list = test_hand_of_cards.add_specific_card_to_hand(card_name)
     score_of_this_hand = test_hand_of_cards.score_this_hand()
-    test_hand_of_cards.print_score_calculated(score_of_this_hand)
+    print_score_calculated(score_of_this_hand)
+
+def print_score_busted(actual_score_of_hand):
+    """
+    This helper function prints to standard out a message when the total score busts the 21 limit.
+    :param 1: actual_score_of_hand as the current actual score of this hand as an integer
+    """
+    print('You busted with your score over 21! Actual score was: {0}'.format(actual_score_of_hand))
+
+def print_score_calculated(score_last_hand_calculated):
+    """
+    The helper function prints the score of the last Hand of Cards calculated to standard out.
+    :param 1: score_last_hand_calculated as the score calculated of that last hand drawn as an integer
+    """
+    print('The last score calculated of that last Hand of Cards that was drawn was: {0}'.format(score_last_hand_calculated))
 
 def main():
     test_drawing_a_hand_of_n_random_cards(3) # test a Hand of 3 Cards
     test_drawing_a_hand_of_n_random_cards(6) # test a Hand of 6 Cards
-    user_defined_hand_of_cards = prompt_the_user_to_input_a_hand() # Testing have the user input a hand of n number randomly selected cards to make up the Hand.
+    user_defined_hand_of_cards = prompt_the_user_to_input_a_hand() # Testing have the user input a hand of n number randomly selected cards to
+                                                                   # make up the Hand.
     test_drawing_exact_user_defined_hand(user_defined_hand_of_cards)
 
 main()

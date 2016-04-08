@@ -55,6 +55,7 @@
     <Content Include="practise_accounts.txt" />
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="file_processing_output.txt" />
+    <Content Include="practise_blackjack_hand_output.txt" />
     <Content Include="practise_rain_gauge_output.txt" />
     <Content Include="practise_road_trip_output.txt" />
     <Content Include="rain_data_sample_input.txt" />
