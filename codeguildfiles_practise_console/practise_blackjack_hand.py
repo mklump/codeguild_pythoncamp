@@ -77,17 +77,6 @@ class Hand(object):
         self.hand_of_cards_list.append(next_card)
         return self.hand_of_cards_list
 
-    def get_next_card_to_draw(self, next_card = None):
-        """
-        The class function retrieves the next Card() instance that is being processed before it is added to
-        the list of cards in this Hand().
-        :param 1: next_card_to_draw as the current working Card to add to this Hand
-        :returns: the next_card_to_draw instance that was instantiated if it must be before it is added
-        """
-        if None == next_card:
-            next_card = Card(self, None)
-        return next_card
-
     def get_card_point_value(self, rand_pokercard_type, card_by_specific_name):
         """
         This class fuction accepts a specific card based on the the integer representation of each
@@ -112,12 +101,13 @@ class Hand(object):
             12 : ['KING', 10],
             13 : ['ACE', 11], # mutilline constant structures only allow unused final comma at the end of declaration
             }
+        next_card_to_draw = get_next_card_to_draw()
         for card_type in card_type_lookup:
             if rand_pokercard_type == card_type or rand_pokercard_type == card_type_lookup[card_type][0]:
-                self.get_next_card_to_draw().card_type_of_thirteen = card_type_lookup[card_type][0]
-                self.get_next_card_to_draw().point_value = card_type_lookup[card_type][1]
-                self.get_next_card_to_draw().suite = None
-        return self.get_next_card_to_draw()
+                next_card_to_draw.card_type_of_thirteen = card_type_lookup[card_type][0]
+                next_card_to_draw.point_value = card_type_lookup[card_type][1]
+                next_card_to_draw.suite = None
+        return next_card_to_draw
 
     def add_specific_card_to_hand(self, specific_card_without_suite):
         """
@@ -125,8 +115,8 @@ class Hand(object):
         :param 1: specific_card_without_suite is the next specific user defined Card object to create to add to the Hand as a string
         :returns: The modified input list with the new added card just now drawn
         """
-        next_card = self.get_card_point_value(specific_card_without_suite, None)
-        self.hand_of_cards_list.append(self.get_next_card_to_draw(next_card))
+        next_card_to_draw = self.get_card_point_value(specific_card_without_suite, None)
+        self.hand_of_cards_list.append(next_card_to_draw)
         return self.hand_of_cards_list
 
     def score_this_hand(self, hand_of_cards_list=[]):
@@ -222,6 +212,18 @@ def print_score_calculated(score_last_hand_calculated):
     :param 1: score_last_hand_calculated as the score calculated of that last hand drawn as an integer
     """
     print('The last score calculated of that last Hand of Cards that was drawn was: {0}'.format(score_last_hand_calculated))
+
+def get_next_card_to_draw(next_card = None):
+    """
+    The class function retrieves the next Card() instance that is being processed before it is added to
+    the list of cards in this Hand().
+    :param 1: next_card_to_draw as the current working Card to add to this Hand
+    :returns: the next_card_to_draw instance that was instantiated if it must be before it is added
+    """
+    the_next_card_to_draw = next_card
+    if None == the_next_card_to_draw:
+        the_next_card_to_draw = Card(0, None)
+    return the_next_card_to_draw
 
 def main():
     test_drawing_a_hand_of_n_random_cards(3) # test a Hand of 3 Cards
