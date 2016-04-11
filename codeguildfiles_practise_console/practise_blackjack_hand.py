@@ -15,13 +15,15 @@ Cards have point values. Aces are 1 or 11, number cards are their number, face c
 """
 import random
 
-class Card: # In Python as in all other higher languages, a class is only a container for data and for structuring it.
-    def __init__(self, card_type_of_thirteen, point_value, suite): # A card does not intrinsicly know a point_value attribute until it is scored
+class Card(object): # In Python as in all other higher languages, a class is only a container for data and for structuring it.
+    """
+    This class Card represents a single physical item from a 52 card deck used in a poker game.
+    """
+    def __init__(self, card_type_of_thirteen, suite): # A card does not intrinsicly know a point_value attribute until it is scored
         """
         Three argument "magic" constructor/object initializer for SPACE on the PYTHON MANAGED HEAP
         """
         self.card_type_of_thirteen = card_type_of_thirteen
-        self.point_value = point_value
         self.suite = suite
 
     def __repr__(self):
@@ -29,16 +31,19 @@ class Card: # In Python as in all other higher languages, a class is only a cont
         String definition representation of this object. 'this' instead of 'self' but are still the same.
         Prints out the point_value for this particular card.
         """
-        return 'Card({0})'.format(self.point_value) # Rpre should print all stuctures there in the class, not just point_value
+        return 'This Card card_type_of_thirteen is \'{0}\', and the suite is \'{1}\''.format(self.card_type_of_thirteen, self.suite)
 
     def __eq__(self, other_card):
         """
         Overloaded == equality operator
         """
-        return self.point_value == other_card.point_value #Equallity applies only if type nad suite are the same, not just point_value
+        return self.card_type_of_thirteen == other_card.card_type_of_thirteen and self.suite == other_card.suite
 # end class Card:
 
-class Hand:
+class Hand(object):
+    """
+    This class Hand represents a specific Blackjack collection of Cards for use in a Blackjack game round.
+    """
     def __init__(self, hand_of_cards_list=[]):
         """
         Two argument "magic" constructor/object initializer for SPACE on the PYTHON MANAGED HEAP
@@ -49,7 +54,7 @@ class Hand:
     def __repr__(self):
         """
         String definition representation of this object. 'this' instead of 'self' but are still the same.
-        Prints out the point_value for this particular card.
+        The repr magic function prints out the list of cards in this hand.
         """
         return 'Hand({0})'.format(self.hand_of_cards_list) # Correct on printing the only attribute, formatting the list output can be improved
 
@@ -68,18 +73,26 @@ class Hand:
         This class function adds a single random Card object to the list(Card) collection and returns the modified list.
         :returns: The modified input list with the new added card just now drawn
         """
-        #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8,
-        #9, 10, Jack, Queen, King, Ace'))
-        #accessible through the dot operator such as card_value_type.2 or
-        #card_value_type.Jack or card_value_type.Ace
+        #card_value_type = namedtuple('card_value_type', ('2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King, Ace'))
+        #accessible through the dot operator such as card_value_type.2 or card_value_type.Jack or card_value_type.Ace
 
-        next_card_to_draw = Card(str(), 0, str())
         rand_pokercard_type = random.randint(1, 13)
-        next_card_to_draw.point_value = self.get_card_point_value(rand_pokercard_type, '', next_card_to_draw)
+        get_next_card_to_draw().point_value = self.get_card_point_value(rand_pokercard_type, '', next_card_to_draw)
         self.hand_of_cards_list.append(next_card_to_draw)
         return self.hand_of_cards_list
 
-    def get_card_point_value(self, rand_pokercard_type, card_by_specific_name, next_card_to_draw):
+    @staticmethod
+    def get_next_card_to_draw():
+        """
+        The class function retrieves the next Card() instance that is being processed before it is added to
+        the list of cards in this Hand().
+        :returns: the next_card_to_draw instance that was instantiated if it must be before it is added
+        """
+        if None == next_card_to_draw:
+            next_card_to_draw = Card(str(), 0, str())
+        return next_card_to_draw
+
+    def get_card_point_value(self, rand_pokercard_type, card_by_specific_name, next_card_to_draw): # TODO: Refactor, move next_card_to_draw to get_next_card_to_draw()
         """
         This class fuction accepts a specific card based on the the integer representation of each
         '2, 3, 4, 5, 6, 7, 8, 9, 10, JACK, QUEEN, KING, ACE' card names.
