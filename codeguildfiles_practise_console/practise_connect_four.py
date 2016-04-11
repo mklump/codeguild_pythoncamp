@@ -46,118 +46,94 @@ Advanced
 Once all moves are done, also print out what player, if any, won.
 """
 
-class Token(object):
-    """
-    A Token is one of two player instantiated instances
-    """
-    def __init__(self, color=''):
-        """
-        One argument constructor for a token that only has a color
-        """
+class Token:
+    def __init__(self, color):
         self.color = color
+    def __str__(self):
+        return 'Token({})'.format(self.color)
+# end class Token:
 
-    def __eq__():
-        return
-
-    def __repr__():
-        return
-
-class Board(object):
-    """
-    A Board is the x, y coordinate grid of empty cells at start of game
-    """
-    def __init__(self, board_coordinates={}):
-        """
-        Single arguement constructor to build the board grid as 'xy':'R or Y ' ' space as an empty cell coordinate:token foreach
-        dictionary element represents the grid. Remember the physical grid is 7 columns for x 6 rows for y
-        """
-        self.board_coordinates = board_coordinates
-
-    def __eq__():
-        return
-
-    def __repr__():
-        return
-
-    def get_board_cell_contents(self, grid_cell_location):
-        """
-        This class funtion that checks if a specified cell is empty of the game goard grid.
-        :param 1: grid_cell_location as the key of the cell in the board_coordinates dictionary to return
-        """
-        return self.board_coordinates[grid_cell_location]
+class Board:
+    def __init__(self, coordinates):
+        self.coordinates = coordinates
+        
+    def check_if_cell_filled(self, move, token):
+        row = 6
+        while row > 0:
+            target = str(move) + str(row) # '16'
+            if self.coordinates[target] == ' ':
+                self.coordinates[target] = token
+                break
+            else:
+                row -= 1
+                
+    def __str__(self):
+        d = self.coordinates
+        return """
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        {} | {} | {} | {} | {} | {} | {}
+        -------------------------
+        """.format(d['11'], d['21'], d['31'], d['41'], d['51'], d['61'], d['71'],
+        d['12'], d['22'], d['32'], d['42'], d['52'], d['62'], d['72'],
+        d['13'], d['23'], d['33'], d['43'], d['53'], d['63'], d['73'],
+        d['14'], d['24'], d['34'], d['44'], d['54'], d['64'], d['74'],
+        d['15'], d['25'], d['35'], d['45'], d['55'], d['65'], d['75'],
+        d['16'], d['26'], d['36'], d['46'], d['56'], d['66'], d['76'],)
+# end class Board:
 
 def read_game_moves_file():
     """
     This helper function reads in the game moves input file 4-moves.txt
     :returns: the games moves input as a list()-->[]
     """
-    game_moves_list = []
-    with open('./4-moves.txt', mode='rt') as game_moves:
-        game_move_lines = game_moves.readlines()
-		for line in game_move_lines:
-			game_moves_list.append(line.strip().split())
-    # end of withblock, close open file reading
-    return game_moves_list
+    move_list = []
+    with open('4-moves.txt') as moves_file:
+        moves = moves_file.readlines()
+        [ move_list.append(move.strip()) for move in moves ]
+    return move_list
+# end def read_game_moves_file():
 
-def main():
-    columns = [1, 2, 3, 4, 5, 6, 7]
-    rows = [1, 2, 3, 4, 5, 6]
+def initialize_tokens():
+    return [Token('R'), Token('Y')]
+# end ​def initialize_tokens():
 
+def initialize_board():
     board_coordinates = {}
     for column in columns:
         for row in rows:
-            coordinate = str(column) + str(row)
-            board_coordinates[coordinate] = ' '
+            board_coordinates[str(column) + str(row)] = ' '
+    board = Board(board_coordinates)
+    return board
+# end def initialize_board():
+
+def execute_move_input(move_list_inputfile, token_object_users, connect_four_game_board):
+    move_index = 0
+    while move_index < len(move_list_inputfile):
+        for token in token_object_users:
+            move = move_list_inputfile[move_index]
+            connect_four_game_board.check_if_cell_filled(move, token.color)
+            move_index += 1
+            print(connect_four_game_board)
+            input('')
+# end def execute_move_input(move_list, token_objects, board):
+
+def main():
+    board = initialize_board()
+    token_objects = initialize_tokens()
+    move_list = read_game_moves_file()
+    execute_move_input(move_list, token_objects, board)
+# end main():
+
+columns = [1, 2, 3, 4, 5, 6, 7]
+rows = [1, 2, 3, 4, 5, 6]
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #
