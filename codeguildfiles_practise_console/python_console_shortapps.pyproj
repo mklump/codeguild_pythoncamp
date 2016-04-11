@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
+    <Compile Include="practise_connect_four.py" />
     <Compile Include="practise_road_trip.py" />
     <Compile Include="practise_automatic_teller_machine.py">
       <SubType>Code</SubType>
@@ -52,6 +53,7 @@
     <Compile Include="voting_both.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="4-moves.txt" />
     <Content Include="practise_accounts.txt" />
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="file_processing_output.txt" />
