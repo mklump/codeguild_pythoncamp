@@ -54,8 +54,10 @@ class ListListTTTBoard:
     def won(self):
         """Return which token type won ('X' or 'O') or None if no one
         has won yet."""
-        retval = None
-        if :
+        player_won = None
+        if self.rows[0][0] == 'X' and self.rows[0 + 1][0 + 1] == 'X' and self.rows[0 + 2][0 + 2] == 'X' or \
+           self.rows[2][0] == 'X' and self.rows[1][1] == 'X' and self.rows[0][2] == 'X': # X check diagonally with line continuation
+               player_won = 'X'
         return retval
 
     def __str__(self):
