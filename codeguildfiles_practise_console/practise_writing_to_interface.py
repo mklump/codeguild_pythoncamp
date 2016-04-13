@@ -22,7 +22,8 @@ Finish implementing all three of those classes so the main() tests successfully 
 """
 
 class ListListTTTBoard:
-    """Tic-Tac-Toe board that implements storage as a list
+    """
+    Tic-Tac-Toe board that implements storage as a list
     of rows, each with three slots.
     The following board results in the following data structure.
     X| |
@@ -36,7 +37,9 @@ class ListListTTTBoard:
     """
 
     def __init__(self):
-        """Initializes an empty board."""
+        """
+        Initializes an empty board.
+        """
         self.rows = [
             [' ', ' ', ' '],
             [' ', ' ', ' '],
@@ -44,7 +47,8 @@ class ListListTTTBoard:
         ]
 
     def place(self, x, y, player):
-        """Places a token on the board at some given coordinates.
+        """
+        Places a token on the board at some given coordinates.
         0, 0 is the top-left.
         `player` is either 'X' or 'O'
         """
@@ -52,16 +56,37 @@ class ListListTTTBoard:
         return
 
     def won(self):
-        """Return which token type won ('X' or 'O') or None if no one
-        has won yet."""
-        player_won = None
-        if self.rows[0][0] == 'X' and self.rows[0 + 1][0 + 1] == 'X' and self.rows[0 + 2][0 + 2] == 'X' or \
-           self.rows[2][0] == 'X' and self.rows[1][1] == 'X' and self.rows[0][2] == 'X': # X check diagonally with line continuation
-               player_won = 'X'
-        return retval
+        """
+        :returns: which token type won ('X' or 'O') or None if no one
+        has won yet.
+        """
+        right_left_diagonal = self.rows[2][0] + self.rows[1][1] + self.rows[0][2]
+        left_right_diagonal = self.rows[0][0] + self.rows[1][1] + self.rows[2][2]
+        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check list diagonals
+            return 'X'
+        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+            return 'O'
+        for row in self.rows[:]: # check list horizontals
+            if 3 == row.count('X'):
+                return 'X'
+            elif 3 == row.count('O'):
+                return 'O'
+        vertical = ''
+        for x in range(3):
+            for y in range(3):
+                vertical += self.rows[y][x]
+            if 3 == vertical.count('X', 0, len(vertical)): # check list verticals
+                return 'X'
+            elif 3 == vertical.count('O', 0, len(vertical)):
+                return 'O'
+            vertical = ''
+        return None
 
     def __str__(self):
-        """Returns a string representation of the board.
+        """
+        :returns: a string representation of the board.
         Should be three rows with each cell separated by a '|'.
         X| |
          |X|O
@@ -74,7 +99,8 @@ class ListListTTTBoard:
 
 
 class DictTTTBoard:
-    """Tic-Tac-Toe board that implements storage as a flat
+    """
+    Tic-Tac-Toe board that implements storage as a flat
     dictionary of slots.
     The following board results in the following data structure.
     X| |
@@ -88,7 +114,9 @@ class DictTTTBoard:
     """
 
     def __init__(self):
-        """Initializes an empty board."""
+        """
+        Initializes an empty board.
+        """
         self.pos_to_token = {
             'a1': ' ', 'b1': ' ', 'c1': ' ',
             'a2': ' ', 'b2': ' ', 'c2': ' ',
@@ -96,29 +124,71 @@ class DictTTTBoard:
         }
 
     def place(self, x, y, token):
-        """Places a token on the board at some given coordinates.
+        """
+        Places a token on the board at some given coordinates.
         0, 0 is the top-left.
         `player` is either 'X' or 'O'
         """
-        raise NotImplementedError
+        x_lookup = { 0 : 'a', 1 : 'b', 2 : 'c' }
+        y_lookup = { 0 : '1', 1 : '2', 2 : '3' }
+        self.pos_to_token[x_lookup[x] + y_lookup[y]] = token
+        return
 
     def won(self):
-        """Return which token type won ('X' or 'O') or None if no one
+        """
+        :returns: which token type won ('X' or 'O') or None if no one
         has won yet."""
-        raise NotImplementedError
+        right_left_diagonal = self.pos_to_token['c1'] + self.pos_to_token['b2'] + self.pos_to_token['a3']
+        left_right_diagonal = self.pos_to_token['a3'] + self.pos_to_token['b2'] + self.pos_to_token['c3']
+        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check dictionary diagonals
+            return 'X'
+        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+            return 'O'
+        x_lookup = { 0 : 'a', 1 : 'b', 2 : 'c' }
+        y_lookup = { 0 : '1', 1 : '2', 2 : '3' }
+        horizontal = ''
+        for y in y_lookup:
+            for x in x_lookup:
+                horizontal += self.pos_to_token[x_lookup[x] + y_lookup[y]] # check dictionary horizontal
+            if 3 == horizontal.count('X', 0, len(horizontal)):
+                return 'X'
+            elif 3 == horizontal.count('O', 0, len(horizontal)):
+                return 'O'
+            horizontal = ''
+        vertical = ''
+        for x in x_lookup:
+            for y in y_lookup:
+                vertical += self.pos_to_token[x_lookup[x] + y_lookup[y]] # check dictionary vertical
+            if 3 == vertical.count('X', 0, len(vertical)):
+                return 'X'
+            elif 3 == vertical.count('O', 0, len(vertical)):
+                return 'O'
+            vertical = ''
+        return None
 
     def __str__(self):
-        """Returns a string representation of the board.
+        """
+        :returns: a string representation of the board.
         Should be three rows with each cell separated by a '|'.
         X| |
          |X|O
          | |
         """
-        raise NotImplementedError
-
+        x_lookup = { 0 : 'a', 1 : 'b', 2 : 'c' }
+        y_lookup = { 0 : '1', 1 : '2', 2 : '3' }
+        print_out = ''
+        for y in y_lookup:
+            for x in x_lookup:
+                print_out += self.pos_to_token[x_lookup[x] + y_lookup[y]] + '|'
+                if 2 == x:
+                    print_out = print_out.rstrip('|') + '\n'
+        return print_out
 
 class CoordsTTTBoard:
-    """Tic-Tac-Toe board that implements storage as a list of x, y, token triplets.
+    """
+    Tic-Tac-Toe board that implements storage as a list of x, y, token triplets.
     An empty board is an empty list.
     Each token that is on the board adds one item to the triplet list.
     The following board results in the following data structure.
@@ -129,30 +199,75 @@ class CoordsTTTBoard:
     """
 
     def __init__(self):
-        """Initalizes an empty board."""
-        self.x_y_token_triplets = []
+        """
+        Initalizes an empty board.
+        """
+        self.x_y_token_triplets = [
+            (0, 0, ' '), (1, 0, ' '), (2, 0, ' '),
+            (0, 1, ' '), (1, 1, ' '), (2, 1, ' '),
+            (0, 2, ' '), (1, 2, ' '), (2, 2, ' '),
+        ]
 
     def place(self, x, y, player):
-        """Places a token on the board at some given coordinates.
+        """
+        Places a token on the board at some given coordinates.
         0, 0 is the top-left.
         `player` is either 'X' or 'O'
         """
-        raise NotImplementedError
+        listlists = []
+        for tupl in self.x_y_token_triplets:
+            listlists.append(['{0}{1}'.format(tupl[0], tupl[1]), tupl[2]])
+        for sublist in listlists:
+            if '{0}{1}'.format(x, y) == sublist[0]:
+                sublist[1] = player
+        self.x_y_token_triplets = listlists
+        return
 
     def won(self):
-        """Return which token type won ('X' or 'O') or None if no one
-        has won yet."""
-        raise NotImplementedError
+        """
+        :returns: which token type won ('X' or 'O') or None if no one
+        has won yet.
+        """
+        board = self.x_y_token_triplets
+        right_left_diagonal = board[2][0] + self.x_y_token_triplets[1][1] + self.x_y_token_triplets[0][2]
+        left_right_diagonal = self.x_y_token_triplets[0][0] + self.x_y_token_triplets[1][1] + self.x_y_token_triplets[2][2]
+        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check list diagonals
+            return 'X'
+        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
+            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+            return 'O'
+        for row in self.rows[:]: # check list horizontals
+            if 3 == row.count('X'):
+                return 'X'
+            elif 3 == row.count('O'):
+                return 'O'
+        vertical = ''
+        for x in range(3):
+            for y in range(3):
+                vertical += self.rows[y][x]
+            if 3 == vertical.count('X', 0, len(vertical)): # check list verticals
+                return 'X'
+            elif 3 == vertical.count('O', 0, len(vertical)):
+                return 'O'
+            vertical = ''
+        return None
 
     def __str__(self):
-        """Returns a string representation of the board.
+        """
+        :returns: a string representation of the board.
         Should be three rows with each cell separated by a '|'.
         X| |
          |X|O
          | |
         """
-        raise NotImplementedError
-
+        board = self.x_y_token_triplets
+        print_out = ''
+        for row in board:
+            print_out += row[1] + '|'
+            if 3 == print_out.count('|', 0, len(print_out)):
+                print_out = print_out.rstrip('|') + '\n'
+        return print_out
 
 def play(board):
     """Plays a test game on an empty board.

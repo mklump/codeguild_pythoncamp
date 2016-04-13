@@ -40,6 +40,9 @@
     </Compile>
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
+    <Compile Include="practise_case_conversion.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="practise_connect_four.py" />
     <Compile Include="practise_road_trip.py" />
     <Compile Include="practise_automatic_teller_machine.py">
