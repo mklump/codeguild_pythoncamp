@@ -1,0 +1,61 @@
+ | | 
+ |X| 
+ | | 
+
+O| | 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+O| | 
+
+O|X| 
+ |X| 
+O|X| 
+
+ | | 
+ |X| 
+ | | 
+
+O| | 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+O| | 
+
+O|X| 
+ |X| 
+O|X| 
+
+ | | 
+ |X| 
+ | | 
+
+O| | 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+ | | 
+
+O|X| 
+ |X| 
+O| | 
+
+O|X| 
+ |X| 
+O|X| 
+
+The thread 'MainThread' (0x1768) has exited with code 0 (0x0).

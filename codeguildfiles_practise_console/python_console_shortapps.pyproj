@@ -6,7 +6,7 @@
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>practise_case_conversion.py</StartupFile>
+    <StartupFile>practise_tictactoe_interface.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,7 +31,11 @@
     <Compile Include="class_to_students_datastructure.py" />
     <Compile Include="Die_Roller.py" />
     <Compile Include="Farckle_DiceRoll.py" />
-    <Compile Include="file_processing.py" />
+    <Compile Include="practise_caseconvert_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="practise_tictactoe_test.py" />
+    <Compile Include="practise_wordcount_file.py" />
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
@@ -52,7 +56,7 @@
     <Compile Include="practise_restaurant_reviews.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="practise_writing_to_interface.py">
+    <Compile Include="practise_tictactoe_interface.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="random_module.py" />
@@ -62,7 +66,8 @@
     <Content Include="4-moves.txt" />
     <Content Include="practise_accounts.txt" />
     <Content Include="Clarissa_BigBook.txt" />
-    <Content Include="file_processing_output.txt" />
+    <Content Include="practise_tictactoe_output.txt" />
+    <Content Include="practise_wordcount_output.txt" />
     <Content Include="practise_blackjack_hand_output.txt" />
     <Content Include="practise_rain_gauge_output.txt" />
     <Content Include="practise_road_trip_output.txt" />

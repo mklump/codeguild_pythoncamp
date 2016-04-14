@@ -62,13 +62,11 @@ class ListListTTTBoard:
         """
         right_left_diagonal = self.rows[2][0] + self.rows[1][1] + self.rows[0][2]
         left_right_diagonal = self.rows[0][0] + self.rows[1][1] + self.rows[2][2]
-        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check list diagonals
+        if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'):
             return 'X'
-        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+        elif 3 == right_left_diagonal.count('O') or 3 == left_right_diagonal.count('O'):
             return 'O'
-        for row in self.rows[:]: # check list horizontals
+        for row in self.rows: # remove NOOP syntax
             if 3 == row.count('X'):
                 return 'X'
             elif 3 == row.count('O'):
@@ -93,8 +91,9 @@ class ListListTTTBoard:
          | |
         """
         string_of_board = ''
-        for x in self.rows[:]:
-            string_of_board += '{0}|{1}|{2}\n'.format(x[0],x[1],x[2])
+        for x in self.rows:
+            next_string = '{0}|{1}|{2}\n'.format(x[0],x[1],x[2])
+            string_of_board += ''.join(next_string)
         return string_of_board
 
 
@@ -140,11 +139,9 @@ class DictTTTBoard:
         has won yet."""
         right_left_diagonal = self.pos_to_token['c1'] + self.pos_to_token['b2'] + self.pos_to_token['a3']
         left_right_diagonal = self.pos_to_token['a3'] + self.pos_to_token['b2'] + self.pos_to_token['c3']
-        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check dictionary diagonals
+        if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'): # check dictionary diagonals
             return 'X'
-        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+        elif 3 == right_left_diagonal.count('O') or 3 == left_right_diagonal.count('O'):
             return 'O'
         x_lookup = { 0 : 'a', 1 : 'b', 2 : 'c' }
         y_lookup = { 0 : '1', 1 : '2', 2 : '3' }
@@ -234,11 +231,9 @@ class CoordsTTTBoard:
         board = self.x_y_token_triplets
         right_left_diagonal = board[2][1] + board[4][1] + board[6][1]
         left_right_diagonal = board[0][1] + board[4][1] + board[8][1]
-        if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check list diagonals
+        if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'): # check list diagonals
             return 'X'
-        elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
-            3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
+        elif 3 == right_left_diagonal.count('O') or 3 == left_right_diagonal.count('O'):
             return 'O'
         horizontal = ''
         for x in range(0, 9, 3): # check list horizontals
