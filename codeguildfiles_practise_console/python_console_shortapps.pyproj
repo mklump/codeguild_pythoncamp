@@ -6,7 +6,7 @@
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>practise_writing_to_interface.py</StartupFile>
+    <StartupFile>practise_case_conversion.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

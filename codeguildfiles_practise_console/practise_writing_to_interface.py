@@ -215,12 +215,15 @@ class CoordsTTTBoard:
         `player` is either 'X' or 'O'
         """
         listlists = []
-        for tupl in self.x_y_token_triplets:
-            listlists.append(['{0}{1}'.format(tupl[0], tupl[1]), tupl[2]])
+        if type(self.x_y_token_triplets[0]) is tuple:
+            for tupl in self.x_y_token_triplets:
+                listlists.append(['{0}{1}'.format(tupl[0], tupl[1]), tupl[2]])
+            self.x_y_token_triplets = listlists
+        else:
+            listlists = self.x_y_token_triplets
         for sublist in listlists:
             if '{0}{1}'.format(x, y) == sublist[0]:
                 sublist[1] = player
-        self.x_y_token_triplets = listlists
         return
 
     def won(self):
@@ -229,23 +232,27 @@ class CoordsTTTBoard:
         has won yet.
         """
         board = self.x_y_token_triplets
-        right_left_diagonal = board[2][0] + self.x_y_token_triplets[1][1] + self.x_y_token_triplets[0][2]
-        left_right_diagonal = self.x_y_token_triplets[0][0] + self.x_y_token_triplets[1][1] + self.x_y_token_triplets[2][2]
+        right_left_diagonal = board[2][1] + board[4][1] + board[6][1]
+        left_right_diagonal = board[0][1] + board[4][1] + board[8][1]
         if 3 == right_left_diagonal.count('X', 0, len(right_left_diagonal)) or \
             3 == left_right_diagonal.count('X', 0, len(left_right_diagonal)): # check list diagonals
             return 'X'
         elif 3 == right_left_diagonal.count('O', 0, len(right_left_diagonal)) or \
             3 == left_right_diagonal.count('O', 0, len(left_right_diagonal)):
             return 'O'
-        for row in self.rows[:]: # check list horizontals
-            if 3 == row.count('X'):
+        horizontal = ''
+        for x in range(0, 9, 3): # check list horizontals
+            for y in range(3):
+                horizontal += board[x + y][1]
+            if 3 == horizontal.count('X'):
                 return 'X'
-            elif 3 == row.count('O'):
+            elif 3 == horizontal.count('O'):
                 return 'O'
+            horizontal = ''
         vertical = ''
         for x in range(3):
-            for y in range(3):
-                vertical += self.rows[y][x]
+            for y in range(0, 9, 3):
+                vertical += board[x + y][1]
             if 3 == vertical.count('X', 0, len(vertical)): # check list verticals
                 return 'X'
             elif 3 == vertical.count('O', 0, len(vertical)):
@@ -265,7 +272,7 @@ class CoordsTTTBoard:
         print_out = ''
         for row in board:
             print_out += row[1] + '|'
-            if 3 == print_out.count('|', 0, len(print_out)):
+            if 0 == len(print_out) % 6:
                 print_out = print_out.rstrip('|') + '\n'
         return print_out
 
@@ -289,9 +296,9 @@ def play(board):
 
 
 def main():
-    board1 = ListListTTTBoard()
+    board1 = DictTTTBoard()
     play(board1)
-    board2 = DictTTTBoard()
+    board2 = ListListTTTBoard()
     play(board2)
     board3 = CoordsTTTBoard()
     play(board3)
