@@ -51,12 +51,13 @@ class Test_practise_tictactoe(unittest.TestCase):
             X was expected. Place/Won call series failled with value {} returned from won()'.format(player))
 
     def test_dictttboard_class_str_function(self):
+        #self.skipTest(
         str_test = practise_tictactoe_interface.DictTTTBoard()
         str_test.place(0, 0, 'X')
-        str_test.place(2, 1, '0')
+        str_test.place(2, 1, 'O')
         str_test.place(1, 1, 'X')
         try:
-            assert str_test.pos_to_token == 'O| | \n |X|O\n | | \n'
+            assert str(str_test) == 'X| | \n |X|O\n | | \n'
         except AssertionError:
             self.fail('The string representation of the DictTTTBoard class did not pass.')
 
@@ -87,10 +88,10 @@ class Test_practise_tictactoe(unittest.TestCase):
     def test_listlisttttboard_class_str_function(self):
         str_test = practise_tictactoe_interface.ListListTTTBoard()
         str_test.place(0, 0, 'X')
-        str_test.place(2, 1, '0')
+        str_test.place(2, 1, 'O')
         str_test.place(1, 1, 'X')
         try:
-            assert str_test.rows == 'O| | \n |X|O\n | | \n'
+            assert str(str_test) == 'X| | \n |X|O\n | | \n'
         except AssertionError:
             self.fail('The string representation of the ListListTTTBoard class did not pass.')
 
@@ -120,10 +121,10 @@ class Test_practise_tictactoe(unittest.TestCase):
     def test_coordstttboard_class_str_function(self):
         str_test = practise_tictactoe_interface.CoordsTTTBoard()
         str_test.place(0, 0, 'X')
-        str_test.place(2, 1, '0')
+        str_test.place(2, 1, 'O')
         str_test.place(1, 1, 'X')
         try:
-            assert str_test.x_y_token_triplets == 'O| | \n |X|O\n | | \n'
+            assert str(str_test) == 'X| | \n |X|O\n | | \n'
         except AssertionError:
             self.fail('The string representation of the CoordsTTTBoard class did not pass.')
 

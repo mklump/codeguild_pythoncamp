@@ -72,7 +72,7 @@ def print_case_output(case_input):
     print(case_input)
 
 def main():
-    snake_case = prompt_user_for_snake_case_variable()
+    #snake_case = prompt_user_for_snake_case_variable()
     camel_case = convert_snake_case_to_camel_case('convert_snake_case_to_camel_case')
     print_case_output(camel_case)
     snake_case = convert_camel_case_to_snake_case(camel_case)
