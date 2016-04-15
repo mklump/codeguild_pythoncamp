@@ -62,11 +62,11 @@ class ListListTTTBoard:
         """
         right_left_diagonal = self.rows[2][0] + self.rows[1][1] + self.rows[0][2]
         left_right_diagonal = self.rows[0][0] + self.rows[1][1] + self.rows[2][2]
-        if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'):
+        if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'): # check list diagonals
             return 'X'
         elif 3 == right_left_diagonal.count('O') or 3 == left_right_diagonal.count('O'):
             return 'O'
-        for row in self.rows: # remove NOOP syntax
+        for row in self.rows: # check list horizontals
             if 3 == row.count('X'):
                 return 'X'
             elif 3 == row.count('O'):
@@ -199,11 +199,7 @@ class CoordsTTTBoard:
         """
         Initalizes an empty board.
         """
-        self.x_y_token_triplets = [
-            (0, 0, ' '), (1, 0, ' '), (2, 0, ' '),
-            (0, 1, ' '), (1, 1, ' '), (2, 1, ' '),
-            (0, 2, ' '), (1, 2, ' '), (2, 2, ' '),
-        ]
+        self.x_y_token_triplets = []
 
     def place(self, x, y, player):
         """
@@ -211,16 +207,10 @@ class CoordsTTTBoard:
         0, 0 is the top-left.
         `player` is either 'X' or 'O'
         """
-        listlists = []
-        if type(self.x_y_token_triplets[0]) is tuple:
-            for tupl in self.x_y_token_triplets:
-                listlists.append(['{0}{1}'.format(tupl[0], tupl[1]), tupl[2]])
-            self.x_y_token_triplets = listlists
-        else:
-            listlists = self.x_y_token_triplets
-        for sublist in listlists:
-            if '{0}{1}'.format(x, y) == sublist[0]:
-                sublist[1] = player
+        if 0 == len(self.x_y_token_triplets):
+            for _ in range(3): # initialize the main list
+                self.x_y_token_triplets.append([ ' ', ' ', ' ' ])
+        self.x_y_token_triplets[y][x] = player
         return
 
     def won(self):
@@ -228,26 +218,23 @@ class CoordsTTTBoard:
         :returns: which token type won ('X' or 'O') or None if no one
         has won yet.
         """
-        board = self.x_y_token_triplets
-        right_left_diagonal = board[2][1] + board[4][1] + board[6][1]
-        left_right_diagonal = board[0][1] + board[4][1] + board[8][1]
+        right_left_diagonal = self.x_y_token_triplets[2][0] + self.x_y_token_triplets[1][1] + \
+                              self.x_y_token_triplets[0][2]
+        left_right_diagonal = self.x_y_token_triplets[0][0] + self.x_y_token_triplets[1][1] + \
+                              self.x_y_token_triplets[2][2]
         if 3 == right_left_diagonal.count('X') or 3 == left_right_diagonal.count('X'): # check list diagonals
             return 'X'
         elif 3 == right_left_diagonal.count('O') or 3 == left_right_diagonal.count('O'):
             return 'O'
-        horizontal = ''
-        for x in range(0, 9, 3): # check list horizontals
-            for y in range(3):
-                horizontal += board[x + y][1]
-            if 3 == horizontal.count('X'):
+        for row in self.x_y_token_triplets: # check list horizontals
+            if 3 == row.count('X'):
                 return 'X'
-            elif 3 == horizontal.count('O'):
+            elif 3 == row.count('O'):
                 return 'O'
-            horizontal = ''
         vertical = ''
         for x in range(3):
-            for y in range(0, 9, 3):
-                vertical += board[x + y][1]
+            for y in range(3):
+                vertical += self.x_y_token_triplets[y][x]
             if 3 == vertical.count('X', 0, len(vertical)): # check list verticals
                 return 'X'
             elif 3 == vertical.count('O', 0, len(vertical)):
@@ -263,13 +250,11 @@ class CoordsTTTBoard:
          |X|O
          | |
         """
-        board = self.x_y_token_triplets
-        print_out = ''
-        for row in board:
-            print_out += row[1] + '|'
-            if 0 == len(print_out) % 6:
-                print_out = print_out.rstrip('|') + '\n'
-        return print_out
+        string_of_board = ''
+        for x in self.x_y_token_triplets:
+            next_string = '{0}|{1}|{2}\n'.format(x[0],x[1],x[2])
+            string_of_board += ''.join(next_string)
+        return string_of_board
 
 def play(board):
     """Plays a test game on an empty board.

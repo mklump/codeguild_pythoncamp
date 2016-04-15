@@ -22,19 +22,15 @@ class Test_practise_caseconvert(unittest.TestCase):
     #def test_A(self):
     #    self.fail("Not implemented")
 
-    def test_convert_snake_case_to_camel_case(self):
+    def test_convert_snake_to_camel(self):
         case_convert = practise_case_conversion.convert_snake_case_to_camel_case('convert_snake_case_to_camel_case')
-        try:
-            assert case_convert == 'ConvertSnakeCaseToCamelCase'
-        except AssertionError:
-            self.fail('The function convert_snake_case_to_camel_case() did not succeed, please fix.')
+        self.assertTrue(case_convert == 'ConvertSnakeCaseToCamelCase',
+                        'The function convert_snake_case_to_camel_case() did not succeed, please fix.')
 
-    def test_convert_camel_case_to_snake_case(self):
+    def test_convert_camel_to_snake(self):
         case_convert = practise_case_conversion.convert_camel_case_to_snake_case('ConvertSnakeCaseToCamelCase')
-        try:
-            assert case_convert == 'convert_snake_case_to_camel_case'
-        except AssertionError:
-            self.fail('The function test_convert_camel_case_to_snake_case() did not succeed, please fix.')
+        self.assertTrue(case_convert == 'convert_snake_case_to_camel_case',
+                   'The function test_convert_camel_case_to_snake_case() did not succeed, please fix.')
 
 if __name__ == '__main__':
     unittest.main()
