@@ -18,8 +18,8 @@ import web_session_fxalarm
 class Test_WebSessionFXAlarm(unittest.TestCase):
     def test_login_fxalarm(self):
         login_succeeded = '200'
-            
-        self.failIf(login_succeeded != '200')
+        
+        self.failIf(login_succeeded != '404')
 
 if __name__ == '__main__':
     unittest.main()

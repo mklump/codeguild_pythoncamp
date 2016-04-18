@@ -34,6 +34,10 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="practise_html5_biography.html" />
+    <Content Include="practise_html5_foodpreference.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
        AfterBuild targets below. -->
