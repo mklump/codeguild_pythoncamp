@@ -57,12 +57,12 @@ def convert_camel_case_to_snake_case(camel_case = ''):
     snake_case = str_of_case.strip('_')
     return snake_case
 
-
-def convert_kebab_case_to_constant_case(kebab_case):
-    """
-    This helper function accepts a kebab-case input and converts that case to CONSTANT_CASE caps underscore case.
-    :param 1: kebab_case as this-kebab-case-is-a-sample-kebab-case input
-    """
+#def convert_kebab_case_to_constant_case(kebab_case):
+#    """
+#    This helper function accepts a kebab-case input and converts that case to CONSTANT_CASE caps underscore case.
+#    :param 1: kebab_case as this-kebab-case-is-a-sample-kebab-case input
+#    """
+#    pass
 
 def print_case_output(case_input):
     """

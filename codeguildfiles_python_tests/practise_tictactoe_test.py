@@ -148,7 +148,7 @@ class Test_practise_tictactoe(unittest.TestCase):
         won_test.place(0, 2, 'X')
         won_test.place(1, 2, 'O')
         player = won_test.won()
-        self.assertTrue('0' == player, 'CoordsTTTBoard won test did not succeed. The player O was NOT the winner. \
+        self.assertTrue('O' == player, 'CoordsTTTBoard won test did not succeed. The player O was NOT the winner. \
             O was expected. Place/Won call series failed with value {} returned from won()'.format(player))
 
     def test_coordstttboard_won_function_none(self):
