@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DABD9584-793F-4F10-9E9C-CD1DF1307EEE}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,11 +10,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ActivityLog.xsl = ActivityLog.xsl
 	EndProjectSection
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "python_console_shortapps", "codeguildfiles_python_tests\python_console_shortapps.pyproj", "{B6444C72-4A95-4647-A180-382235E5061F}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "codeguildfiles_html5CSS3JS", "codeguildfiles_html5CSS3JS\", "{4E550506-1586-4BC8-8375-95BB1D9DD9B0}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_14081"
+		Debug.AspNetCompiler.PhysicalPath = "codeguildfiles_html5CSS3JS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14081\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_14081"
+		Release.AspNetCompiler.PhysicalPath = "codeguildfiles_html5CSS3JS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_14081\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "14081"
+		SlnRelativePath = "codeguildfiles_html5CSS3JS\"
+	EndProjectSection
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WebProjectRequestTesting", "codeguildfiles_html5CSS3JS\WebProjectRequestTesting\WebProjectRequestTesting.pyproj", "{57589D0E-7237-4E7F-B235-FB63E221242F}"
-EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DjangoWebProject1", "codeguildfiles_html5CSS3JS\DjangoWebProject1\DjangoWebProject1.pyproj", "{3FBA2D22-14D8-4541-B3D2-5121C2787D7F}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "python_console_shortapps", "python_console_shortapps\python_console_shortapps.pyproj", "{B6444C72-4A95-4647-A180-382235E5061F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,16 +39,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E550506-1586-4BC8-8375-95BB1D9DD9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E550506-1586-4BC8-8375-95BB1D9DD9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E550506-1586-4BC8-8375-95BB1D9DD9B0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E550506-1586-4BC8-8375-95BB1D9DD9B0}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{B6444C72-4A95-4647-A180-382235E5061F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6444C72-4A95-4647-A180-382235E5061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57589D0E-7237-4E7F-B235-FB63E221242F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57589D0E-7237-4E7F-B235-FB63E221242F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57589D0E-7237-4E7F-B235-FB63E221242F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57589D0E-7237-4E7F-B235-FB63E221242F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3FBA2D22-14D8-4541-B3D2-5121C2787D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FBA2D22-14D8-4541-B3D2-5121C2787D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FBA2D22-14D8-4541-B3D2-5121C2787D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FBA2D22-14D8-4541-B3D2-5121C2787D7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

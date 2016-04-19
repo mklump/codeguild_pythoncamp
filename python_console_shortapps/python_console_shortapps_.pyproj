@@ -69,6 +69,8 @@
     <Content Include="4-moves.txt" />
     <Content Include="practise_accounts.txt" />
     <Content Include="Clarissa_BigBook.txt" />
+    <Content Include="practise_html5_biography.html" />
+    <Content Include="practise_html5_foodpreference.html" />
     <Content Include="practise_tictactoe_output.txt" />
     <Content Include="practise_wordcount_output.txt" />
     <Content Include="practise_blackjack_hand_output.txt" />
