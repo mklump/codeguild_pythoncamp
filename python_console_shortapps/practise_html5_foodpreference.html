@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<!-- Practice: Food Preferences
+Create a new web page with a form that solicits people's feedback on their dinner yesterday.
+Provide:
+    • A text box for single line description of what they ate dinner.
+    • A selection of checkboxes for "meat", "potatoes", "broccoli", "cheese" and have them select if any of them were eaten.
+    • A radio button where they can select if they were vegetarian or non.
+    • A drop-down menu of ice cream flavors and have them select their favorite.
+    • A free-form text field where they can talk about their most memorable dinner ever.
+    • A button to press if they're hungry.
+    • A button to submit.
+ -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- TODO: Finish at home - practise_html5_foodpreference.html -->
+<head>
+    <!--<meta charset="utf-8" />-->
+    <title>Your Food Preferences</title>
+</head>
+<body>
+    <header>
+        <h1>Your Food Preferences</h1>
+    </header>
+    <fieldset>
+        <label>What you ate for dinner: <input type="text" name="your_dinner" /></label>
+    </fieldset>
+    <div>
+        <fieldset>
+            <label>Meat<input type="checkbox" name="chk_meat" /></label>
+            <label>Potatoes<input type="checkbox" name="chk_potatoes" /></label>
+            <label>Broccoli<input type="checkbox" name="chk_broccoli" /></label>
+            <label>Cheese<input type="checkbox" name="chk_cheese" /></label>
+        </fieldset>
+    </div>
+    <div>
+        <!-- Since labels only label a specific form control, use a fieldset and a legend to label multiple form controls, like radio options. -->
+        <fieldset>
+            <legend>Meat eater or Vegitarian?</legend>
+            <!-- Radio buttons must all share the same name, so the browser knows which to toggle.
+            The value here should be a short-form description of the selection.
+            It is, again, meant for the computer. -->
+            <label>
+                <input type="radio" name="meat_eater" value="0">
+                Meat Eater
+            </label>
+            <label>
+                <input type="radio" name="meat_eater" value="1">
+                Vegitarian
+            </label>
+        </fieldset>
+    </div>
+    <div>
+        <label>
+            Icream Flavor:
+            <!-- Select takes multiple child option elements. -->
+            <select name="format">
+                <!-- The "value" for each option is what is actually saved in the slot on the paper form.
+                It is meant for the computer.
+                Use a short-form of the desciption for the user. -->
+                <option value="email">Email - sends the person an email from a mysterious address</option>
+                <option value="telegram">Telegram - Dispaches a singing person to their front door</option>
+                <option value="letter">Letter - Prints out the message and attaches it to a pidgeon</option>
+            </select>
+        </label>
+    </div>
+</body>
+</html>
