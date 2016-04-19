@@ -35,6 +35,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="practise_tictactoe_test.py" />
+    <Compile Include="practise_websessionfxalarm_test.py" />
+    <Compile Include="practise_web_session_fxalarm.py" />
     <Compile Include="practise_wordcount_file.py" />
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
