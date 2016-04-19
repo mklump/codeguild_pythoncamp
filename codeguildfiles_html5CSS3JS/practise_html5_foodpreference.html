@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<!-- Practice: Food Preferences
+Create a new web page with a form that solicits people's feedback on their dinner yesterday.
+Provide:
+    • A text box for single line description of what they ate dinner.
+    • A selection of checkboxes for "meat", "potatoes", "broccoli", "cheese" and have them select if any of them were eaten.
+    • A radio button where they can select if they were vegetarian or non.
+    • A drop-down menu of ice cream flavors and have them select their favorite.
+    • A free-form text field where they can talk about their most memorable dinner ever.
+    • A button to press if they're hungry.
+    • A button to submit.
+ -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- TODO: Finish at home - practise_html5_foodpreference.html -->
+<head>
+    <!--<meta charset="utf-8" />-->
+    <title>Your Food Preferences</title>
+</head>
+<body>
+    <header>
+        <h1>Your Food Preferences</h1>
+    </header>
+    <form>
+        <label>What you ate for dinner: <input type="text" name="your_dinner" /></label>
+        <div>
+            <label>Meat<input type="checkbox" name="chk_meat" /></label>
+            <label>Potatoes<input type="checkbox" name="chk_potatoes" /></label>
+            <label>Broccoli<input type="checkbox" name="chk_broccoli" /></label>
+            <label>Cheese<input type="checkbox" name="chk_cheese" /></label>
+        </div>
+        <div>
+            <!-- Since labels only label a specific form control, use a fieldset and a legend to label multiple form controls, like radio options. -->
+            <fieldset>
+                <legend>Meat eater or Vegitarian?</legend>
+                <!-- Radio buttons must all share the same name, so the browser knows which to toggle.
+                The value here should be a short-form description of the selection.
+                It is, again, meant for the computer. -->
+                <label>
+                    <input type="radio" name="meat_eater" value="0">
+                    Meat Eater
+                </label>
+                <label>
+                    <input type="radio" name="meat_eater" value="1">
+                    Vegitarian
+                </label>
+            </fieldset>
+        </div>
+        <div>
+            <label>
+                Icream Flavor:
+                <!-- Select takes multiple child option elements. -->
+                <select name="flavor">
+                    <!-- The "value" for each option is what is actually saved in the slot on the paper form.
+                    It is meant for the computer.
+                    Use a short-form of the desciption for the user. -->
+                    <option value="vanilla">Vanilla - Select this flavor for plain vanilla ice cream</option>
+                    <option value="chocolate">Chocolate - Select this flavor for tasty chocolate</option>
+                    <option value="rockyroad">Rocky road - Select this flavor for chocolate chunks</option>
+                </select>
+            </label>
+        </div>
+        <!-- Divs are used to group together elements.
+        Only use a div if there isn't a more-semantic grouping element (e.g. section). -->
+        <div>
+            <!-- The label element groups together a label and the single form control it's labeling. -->
+            <!-- Every form input element (like "input" and "textarea") should have a "type" and a "name".
+            Name is meant for the computer; it's a named slot on your paper form. -->
+            <label>Name: <input type="text" name="name"></label>
+        </div>
+        <div>
+            <!-- Textarea is not a self-closing tag. -->
+            <label>Memorable dinner message: <textarea name="memorable_dinner"></textarea></label>
+        </div>
+        <div>
+            <!-- The submit type is a submit button.
+            The value is the text to use on the button. -->
+            <input type="submit" value="Press me if you are hungry" name="btn_hungry_button" />
+        </div>
+        <div>
+            <input type="submit" value="Press to submit form" name="btn_submit" />
+        </div>
+    </form>
+</body>
+</html>
