@@ -47,9 +47,9 @@ def print_wrongletters(guessed_letter, guessed_letter_list = [], secret_word = '
     :returns: the current list of letters guessed wrong
     """
     wrong_letter_string = ''
-    if guessed_letter not in secret_word or 0 == len(guessed_letter_list):
+    if guessed_letter not in secret_word:
         guessed_letter_list.append(guessed_letter.upper())
-        wrong_letter_string.join( '{} '.format(wrong_letter.upper()) for wrong_letter in guessed_letter_list )
+        wrong_letter_string.join( '{} '.format(wrong_letter.upper()) for wrong_letter in guessed_letter_list)
         print('wrong: {}'.format(wrong_letter_string))
     return guessed_letter_list
 
