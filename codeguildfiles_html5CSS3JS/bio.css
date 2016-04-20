@@ -1,6 +1,20 @@
-body {
-    background : #42A4F5;
+html {
+    /*Let's have the body be layed out using flexbox.*/
+    display: flex;
+    /*Center the single flexbox inner item.*/
+    justify-content: center;
 }
+
+body {
+    /*Have the entire body be 75% of the full page width.*/
+    width: 75%;
+}
+
+div.flex {
+    /*Have this main container div use flexboxes to layout columns.*/
+    display: flex;
+}
+
 p {
     color : white;
 }

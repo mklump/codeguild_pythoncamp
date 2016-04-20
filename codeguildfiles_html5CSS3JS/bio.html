@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>                                       <!-- Add this by default boiler plate setup -->
+﻿<!DOCTYPE html>
+<!-- Add this by default boiler plate setup -->
 <!-- Practice: Bio
 Write up a short bio webpage for yourself or someone famous. Include:
     • A written introduction
@@ -15,40 +16,54 @@ Advanced
     •Pick a color scheme and modify the background, body text, and link text color
     •Change the typeface of the quote
     •Add a rounded border to the picture
-    •Change the bullet points on the list of places to be the gaudy ☞
+    •Change the bullet points on the list of places to be the gaudy
+
+    Let's practice using layout in your bio:
+    • Center the entire content of the body; use a flexbox.
+    • Add / pick an existing image in one of the sections and float it.
+    • Modify the padding and margins on your paragraphs to look better.
+    • Add a short multi-column section using flexboxes.
+Advanced
+    • Try out using media queries to have the layout change on small screens / phones
  -->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> <!-- Add this by default boiler plate setup -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!-- Add this by default boiler plate setup -->
 <head>
-    <meta charset="utf-8"/>                          <!-- Add this by default boiler plate setup -->
+    <meta charset="utf-8" />                          <!-- Add this by default boiler plate setup -->
     <title>Biography of Someone famous</title>
-    <link href="bio.css" rel="stylesheet" class="p"/> <!-- Add this by default boiler plate setup -->
+    <link href="bio.css" rel="stylesheet" class="p" /> <!-- Add this by default boiler plate setup -->
 </head>
 <body>
-<p>
-    <header><h1 class="p">Biography of Someone famous: Archbishop Alexander K. Sample</h1></header>
-    <img src="sample5.jpg" width="300" id="rcorners1" height="450"
-         title="His grace Archbishop Alexander K. Sample"/>
-        <h2 class="p">Places Archbishop Sample has lived:</h2>
-        <ol>
-            <!-- Ordered list. -->
-            <li>Las Vegas, NV, 1978</li>
-            <li>St. Paul, MN 1986</li>
-            <li>Marquette, MI 1990</li>
-            <li>Archbishop of Portland in Oregon on January 29, 2013</li>
-        </ol>
+    <header>
+        <h1 class="p">Biography of Someone famous: Archbishop Alexander K. Sample</h1>
+    </header>
+    <!-- This will be a flexbox container.
+    The things inside then can flex to the appropriate width. -->
+    <div class="flex" style="">
+        <article>
+            <img src="sample5.jpg" width="300" id="rcorners1" height="450"
+                 title="His grace Archbishop Alexander K. Sample" />
+            <h2 class="p">Places Archbishop Sample has lived:</h2>
+            <h4>Placed visited and presided over:</h4>
+            <ol>
+                <!-- Ordered list. -->
+                <li>Las Vegas, NV, 1978</li>
+                <li>St. Paul, MN 1986</li>
+                <li>Marquette, MI 1990</li>
+                <li>Archbishop of Portland in Oregon on January 29, 2013</li>
+            </ol>
+        </article>
         <h2 class="p">Famous Quote on Coat of Arms</h2>
         <h3 class="p">“VULTUM CHRISTI CONTEMPLARI” (“to contemplate the face of Christ”).</h3>
         <img src="sample_coat_of_arms.jpg" height="235" id="rcorners2" width="200"
-             title="Moto really means alot in what we strive to do in Good service for God."/>
-    <div>
-<p>Attempting proper HTML5 structuring of an HTML unordered list:</p>
-<ul>
-    <li>Not sorted item 1</li>
-    <li>Not sorted item 2</li>
-    <li>Not sorted item 3</li>
-</ul>
-</div>
-</p>
-<p>The previous handed HTML edits done to this file appear to have incorporated many elements.</p>
+             title="Moto really means alot in what we strive to do in Good service for God." />
+        <p>Attempting proper HTML5 structuring of an HTML unordered list:</p>
+        <ul>
+            <li>Not sorted item 1</li>
+            <li>Not sorted item 2</li>
+            <li>Not sorted item 3</li>
+        </ul>
+        <p>The previous handed HTML edits done to this file appear to have incorporated many elements.</p>
+    </div>
 </body>
 </html>

@@ -35,8 +35,15 @@ class WebSessionFXAlarm(object):
         :param 1: fx_alarm_site as the FX_Alarm website to attempt to login to
         :returns: True if the operation succeeded with status 200, otherwise False
         """
-        request
-        
+        payload = {'key1': 'value1', 'key2': 'value2'}
+        request = requests.post("http://httpbin.org/post", data=payload)
+        print(r.text)
+        {
+          "form": {
+            "key2": "value2",
+            "key1": "value1"
+          },
+        }
         return
 # end class WebLoginLogoutTest(object):
     
