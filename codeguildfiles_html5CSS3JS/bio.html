@@ -32,6 +32,10 @@ Advanced
     <meta charset="utf-8" />                          <!-- Add this by default boiler plate setup -->
     <title>Biography of Someone famous</title>
     <link href="bio.css" rel="stylesheet" class="p" /> <!-- Add this by default boiler plate setup -->
+    <!-- for mobile CSS version translation only!
+        <link rel="stylesheet" media="only screen and (max-width: 600px)" href="mobile.css" />
+        <link rel="stylesheet" media="only screen and (min-width: 601px)" href="desktop.css" />
+    -->
 </head>
 <body>
     <header>
@@ -39,31 +43,60 @@ Advanced
     </header>
     <!-- This will be a flexbox container.
     The things inside then can flex to the appropriate width. -->
-    <div class="flex" style="">
+    <div class="flex">
         <article>
-            <img src="sample5.jpg" width="300" id="rcorners1" height="450"
-                 title="His grace Archbishop Alexander K. Sample" />
-            <h2 class="p">Places Archbishop Sample has lived:</h2>
-            <h4>Placed visited and presided over:</h4>
-            <ol>
-                <!-- Ordered list. -->
-                <li>Las Vegas, NV, 1978</li>
-                <li>St. Paul, MN 1986</li>
-                <li>Marquette, MI 1990</li>
-                <li>Archbishop of Portland in Oregon on January 29, 2013</li>
-            </ol>
+            <img src="sample5.jpg"
+                 alt="His grace Archbishop Alexander K. Sample" />
+            <p id="paragraph_to_portrait_small_padding">
+                <lablel>Caption label for image: His grace Archbishop Alexander K. Sample</lablel>
+            </p>
+            <img src="sample_coat_of_arms.jpg"
+                 alt="Moto really means alot in what we strive to do in Good service for God." />
+            <p>
+                <lablel>Caption label for image: Coat of Arms of his grace Archbishop Alexander K. Sample</lablel>
+            </p>
         </article>
-        <h2 class="p">Famous Quote on Coat of Arms</h2>
-        <h3 class="p">“VULTUM CHRISTI CONTEMPLARI” (“to contemplate the face of Christ”).</h3>
-        <img src="sample_coat_of_arms.jpg" height="235" id="rcorners2" width="200"
-             title="Moto really means alot in what we strive to do in Good service for God." />
-        <p>Attempting proper HTML5 structuring of an HTML unordered list:</p>
-        <ul>
-            <li>Not sorted item 1</li>
-            <li>Not sorted item 2</li>
-            <li>Not sorted item 3</li>
-        </ul>
-        <p>The previous handed HTML edits done to this file appear to have incorporated many elements.</p>
+        <article class="article2_class">
+            <p>
+                <h2 class="p">Places Archbishop Sample has lived:</h2>
+                <h4>Placed visited and presided over:</h4>
+                <ol>
+                    <!-- Ordered list. -->
+                    <li>Las Vegas, NV, 1978</li>
+                    <li>St. Paul, MN 1986</li>
+                    <li>Marquette, MI 1990</li>
+                    <li>Archbishop of Portland in Oregon on January 29, 2013</li>
+                </ol>
+            </p>
+            <p>
+            <p>Attempting proper HTML5 structuring of an HTML unordered list:</p>
+            <ul>
+                <li>Not sorted item 1</li>
+                <li>Not sorted item 2</li>
+                <li>Not sorted item 3</li>
+            </ul>
+            <p>The previous handed HTML edits done to this file appear to have incorporated many elements.</p>
+            </p>
+            <p>
+                <h3 class="p">Famous Quote: “VULTUM CHRISTI CONTEMPLARI” (“to contemplate the face of Christ”).</h3>
+            </p>
+            <p>
+                <label>
+                    Label control with line above smaller portrait. Another sentence
+                    on the label. Another longer sentence on the label.
+                </label>
+            </p>
+            <img src="sample5_portrait.jpg" id="portrait_id_gone_left" />
+            <p>
+                <label>
+                    Label control with line below smaller portrait. Another sentence
+                    on the label. Another longer sentence on the label.
+                </label>
+            </p>
+        </article>
+        <article id="article3">
+            <p>Another article section, being number 3, that divided the first DIV declared as a flexbox.</p>
+        </article>
     </div>
 </body>
 </html>

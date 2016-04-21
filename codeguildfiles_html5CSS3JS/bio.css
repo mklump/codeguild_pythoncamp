@@ -1,51 +1,71 @@
-html {
-    /*Let's have the body be layed out using flexbox.*/
-    display: flex;
-    /*Center the single flexbox inner item.*/
-    justify-content: center;
+@media screen and (min-width: 601px) {
+    html {
+        /*Let's have the body be layed out using flexbox.*/
+        display: flex;
+        /*Center the single flexbox inner item.*/
+        justify-content: center;
+    }
+
+    body {
+        /*Have the entire body be 75% of the full page width.*/
+        width: 75%;
+    }
+
+    div.flex {
+        /*Have this main container div use flexboxes to layout columns.*/
+        display: flex;
+    }
+
+    p {
+        color: black;
+    }
+
+    .p {
+        color: black;
+        font-style: italic;
+    }
+
+    img {
+        border-radius: 25px;
+        background: #73AD21;
+        padding: 0.625em;
+        width: 9.375em;
+        height: 12.5em;
+    }
+
+    .normal {
+        font-style: italic;
+    }
+
+    ul > li:before {
+        content: "☞";
+        /* list-style : "☞"; */
+        /* list-style: none; */
+    }
+
+    div > article, #article3 {
+        width: 30%; /* Set the immediate DIV > ARTICLE in the DOM tree of the HTML 30% of this to parent */
+    }
+
+    .article2_class {
+        width: 40%; /* Set the class article2_class in the DOM tree of the HTML 70% of this to parent */
+    }
+
+    #portrait_id_gone_left {
+        float: right;
+        width: 9.375em;
+        height: 9.375em;
+    }
+
+    #paragraph_to_portrait_small_padding {
+        padding-bottom: 4em;
+    }
 }
 
-body {
-    /*Have the entire body be 75% of the full page width.*/
-    width: 75%;
-}
-
-div.flex {
-    /*Have this main container div use flexboxes to layout columns.*/
-    display: flex;
-}
-
-p {
-    color : white;
-}
-
-.p {
-    color : white;
-    font-style: italic;
-}
-
-#rcorners1 {
-    border-radius: 25px;
-    background: #73AD21;
-    padding: 20px;
-    width: 300px;
-    height: 400px;
-}
-
-#rcorners2 {
-    border-radius: 25px;
-    background: #73AD21;
-    padding: 20px;
-    width: 300px;
-    height: 400px;
-}
-
-.normal {
-  font-style: italic;
-}
-
-ul > li:before {
-    content : "☞";
-    /* list-style : "☞"; */
-    /* list-style: none; */
+@media screen and (max-device-width: 600px) {
+    /*
+        Define a Mobile version CSS stylesheet of desktop website here!
+        Remember email appears appears as websites on desktop on mobile versions alike!
+        Special setup or virtual device is required to debug this mobile CSS version of your desktop CSS!
+    */
 }
