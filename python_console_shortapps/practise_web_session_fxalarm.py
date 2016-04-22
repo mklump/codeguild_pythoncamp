@@ -29,11 +29,12 @@ class WebSessionFXAlarm(object):
     def __repr__(self, **kwargs):
         return super().__repr__(**kwargs)
 
-    def login_fxalarm(fx_alarm_site):
+    def login_fxalarm(self, fx_alarm_site):
         """
-        Attempts to login to the FX_Alarm website, and receive a valid session state
-        :param 1: fx_alarm_site as the FX_Alarm website to attempt to login to
-        :returns: True if the operation succeeded with status 200, otherwise False
+        This class function attempts to login to the specified fx_alarm_site website,
+        AND RECEIVE a valid session state for recieving data.
+        :param fx_alarm_site: as the FX_Alarm website to attempt to login to
+        :return: True if the operation succeeded with status 200, otherwise False
         """
         payload = {'key1': 'value1', 'key2': 'value2'}
         request = requests.post("http://httpbin.org/post", data=payload)
@@ -45,6 +46,15 @@ class WebSessionFXAlarm(object):
           },
         }
         return
+
+    def logout_fxalaram(self, fx_alarm_site):
+        """
+        This class function attempts to logout from the specified FX_Alarm website,
+        and be released from what was WHAT WAS A VALID session state that was properly
+        receiving HTML DOM object parsable FX daily price acceleration data.
+        :param fx_alarm_site: as the FX_Alarm website to attempt to login to
+        :return: True if the operation succeeded with status 200, otherwise False
+        """
 # end class WebLoginLogoutTest(object):
     
 if __name__ == "__main__":
