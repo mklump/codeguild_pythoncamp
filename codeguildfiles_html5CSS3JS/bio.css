@@ -8,6 +8,7 @@
     html {
         /*Let's have the body be layed out using flexbox.*/
         display: flex;
+        flex-direction: row;
         /*Center the single flexbox inner item.*/
         justify-content: center;
     }

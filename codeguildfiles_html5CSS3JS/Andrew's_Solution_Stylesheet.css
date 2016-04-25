@@ -1,0 +1,36 @@
+body {
+  margin: 0 auto;
+}
+?
+div {
+  border: solid 1px black;
+  margin: 10px;
+}
+?
+.parent {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 20px;
+  min-height: 98px;
+}
+?
+.top {
+  width: 100%;
+}
+?
+.mid1 {
+  flex-grow: 4;
+}
+?
+.mid2 {
+  flex-grow: 1;
+  margin-left: 0;
+}
+?
+.bottom {
+  flex-grow: 1;
+  max-width: 20%;
+}
