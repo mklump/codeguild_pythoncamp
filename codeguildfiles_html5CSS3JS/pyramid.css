@@ -1,0 +1,89 @@
+/* 
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for checked practise pyramid_desktop.css
+    by: Matthew James K on 4/22/2016
+    Practice: Pyramid
+
+    Each box should be a div
+    Every box has a one pixel black border
+    "Row" boxes should have 20 pixels of spacing between each other and between the page edges
+    "Inner" boxes should have 10 pixels of spacing between themselves and the edge of the "row" box they are in
+    Each "row" box should be 100 pixels high (including border) and the full width of the page (taking into account the above spacing)
+    Each "inner" box should be the full height of the row (taking into account the above spacing)
+    The first "row" box contains one "inner" box that is full width
+    The second "row" box contains two "inner" boxes that fill out the full width between them in a 4:1 ratio
+    The third "row" box contains three "inner" boxes that have content 20% the width of the "row" box and are spread out over the entire "row" box equally horizontally
+*/
+@media screen and (min-width: 601px) {
+    body {
+        display: flex;
+        /* Change each row to a flexbox column.*/
+        flex-flow: column;
+        /*Center the single flexbox inner item(s).*/
+        justify-content: center;
+    }
+
+    body > div {
+        /*Let's have the body be layed out using flexbox.*/
+        display: flex;
+    }
+
+    div.flex {
+    }
+
+    div {
+        display: flex;
+        border: black solid thin;
+    }
+
+    #first {
+        height: 100px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #first > div {
+        width: 100%;
+    }
+
+    #second {
+        margin-top: 20px;
+        height: 100px;
+        border: black solid thin;
+        margin: 10px;
+    }
+
+    #second-first {
+        width: 75%;
+        margin: 10px;
+    }
+
+    #second-second {
+        width: 25%;
+        margin: 10px;
+        margin-left: 0px;
+    }
+
+    #third {
+        margin: 10px;
+        margin-top: 20px;
+        height: 100px;
+        justify-content: center;
+        padding: 10px;
+        border: black solid thin;
+    }
+
+    #third > div {
+        width: 20%;
+        padding: 10px;
+        margin-right: 20%;
+    }
+}
+
+@media screen and (max-device-width: 600px) {
+    /*
+        Define a Mobile version CSS stylesheet of desktop website here.
+        Remember email appears as websites on desktop on mobile versions alike.
+        Special setup or virtual device is required to debug this mobile CSS version of your desktop CSS.
+    */
+}

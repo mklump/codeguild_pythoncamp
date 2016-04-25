@@ -1,3 +1,9 @@
+/* 
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for Checked Practise_Bio.css
+    by: Matthew James K on 4/22/2016
+    Practice: Bio
+*/
 @media screen and (min-width: 601px) {
     html {
         /*Let's have the body be layed out using flexbox.*/
@@ -64,8 +70,8 @@
 
 @media screen and (max-device-width: 600px) {
     /*
-        Define a Mobile version CSS stylesheet of desktop website here!
-        Remember email appears appears as websites on desktop on mobile versions alike!
-        Special setup or virtual device is required to debug this mobile CSS version of your desktop CSS!
+        Define a Mobile version CSS stylesheet of desktop website here.
+        Remember email appears as websites on desktop on mobile versions alike.
+        Special setup or virtual device is required to debug this mobile CSS version of your desktop CSS.
     */
 }
