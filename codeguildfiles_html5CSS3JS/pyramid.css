@@ -18,7 +18,7 @@
     body {
         display: flex;
         /* Change each row to a flexbox column.*/
-        flex-flow: column;
+        flex-direction: column;
         /*Center the single flexbox inner item(s).*/
         justify-content: center;
     }
