@@ -23,7 +23,7 @@ PUNCTUATION = (',','.','!','?')
 word_list = sentence.split(' ')
 sentence = ''
 for word in word_list:
-    if word[0] in VOWELS: #TODO: word[0] in a string is an error accessing the first character: Last error was IndexError: string index out of range
+    if word[0] in VOWELS:
         word = word.join('hay')
         continue
 
