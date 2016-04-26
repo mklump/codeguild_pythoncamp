@@ -38,7 +38,7 @@ div {
 }
 
 .child_upper {
-    width: 100%; /*Previously this was width: 100% less accurate instead of more accurate min-width: 100*/
+    width: 100%;
 }
 
 .child_first_mid {
