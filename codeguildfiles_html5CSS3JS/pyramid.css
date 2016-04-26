@@ -14,74 +14,52 @@
     The second "row" box contains two "inner" boxes that fill out the full width between them in a 4:1 ratio
     The third "row" box contains three "inner" boxes that have content 20% the width of the "row" box and are spread out over the entire "row" box equally horizontally
 */
-@media screen and (min-width: 601px) {
-    body {
-        display: flex;
-        /* Change each row to a flexbox column.*/
-        flex-direction: column;
-        /*Center the single flexbox inner item(s).*/
-        justify-content: center;
-    }
-
-    body > div {
-        /*Let's have the body be layed out using flexbox.*/
-        display: flex;
-    }
-
-    div.flex {
-    }
-
-    div {
-        display: flex;
-        border: black solid thin;
-    }
-
-    #first {
-        height: 100px;
-        margin: 10px;
-        padding: 10px;
-    }
-
-    #first > div {
-        width: 100%;
-    }
-
-    #second {
-        margin-top: 20px;
-        height: 100px;
-        border: black solid thin;
-        margin: 10px;
-    }
-
-    #second-first {
-        width: 75%;
-        margin: 10px;
-    }
-
-    #second-second {
-        width: 25%;
-        margin: 10px;
-    }
-
-    #third {
-        margin: 10px;
-        margin-top: 20px;
-        height: 100px;
-        justify-content: space-between;
-        padding: 10px;
-        border: black solid thin;
-    }
-
-    #third > div {
-        width: 20%;
-        padding: 10px;
-    }
+body {
+    display: flex;
+    /* Change each row to a flexbox column.*/
+    flex-direction: column;
+    margin: 0px;
 }
 
-@media screen and (max-device-width: 600px) {
-    /*
-        Define a Mobile version CSS stylesheet of desktop website here.
-        Remember email appears as websites on desktop on mobile versions alike.
-        Special setup or virtual device is required to debug this mobile CSS version of your desktop CSS.
-    */
+div {
+    display: flex;
+    border: black solid 1px;
+}
+
+#first {
+    height: 100px;
+    margin: 20px;
+}
+
+#first > div {
+    width: 100%;
+    margin: 10px;
+}
+
+#second {
+    height: 100px;
+    margin: 20px;
+    margin-top: 0px;
+}
+
+#second-first {
+    width: 75%;
+    margin: 10px;
+}
+
+#second-second {
+    width: 25%;
+    margin: 10px;
+}
+
+#third {
+    height: 100px;
+    margin: 20px;
+    margin-top: 0px;
+    justify-content: space-between;
+}
+
+#third > div {
+    width: 20%;
+    margin: 10px;
 }
