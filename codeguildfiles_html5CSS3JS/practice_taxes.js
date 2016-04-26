@@ -29,50 +29,54 @@ use console.log() for output printed statement in this form of JavaScript
 "use strict";
 
 var grossIncome = 0;
-​
+
 var taxMap = {
     "3350": 0.05,
     "8400": 0.07,
     "125000": 0.09,
     "over": 0.099
 };
-​
-var arrayTaxMap = function(taxMap) {
+
+var arrayTaxMap = function (taxMap) {
     var taxBracketArr = [];
-    for (var key in taxMap){
+    for (var key in taxMap) {
         taxBracketArr.push(key);
     };
     return taxBracketArr;
 };
-​
-var calcTaxes = function(grossIncome, taxBracketArr) {
-​
+
+var calcTaxes = function (grossIncome, taxBracketArr) {
+
+    var taxObligation = 0;
+    var MINIMUM_TAX_ON_3350 = 167.5;
+    var MINIMUM_TAX_ON_8400 = 167.5 + 353.5;
+    var MINIMUM_TAX_ON_125000 = 167.5 + 353.5 + 10494;
+
     if (grossIncome <= parseInt(taxBracketArr[0])) {
         return taxObligation = grossIncome * taxMap[taxBracketArr[0]];
     }
-​
+
     if (grossIncome <= parseInt(taxBracketArr[1])) {
-        return taxObligation = 167.5 + ((grossIncome - 3350) * taxMap[taxBracketArr[1]]);
+        return taxObligation = MINIMUM_TAX_ON_3350 + ((grossIncome - 3350) * taxMap[taxBracketArr[1]]);
     }
-​
+
     if (grossIncome <= parseInt(taxBracketArr[2])) {
-        return taxObligation = (167.5 + 353.5) + ((grossIncome - 8400) * taxMap[taxBracketArr[2]]);
+        return taxObligation = MINIMUM_TAX_ON_8400 + ((grossIncome - 8400) * taxMap[taxBracketArr[2]]);
     }
-​
+
     if (grossIncome > parseInt(taxBracketArr[2])) {
-        return taxObligation = (167.5 + 353.5 + 10494) + ((grossIncome - 125000) * taxMap[taxBracketArr[3]]);
+        return taxObligation = MINIMUM_TAX_ON_125000 + ((grossIncome - 125000) * taxMap[taxBracketArr[3]]);
     }
 };
 
+var main = function () {
+    var taxBracketArr = arrayTaxMap(taxMap);
+    var taxObligation = calcTaxes(grossIncome, taxBracketArr);
 
-void main()
-{
+    console.log(calcTaxes(50000, taxBracketArr));
+    console.log(calcTaxes(100000, taxBracketArr));
+    console.log(calcTaxes(125000, taxBracketArr));
+    console.log(calcTaxes(125001, taxBracketArr));
+};
 
-}
-var taxBracketArr = arrayTaxMap(taxMap);
-var taxObligation = calcTaxes(grossIncome, taxBracketArr);
-​
-console.log(calcTaxes(50000, taxBracketArr));
-console.log(calcTaxes(100000, taxBracketArr));
-console.log(calcTaxes(125000, taxBracketArr));
-console.log(calcTaxes(125001, taxBracketArr));
+main();
