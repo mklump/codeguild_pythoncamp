@@ -14,20 +14,8 @@
     The second "row" box contains two "inner" boxes that fill out the full width between them in a 4:1 ratio
     The third "row" box contains three "inner" boxes that have content 20% the width of the "row" box and are spread out over the entire "row" box equally horizontally
 */
-html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-}
-
 body {
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 div {
@@ -43,6 +31,7 @@ div {
     justify-content: space-between;
     margin: 20px;
     height: 100px;
+    box-sizing: border-box;
 }
 
 .child_upper {
