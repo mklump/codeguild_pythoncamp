@@ -27,7 +27,7 @@ div {
 }
 
 #first {
-    height: 100px;
+    height: 98px;
     margin: 20px;
 }
 
@@ -37,7 +37,7 @@ div {
 }
 
 #second {
-    height: 100px;
+    height: 98px;
     margin: 20px;
     margin-top: 0px;
 }
@@ -50,10 +50,11 @@ div {
 #second-second {
     width: 25%;
     margin: 10px;
+    margin-left: 0px;
 }
 
 #third {
-    height: 100px;
+    height: 98px;
     margin: 20px;
     margin-top: 0px;
     justify-content: space-between;
