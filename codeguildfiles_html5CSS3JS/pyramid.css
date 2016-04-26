@@ -19,12 +19,15 @@ body {
 }
 
 div {
+    /* Set every div control to be selected for use with the flexbox display type */
+    display: flex;
+    justify-content: space-between;
     border: black solid 1px;
     margin: 10px;
 }
 
 .parent_flex {
-    display: flex;
+    /*display: flex;*/ /*--> The same rule is accomplished through the div {} selector rule.*/
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: stretch;
@@ -35,11 +38,11 @@ div {
 }
 
 .child_upper {
-    width: 100%;
+    width: 100%; /*Previously this was width: 100% less accurate instead of more accurate min-width: 100*/
 }
 
 .child_first_mid {
-    flex-grow: 4;
+    flex-grow: 3;
 }
 
 .child_second_mid {
