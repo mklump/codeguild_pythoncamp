@@ -30,10 +30,11 @@ div {
     align-items: stretch;
     justify-content: space-between;
     margin: 20px;
-    min-height: 98px;
+    height: 100px;
+    box-sizing: border-box; /* https://css-tricks.com/box-sizing/ says to remove this to default to newer CSS3 box sizing. */
 }
 
-.child_first {
+.child_upper {
     width: 100%;
 }
 
