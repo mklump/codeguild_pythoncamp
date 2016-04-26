@@ -15,52 +15,38 @@
     The third "row" box contains three "inner" boxes that have content 20% the width of the "row" box and are spread out over the entire "row" box equally horizontally
 */
 body {
-    display: flex;
-    /* Change each row to a flexbox column.*/
-    flex-direction: column;
-    margin: 0px;
+    margin: 0px auto;
 }
 
 div {
-    display: flex;
     border: black solid 1px;
-}
-
-#first {
-    height: 98px;
-    margin: 20px;
-}
-
-#first > div {
-    width: 100%;
     margin: 10px;
 }
 
-#second {
-    height: 98px;
-    margin: 20px;
-    margin-top: 0px;
-}
-
-#second-first {
-    width: 75%;
-    margin: 10px;
-}
-
-#second-second {
-    width: 25%;
-    margin: 10px;
-    margin-left: 0px;
-}
-
-#third {
-    height: 98px;
-    margin: 20px;
-    margin-top: 0px;
+.parent_flex {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: space-between;
+    margin: 20px;
+    min-height: 98px;
 }
 
-#third > div {
-    width: 20%;
-    margin: 10px;
+.child_first {
+    width: 100%;
+}
+
+.child_first_mid {
+    flex-grow: 4;
+}
+
+.child_second_mid {
+    flex-grow: 1;
+    margin-left: 0;
+}
+
+.child_lower {
+    flex-grow: 1;
+    max-width: 20%;
 }
