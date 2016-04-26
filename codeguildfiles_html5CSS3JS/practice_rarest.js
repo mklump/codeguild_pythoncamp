@@ -33,7 +33,7 @@ var getNamesToAgeRarestAge = function () {
      * This helper function accepts the Map data structure in the outter function scope, and
      * :returns: the rarest occurences of each set age in the Map object structure
      */
-    var occurences_of_age = 999999999999, /*initialize as maximum occurences to find the lowest*/
+    var occurences_of_age = 9999999, /*initialize as maximum occurences to find the lowest*/
         current_count_of_age = 0,
         lowest_age_occurence = 0;
     for (var key in namesToAges) {
