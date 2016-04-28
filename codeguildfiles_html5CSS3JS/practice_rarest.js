@@ -1,6 +1,6 @@
 ﻿/*
     Python Coding Bootcamp (pdxcodeguild)
-    Code File for Group practice_taxes.html
+    Code File for practice_taxes.html
     by: Andrew & Matthew James K on 4/25/2016
 
     Practice: Rarest Age in a JS Map/Object key:value pair data structure
@@ -9,7 +9,15 @@ Given an object that maps names to ages, find the rarest age, then print it out 
 "use strict"
 
 var namesToAges = {
-    "Alyssa": 22,    "Charley": 25,    "Dan": 25,    "Jeff": 20,    "Kasey": 20,    "Kim": 20,    "Morgan": 25,    "Ryan": 25,    "Stef": 22
+    "Alyssa": 22,
+    "Charley": 25,
+    "Dan": 25,
+    "Jeff": 20,
+    "Kasey": 20,
+    "Kim": 20,
+    "Morgan": 25,
+    "Ryan": 25,
+    "Stef": 22
 };
 
 var getRarestAgeCount = function (namesToAgesMap, what_to_count) {
@@ -21,8 +29,8 @@ var getRarestAgeCount = function (namesToAgesMap, what_to_count) {
      */
     var age_value_count = 0;
     for (var key in namesToAgesMap) {
-        if (what_to_count == namesToAgesMap[key]) {
-            age_value_count++;
+        if (what_to_count === namesToAgesMap[key]) { // Always use the === or !== "strictly equals" equality versus the == and != 
+            age_value_count++;                       // regular equals that casts the operands in the expression if ("4" == 4)
         };
     };
     return age_value_count;

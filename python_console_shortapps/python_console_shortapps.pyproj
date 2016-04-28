@@ -31,36 +31,24 @@
     <Compile Include="class_to_students_datastructure.py" />
     <Compile Include="Die_Roller.py" />
     <Compile Include="Farckle_DiceRoll.py" />
-    <Compile Include="practise_caseconvert_test.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="practise_tictactoe_test.py" />
-    <Compile Include="practise_websessionfxalarm_test.py" />
-    <Compile Include="practise_web_session_fxalarm.py" />
-    <Compile Include="practise_wordcount_file.py" />
+    <Compile Include="practice_automatic_teller_machine.py" />
+    <Compile Include="practice_blackjack_hand.py" />
+    <Compile Include="practice_caseconvert_test.py" />
+    <Compile Include="practice_case_conversion.py" />
+    <Compile Include="practice_connect_four.py" />
+    <Compile Include="practice_rain_gauge.py" />
+    <Compile Include="practice_restaurant_reviews.py" />
+    <Compile Include="practice_road_trip.py" />
+    <Compile Include="practice_tictactoe_interface.py" />
+    <Compile Include="practice_tictactoe_test.py" />
+    <Compile Include="practice_websessionfxalarm_test.py" />
+    <Compile Include="practice_web_session_fxalarm.py" />
+    <Compile Include="practice_wordcount_file.py" />
     <Compile Include="Guess_Number.py" />
     <Compile Include="hangman_nongraphical.py" />
     <Compile Include="hello.py" />
-    <Compile Include="practise_blackjack_hand.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="phone_book.py" />
     <Compile Include="pig_latin_translation.py" />
-    <Compile Include="practise_case_conversion.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="practise_connect_four.py" />
-    <Compile Include="practise_road_trip.py" />
-    <Compile Include="practise_automatic_teller_machine.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="practise_rain_gauge.py" />
-    <Compile Include="practise_restaurant_reviews.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="practise_tictactoe_interface.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="random_module.py" />
     <Compile Include="hangman_nongraphical_test.py">
       <SubType>Code</SubType>
@@ -69,13 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="4-moves.txt" />
-    <Content Include="practise_accounts.txt" />
+    <Content Include="practice_accounts.txt" />
+    <Content Include="practice_blackjack_hand_output.txt" />
+    <Content Include="practice_rain_gauge_output.txt" />
+    <Content Include="practice_road_trip_output.txt" />
+    <Content Include="practice_tictactoe_output.txt" />
+    <Content Include="practice_wordcount_output.txt" />
     <Content Include="Clarissa_BigBook.txt" />
-    <Content Include="practise_tictactoe_output.txt" />
-    <Content Include="practise_wordcount_output.txt" />
-    <Content Include="practise_blackjack_hand_output.txt" />
-    <Content Include="practise_rain_gauge_output.txt" />
-    <Content Include="practise_road_trip_output.txt" />
     <Content Include="rain_data_sample_input.txt" />
     <Content Include="sunnyside.rain.txt" />
     <Content Include="wiki-100k.txt" />
