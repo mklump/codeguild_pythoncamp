@@ -27,7 +27,7 @@ Array.prototype.find = function (object) {
      * :returns: true to the Array.prototype.find function if the value is found, otherwise false.
      */
     var i = this.length;
-    while (i-- > 0) {
+    while (i-- > -1) {
         if (this[i] == object) {
             return true;
         }
@@ -52,8 +52,9 @@ function find_sum_pairs(list_to_search, sum_to_find) {
     var list_found_pairs = [];
     var next_element_to_initialize = 0;
     for (var x = 0; x < list_to_search.length; ++x) {
-        for (var y = 0; y < list_to_search.length; ++y) {
-            if (sum_to_find === list_to_search[x] + list_to_search[y] && false === list_found_pairs.find([list_to_search[x], list_to_search[y]])) {
+        for (var y = x; y < list_to_search.length; ++y) {
+            if (sum_to_find === list_to_search[x] + list_to_search[y]
+            /*&& undefined === list_found_pairs.find([list_to_search[x], list_to_search[y]])*/ ) {
                 list_found_pairs[next_element_to_initialize] = [list_to_search[x], list_to_search[y]]; // A matched sum is found, create next array element and assign it.
                 next_element_to_initialize++; // Increment the next array element to initialize for the next matching found sum pairs.
             };
