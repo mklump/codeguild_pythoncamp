@@ -18,23 +18,6 @@
  */
 "use strict"
 
-Array.prototype.find = function (object) {
-    /*
-     * The helper function is being provided to supply the find an item criteria for the
-     * Array.prototype.find function. The Array.find() function when called will return
-     * the found value if it is there, otherwise it will return undefined if it does not.
-     * :param 1: object is the value of which to look for in the Array being searched through.
-     * :returns: true to the Array.prototype.find function if the value is found, otherwise false.
-     */
-    var i = this.length;
-    while (i-- > -1) {
-        if (this[i] == object) {
-            return true;
-        }
-    }
-    return false;
-}
-
 function find_sum_pairs(list_to_search, sum_to_find) {
     /*
      * This function for this practice accepts two arguments: a list of ints to search, and a sum to find.
@@ -53,8 +36,7 @@ function find_sum_pairs(list_to_search, sum_to_find) {
     var next_element_to_initialize = 0;
     for (var x = 0; x < list_to_search.length; ++x) {
         for (var y = x; y < list_to_search.length; ++y) {
-            if (sum_to_find === list_to_search[x] + list_to_search[y]
-            /*&& undefined === list_found_pairs.find([list_to_search[x], list_to_search[y]])*/ ) {
+            if (sum_to_find === list_to_search[x] + list_to_search[y]) {
                 list_found_pairs[next_element_to_initialize] = [list_to_search[x], list_to_search[y]]; // A matched sum is found, create next array element and assign it.
                 next_element_to_initialize++; // Increment the next array element to initialize for the next matching found sum pairs.
             };
