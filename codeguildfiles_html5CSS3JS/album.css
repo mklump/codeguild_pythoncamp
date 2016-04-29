@@ -1,0 +1,30 @@
+﻿/* 
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for Group Checked album.css
+    by: Erin Efough and Matthew James K on 4/29/2016
+    Practice: Bio
+*/
+
+section section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 10px;
+}
+​
+img {
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+}
+.flexcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+}
