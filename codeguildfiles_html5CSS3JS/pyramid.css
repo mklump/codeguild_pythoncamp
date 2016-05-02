@@ -46,11 +46,11 @@ div {
 }
 
 .child_second_mid {
-    flex-grow: 1;
+    /*flex-grow: 1;*/ /*not required - flex-grow: 1 is implied in the same row or column as page shrinks/expands*/
     margin-left: 0;
 }
 
 .child_lower {
-    flex-grow: 1;
+    /*flex-grow: 1;*/ /*not required - flex-grow: 1 is implied in the same row or column as page shrinks/expands*/
     max-width: 20%;
 }

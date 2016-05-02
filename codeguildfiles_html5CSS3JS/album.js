@@ -1,23 +1,24 @@
-﻿/*
+/*
     Python Coding Bootcamp (pdxcodeguild)
     Code File for Group album.js
     by: Erin Efough and Matthew James K on 4/29/2016
  */
 "use strict"
-​
+
 function getURLString(){
     return $("#urlAddress").val();
 }
-​
+
 function createDelLink(sectionElement){
     var deleteElement = $("<a></a>").text("Delete").attr("href", "");
     deleteElement.on("click", function (event) {
         event.preventDefault();
         sectionElement.remove();
+        countImages();
     });
     return deleteElement;
 }
-​
+
 function createImageSection(URLString){
     // var albumChild = document.createElement("section");
     var imageElement = $("<img>").attr("src", URLString);
@@ -28,13 +29,13 @@ function createImageSection(URLString){
     albumChild.append(deleteElement);
     return albumChild;
 }
-​
+
 function addAlbumSectionBlock(){
     var URLString = getURLString();
     var sectionElement = createImageSection(URLString);
     $("#albumlist").append(sectionElement); // Adding album section child to parent section
 }
-​
+
 function addPictureControlSet() {
     $("form").on("submit", function (event) {
         event.preventDefault();

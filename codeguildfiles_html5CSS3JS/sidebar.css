@@ -1,0 +1,42 @@
+﻿/*
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for checked sidebar.css
+    by: Matthew James K on 4/29/2016
+*/
+body {
+    margin: 0 auto;
+}
+div {
+    /* Set every div control to be selected for use with the flexbox display type */
+    display: flex;
+    align-items: stretch;
+    align-content: flex-start;
+}
+.sidebar {
+    max-width: 20%;
+    background-color: lightblue;
+    color: azure;
+    flex-wrap: wrap;
+}
+
+#titlehighlite {
+    margin: 10px;
+    background-color: azure;
+    color: lightblue;
+}
+
+.pictureview {
+    background-color: azure;
+    color: lightblue;
+}
+
+.picturemargin {
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shortcomments {
+    max-width: 25%;
+    margin: 10px;
+}
