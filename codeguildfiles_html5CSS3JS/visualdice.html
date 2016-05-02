@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!--
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for Practice visualdice.html
+    by: Matthew James K on 5/2/2016
+
+    Practice: Visual Dice:
+    Save your solution as visualdice.html, visualdice.css, and visualdice.js.
+    Give the user a number input box with a button "roll". When they click that button, make that
+    many 6-sided dice appear on the screen.
+    The dice should appear visually as dice, although for testing you can just start with numbers.
+    Come up with any reasonable way to display the visual dice.
+    If the user clicks any of the dice, it re-rolls just that one. If they re-click the roll button,
+    erase the dice and roll new ones.
+    At the bottom of the screen, show the sum of all the dice currently out.
+
+    Advanced:
+    Get rid of the input and button. Instead ask for a number of sides to the die and have an "add" button.
+    When they click that, it adds that kind of die to the table.
+    They can still click on a die to re-roll it, but add a little "X" to delete that die. Still show the sum.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Visual Dice</title>
+    <link rel="stylesheet" type="text/css" href="visualdice.css" />
+</head>
+<body>
+    <form>
+        <div>
+            <input id="txtNumberDice" type="text" />
+        </div>
+        <div id="rolldiv">
+            <input type="submit" value="ROLL" />
+        </div>
+    </form>
+    <div><p>Enter a number of six-sided dice to roll in the input box, and press roll.</p></div>
+    <div id="diceContainer">
+    </div>
+    <div id="diceSum"><p>Current sum of all dice showing:</p></div>
+    <script src="http://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="visualdice.js"></script>
+</body>
+</html>

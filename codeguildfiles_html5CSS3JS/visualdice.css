@@ -1,0 +1,32 @@
+﻿/*
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for Practice visualdice.css
+    by: Matthew James K on 5/2/2016
+ */
+body {
+    margin: 0 auto;
+}
+
+div {
+    margin: 10px;
+    /* Set every div control to be selected for use with the flexbox display type */
+    display: flex;
+    align-items: stretch;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+#rolldiv {
+    margin-left: 0;
+}
+
+#diceContainer {
+    border-top: black solid thin;
+    border-bottom: black solid thin;
+}

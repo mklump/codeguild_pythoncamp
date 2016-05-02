@@ -9,7 +9,7 @@ function getURLString(){
     return $("#urlAddress").val();
 }
 
-function createDelLink(sectionElement){
+function createDelLink(sectionElement) {
     var deleteElement = $("<a></a>").text("Delete").attr("href", "");
     deleteElement.on("click", function (event) {
         event.preventDefault();
@@ -19,7 +19,7 @@ function createDelLink(sectionElement){
     return deleteElement;
 }
 
-function createImageSection(URLString){
+function createImageSection(URLString) {
     // var albumChild = document.createElement("section");
     var imageElement = $("<img>").attr("src", URLString);
     var linkElement = $("<a></a>").text("click to download").attr("href", URLString);
@@ -44,13 +44,13 @@ function addPictureControlSet() {
     });
 }
 
-function countImages(){
+function countImages() {
     var parent = $("#albumlist");
     var childCount = parent.children().length;
     $("#imagecount").text("Count of Images:  " + childCount);
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
     //this could be the equivalent of jquery main
     addPictureControlSet();
 })
