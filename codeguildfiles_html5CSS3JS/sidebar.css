@@ -33,10 +33,16 @@ div {
 .picturemargin {
     margin: 20px;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .shortcomments {
-    max-width: 25%;
     margin: 10px;
+    max-width: 25%;
+}
+
+.parentcomment {
+    flex-direction: row;
+    justify-content: space-between;
 }
