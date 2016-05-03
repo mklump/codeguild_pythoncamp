@@ -1,4 +1,4 @@
-﻿/*
+/*
     Python Coding Bootcamp (pdxcodeguild)
     Code File for Practice visualdice.js
     by: Matthew James K on 5/2/2016
@@ -29,11 +29,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-/*
+/**
  * This helper function adds each dice .jpg as it is rolled.
- * @returns {text/html} that is the child element control for next dice to display.
+ * @param {text/html} this is the child dice element control last called or clicked on
+ * @returns {text/html} that is the child dice element control for next dice to display.
  */
-function addNextDiceElement() {
+function addNextDiceElement(diceDivChildElement) {
     var nextDiceRoll = getRandomInt(0, 5);
     var lookupDiceFile = [
         "one.jpg",
@@ -45,18 +46,31 @@ function addNextDiceElement() {
     ];
     var diceImageFile = lookupDiceFile[nextDiceRoll];
     var altText = diceImageFile.split(".")[0];
-    var diceDivChild = $("<div><a href=\"\"><img src=\"" + diceImageFile + "\" alt=\"" + altText + "\"/></a></div>");
+    var imageElement = $("<img></img>").attr("src", diceImageFile);
+    imageElement.attr("alt", altText);
+    var anchorElement = $("<a></a>").attr("href", "").append(imageElement);
+    anchorElement = createRerollLink(anchorElement);
+    var diceDivChild = null;
+    if (null === diceDivChildElement)
+        diceDivChild = $("<div></div>").append(anchorElement); //$("<div><a href=\"\"><img src=\"" + diceImageFile + "\" alt=\"" + altText + "\"/></a></div>");
+    else
+        diceDivChild = diceDivChildElement;
     return diceDivChild;
 }
 
-function createDelLink(sectionElement) {
-    var deleteElement = $("<a></a>").text("Delete").attr("href", "");
-    deleteElement.on("click", function (event) {
+/*
+ * This helper function applies the click event handler for the reroll anchor link by calling back
+ * addNextDiceElement();
+ * @param {text/html} of the current anchorElement being operated on for reroll
+ * @returns {text/html} that is the last dice child div element rerolled
+ */
+function createRerollLink(anchorElement) {
+    anchorElement.on("click", function (event) {
         event.preventDefault();
-        sectionElement.remove();
-        countImages();
+        var divElement = $(event.target).parents()[1];
+        addNextDiceElement(divElement); // retrieve the parent html element clicked on <div><img></img></div>
     });
-    return deleteElement;
+    return anchorElement;
 }
 
 /*
@@ -66,7 +80,10 @@ function createDelLink(sectionElement) {
 function getDiceElementToAdd() {
     var numberOfDice = getDiceRolled();
     for (var x = 0; x < numberOfDice; ++x) {
-        var diceElement = addNextDiceElement();
+        var diceElement = addNextDiceElement(null);
+        var diceDivs = $("#diceContainer").children();
+        if (0 != diceDivs.length)
+            $("#diceContainer").remove(diceDivs);
         $("#diceContainer").append(diceElement);
     }
 }

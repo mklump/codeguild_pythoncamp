@@ -21,7 +21,7 @@ function createDelLink(sectionElement) {
 
 function createImageSection(URLString) {
     // var albumChild = document.createElement("section");
-    var imageElement = $("<img>").attr("src", URLString);
+    var imageElement = $("<img></img>").attr("src", URLString);
     var linkElement = $("<a></a>").text("click to download").attr("href", URLString);
     var albumChild = $("<section></section>").append(imageElement);   
     albumChild.append(linkElement);
