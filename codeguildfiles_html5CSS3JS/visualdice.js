@@ -84,7 +84,6 @@ function addNextDiceElement(diceDivChildElement) {
     else {
         var anchor = diceDivChildElement.childNodes;
         $(anchor).replaceWith(anchorElement);
-        //$(diceDivChildElement).append(anchorElement);
     }
     return diceDivChild;
 }

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<!--
+    Python Coding Bootcamp (pdxcodeguild)
+    Code File for practice_validator.html
+    by: Matthew James K on 5/3/2016
+
+    Practice: Validator
+    Create a sign-up form for a user to fill out and submit via a button.
+
+    It should ask for:
+    1) Full Name in "First Last" format
+    2) Age in YYYY-MM-DD format
+    3) Phone Number in 555-555-5555 format
+
+    As the user is typing, you should validate that the fields are filled in the correct format.
+    If the content is not currently valid, the field box should be yellow and a yellow warning
+    notice describing which field is malformed displayed atop the form. If multiple forms are invalid,
+    just show one. I don't care which. Otherwise, if valid or empty, the fields should be default
+    and no warning notice displayed.
+
+    If the user submits with valid info, display a green success notice atop the form, otherwise a red error notice.
+-->
+<html>
+<head lang="en">
+    <title>Practice: Validator</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="practice_validator.css" />
+</head>
+<body>
+    <form>
+        <section>
+            <div>Please enter the following:</div>
+            <section class="groupbox">
+                <div>
+                    <div>Full name (First Last): </div>
+                    <input id="txtFullName" type="text" />
+                </div>
+                <div>
+                    <div>Age (YYYY-MM-DD): </div>
+                    <input id="txtAge" type="text" />
+                </div>
+                <div>
+                    <div>Phone (555-555-5555): </div>
+                    <input id="txtPhone" type="text" />
+                </div>
+            </section>
+            <div id="formStatus" class="statusAlert"></div>
+            <input type="submit" value="SUBMIT" class="btnSubmit" />
+        </section>
+    </form>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://raw.githubusercontent.com/lodash/lodash/4.11.2/dist/lodash.js"></script>
+    <script src="practice_validator.js"></script>
+</body>
+</html>
