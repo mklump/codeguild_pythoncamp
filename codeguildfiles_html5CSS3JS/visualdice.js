@@ -6,6 +6,34 @@
 "use strict"
 
 /*
+ * This helper function gets the sum of all dice, and passes it to printDiceSum() to print.
+ */
+function getSumAllDice() {
+    var altsArray = [
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six"
+    ];
+    var lastTotal = 0;
+    var nodes = $("#diceContainer").children();
+    for (var i = 0; i < nodes.length; ++i)
+        for (var x = 0; x < altsArray.length; ++x)
+            if (altsArray[x] === nodes[i].childNodes[0].childNodes[0].alt)
+                lastTotal += x + 1;
+    printDiceSum(lastTotal);
+}
+
+/*
+ * This helper function print the current total sum of the dice showing to the <div> with id="diceSum".
+ */
+function printDiceSum(lastTotal) {
+    $("#diceSum").text("Current sum of all dice showing: " + lastTotal);
+}
+
+/*
  * This helper function retrieves the current text of txtNumberDice input box as an expected number.
  * @returns {Number} as an integer of the number of dice to roll, if entry is not valid returns null
  */
@@ -36,7 +64,7 @@ function getRandomInt(min, max) {
  */
 function addNextDiceElement(diceDivChildElement) {
     var nextDiceRoll = getRandomInt(0, 5);
-    var lookupDiceFile = [
+    var lookupDiceFile = [ // In JavaScript value lookup via array is less code than switch() {}, still switch has its place.
         "one.jpg",
         "two.jpg",
         "three.jpg",
@@ -53,8 +81,11 @@ function addNextDiceElement(diceDivChildElement) {
     var diceDivChild = null;
     if (null === diceDivChildElement)
         diceDivChild = $("<div></div>").append(anchorElement); //$("<div><a href=\"\"><img src=\"" + diceImageFile + "\" alt=\"" + altText + "\"/></a></div>");
-    else
-        diceDivChild = diceDivChildElement;
+    else {
+        var anchor = diceDivChildElement.childNodes;
+        $(anchor).replaceWith(anchorElement);
+        //$(diceDivChildElement).append(anchorElement);
+    }
     return diceDivChild;
 }
 
@@ -78,14 +109,13 @@ function createRerollLink(anchorElement) {
  * construction functions.
  */
 function getDiceElementToAdd() {
+    $("#diceContainer").empty();
     var numberOfDice = getDiceRolled();
     for (var x = 0; x < numberOfDice; ++x) {
         var diceElement = addNextDiceElement(null);
-        var diceDivs = $("#diceContainer").children();
-        if (0 != diceDivs.length)
-            $("#diceContainer").remove(diceDivs);
         $("#diceContainer").append(diceElement);
     }
+    getSumAllDice();
 }
 
 /*
