@@ -39,7 +39,7 @@ function validateTxtAge() {
     $("#txtAge").on("input", function (event) {
         event.preventDefault();
         var txt = this.value;
-        var matchArray = txt.match("([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})");
+        var matchArray = txt.match("([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})");
         if (null === matchArray || "" === matchArray[0] || "" === matchArray[1]) {
             $("#txtAge").attr("class", "txtWarning");
             $("#formStatus").text("Age is not valid.");
@@ -63,7 +63,7 @@ function validateTxtPhone() {
     $("#txtPhone").on("input", function (event) {
         event.preventDefault();
         var txt = this.value;
-        var matchArray = txt.match("([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})");
+        var matchArray = txt.match("([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})");
         if (null === matchArray || "" === matchArray[0] || "" === matchArray[1]) {
             $("#txtPhone").attr("class", "txtWarning");
             $("#formStatus").text("Phone is not valid.");
