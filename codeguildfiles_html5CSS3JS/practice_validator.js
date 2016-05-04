@@ -12,6 +12,7 @@
 function validateTxtFullName() {
     var valid = false;
     $("#txtFullName").on("keydown", function (event) {
+        event.preventDefault();
         var txt = this.text;
         var matchArray = txt.match("([a-zA-Z].+)[ ]([a-zA-Z].+)");
         if ("" !== matchArray[0] && "" != matchArray[1]) {
@@ -34,6 +35,7 @@ function validateTxtFullName() {
 function validateTxtAge() {
     var valid = false;
     $("#txtAge").on("keydown", function (event) {
+        event.preventDefault();
         var txt = this.text;
         var matchArray = txt.match("([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})");
         if ("" !== matchArray[0] && "" != matchArray[1]) {
@@ -56,6 +58,7 @@ function validateTxtAge() {
 function validateTxtPhone() {
     var valid = false;
     $("#txtPhone").on("keydown", function (event) {
+        event.preventDefault();
         var txt = this.text;
         var matchArray = txt.match("([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})");
         if ("" !== matchArray[0] && "" != matchArray[1]) {
