@@ -39,6 +39,7 @@ function printDiceSum(lastTotal) {
  */
 function getDiceRolled() {
     var numberOfDice = $("#txtNumberDice").val();
+    Number.isInteger(numberOfDice);
     if (false === Number.isInteger(Number.parseInt(numberOfDice)) || 1 > Number.parseInt(numberOfDice)) {
         console.log("You did not enter a valid non-negative number of dice to roll.");
         return null;
