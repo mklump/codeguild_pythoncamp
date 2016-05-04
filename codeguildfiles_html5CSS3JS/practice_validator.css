@@ -38,6 +38,14 @@ section {
     background-color: #ffac00;
 }
 
-.statusAlert {
+.statusCaution {
     color: #ffac00;
+}
+
+.statusError {
+    color: red;
+}
+
+.statusOkay {
+    color: green;
 }
