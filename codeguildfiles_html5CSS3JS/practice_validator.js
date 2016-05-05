@@ -3,7 +3,7 @@
     Code File for practice_validator.js
     by: Matthew James K on 5/3/2016
  */
-"use strict";
+"use strict"
 
 /*
  * This helper fuction registers the txtFullName handler using "First Last" format exactly.
@@ -33,7 +33,7 @@ function validateTxtPhone() {
  * @param {Event} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateFullName(event) {
+function validateFullName(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
     var isValid = new Boolean();
     var txt = null;
     if (null !== event)
@@ -60,7 +60,7 @@ function validateFullName(event) {
  * @param {Event} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateAge(event) {
+function validateAge(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
     var isValid = new Boolean();
     var txt = null;
     if (null !== event)
@@ -87,7 +87,7 @@ function validateAge(event) {
  * @param {Event>} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validatePhone(event) {
+function validatePhone(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
     var isValid = new Boolean();
     var txt = null;
     if (null !== event)
