@@ -19,7 +19,7 @@ function setMoleGridTimer() {
 function changeImageToGrid() {
     var nextMoleTarget = getRandomInt(0, 19);
     registerGeneratedLinkEventHandler(nextMoleTarget);
-    var highLightMoleLocation(moleImageLink);
+    highLightMoleLocation(moleImageLink);
 }
 /*
  * This functions registers the click event handler for the randomly generated link
