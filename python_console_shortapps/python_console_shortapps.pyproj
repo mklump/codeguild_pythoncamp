@@ -67,6 +67,7 @@
     <Content Include="practice_wordcount_output.txt" />
     <Content Include="Clarissa_BigBook.txt" />
     <Content Include="rain_data_sample_input.txt" />
+    <Content Include="requirements.txt" />
     <Content Include="sunnyside.rain.txt" />
     <Content Include="wiki-100k.txt" />
   </ItemGroup>
