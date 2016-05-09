@@ -8,94 +8,94 @@
 /*
  * This helper fuction registers the txtFullName handler using "First Last" format exactly.
  */
-function validateTxtFullName() {
-    $("#txtFullName").on("input", null, this, validateFullName);
+function registerTxtFullNameInputHandler() {
+    $("#txtFullName").on("input", validateFullName);
 }
 
 /*
  * This helper funtion registers the txtAge handler using YYYY-MM-DD number format exactly.
  */
-function validateTxtAge() {
-    $("#txtAge").on("input", null, this, validateAge);
+function registerTxtAgeInputHandler() {
+    $("#txtAge").on("input", validateAge);
 }
 
 /*
  * This helper funtion validates the txtPhone input box using 555-555-5555 number format exactly.
  */
-function validateTxtPhone() {
-    $("#txtPhone").on("input", null, this, validatePhone);
+function registerTxtPhoneInputHandler() {
+    $("#txtPhone").on("input", validatePhone);
 }
-
 /*
- * This function is the delegate callback for validateTxtFullName, and establishes if the #txtFullName
+ * This function finds the text within the full name input box, and returns it.
+ * @param {String} is the id="" attribute of the input box to get the value for
+ * @returns {String} of the input box text entry from the user.
+ */
+function getInputBoxText(inputBoxNameByID) {
+    var txt = $('#' + inputBoxNameByID).value;
+    if (null === txt)
+        txt = document.getElementById('#' + inputBoxNameByID).value;
+    if (null === txt)
+        txt = $('#' + inputBoxNameByID)[0].value;
+    return txt;
+}
+function setStatusOutputByControl(inputBoxID, inputBoxWarningMessage) {
+
+}
+/*
+ * This function is the delegate callback for registerTxtFullNameInputHandler, and establishes if the #txtFullName
  * control has either valid user input either true or false.
  * This is an output creation function, not data transform.
- * @param {Event} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateFullName(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var isValid = new Boolean();
-    var txt = null;
-    if (null !== event)
-        txt = event.target.value
-    else
-        txt = $("#txtFullName")[0].value;
-    var matchArray = txt.match("([a-zA-Z].+)[ ]([a-zA-Z].+)");
-    if (null === matchArray || "" === matchArray[0] || "" === matchArray[1]) {
-        $("#txtFullName").attr("class", "txtWarning");
-        $("#formStatus").text("Full name is not valid.");
+function validateFullName() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
+    var txt = getInputBoxText('txtFullName');
+    var matchArray = txt.match('([a-zA-Z].+)[ ]([a-zA-Z].+)');
+    var isValid = false;
+    if (null === matchArray) {
+        $('#txtFullName').attr('class', 'txtWarning');
+        $('#formStatus').text('Full name is not valid.');
         isValid = false;
     } else {
-        $("#txtFullName").attr("class", "statusOkay");
-        $("#formStatus").text("");
+        $('#txtFullName').attr('class', 'statusOkay');
+        $('#formStatus').text("");
         isValid = true;
     }
     return isValid;
 }
 
 /*
- * This function is the delegate callback for validateTxtAge, and establishes if the #txtAge
+ * This function is the delegate callback for registerTxtAgeInputHandler, and establishes if the #txtAge
  * control has either valid user input either true or false.
  * This is an output creation function, not data transform.
- * @param {Event} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateAge(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var isValid = new Boolean();
-    var txt = null;
-    if (null !== event)
-        txt = event.target.value
-    else
-        txt = $("#txtAge")[0].value;
-    var matchArray = txt.match("([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})");
-    if (null === matchArray || "" === matchArray[0] || "" === matchArray[1]) {
-        $("#txtAge").attr("class", "txtWarning");
-        $("#formStatus").text("Age is not valid.");
+function validateAge() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
+    var txt = getInputBoxText('txtAge');
+    var matchArray = txt.match('([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})');
+    var isValid = false;
+    if (null === matchArray) {
+        $('#txtAge').attr('class', 'txtWarning');
+        $('#formStatus').text('Age is not valid.');
         isValid = false;
     } else {
-        $("#txtAge").attr("class", "statusOkay");
-        $("#formStatus").text("");
+        $('#txtAge').attr('class', 'statusOkay');
+        $('#formStatus').text('');
         isValid = true;
     }
     return isValid;
 }
 
 /*
- * This function is the delegate callback for validateTxtPhone, and establishes if the #txtPhone
+ * This function is the delegate callback for registerTxtPhoneInputHandler, and establishes if the #txtPhone
  * control has either valid user input either true or false.
  * This is an output creation function, not data transform.
- * @param {Event>} reference access to object members
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validatePhone(event) { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var isValid = new Boolean();
-    var txt = null;
-    if (null !== event)
-        txt = event.target.value
-    else
-        txt = $("#txtPhone")[0].value;
+function validatePhone() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
+    var txt = getInputBoxText('txtPhone');
     var matchArray = txt.match("([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})");
-    if (null === matchArray || "" === matchArray[0] || "" === matchArray[1]) {
+    var isValid = false;
+    if (null === matchArray) {
         $("#txtPhone").attr("class", "txtWarning");
         $("#formStatus").text("Phone is not valid.");
         isValid = false;
@@ -112,7 +112,7 @@ function validatePhone(event) { // TODO: This function is doing 3 steps in one, 
  * form input status accordingly. This is an output creation function, not data transform.
  */
 function getValidationSummary(isSummaryValid) {
-    if (true === isSummaryValid)
+    if (isSummaryValid)
         $("#formStatus").attr("class", "statusOkay").text("Input submission succeeded.");
     else
         $("#formStatus").attr("class", "statusError").text("Input submission did not succeed.");
@@ -137,14 +137,18 @@ function registerGlobalEventHandlers() {
         event.preventDefault();
         validateFormInput();
     });
-    validateTxtFullName();
-    validateTxtAge();
-    validateTxtPhone();
+    registerTxtFullNameInputHandler();
+    registerTxtAgeInputHandler();
+    registerTxtPhoneInputHandler();
 }
-
+/*
+ * This function delegate is the 'main' call back entry point for the associated
+ * practice_validator.html page when it's loaded state is 'ready()'.
+ */
+function main() {
+    registerGlobalEventHandlers();
+}
 /*
  * Main() function entry point JS/JQuery $(document).ready()
  */
-$(document).ready(function () {
-    registerGlobalEventHandlers();
-});
+$(document).ready(main);
