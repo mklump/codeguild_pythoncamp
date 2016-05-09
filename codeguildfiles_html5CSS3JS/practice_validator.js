@@ -38,8 +38,35 @@ function getInputBoxText(inputBoxNameByID) {
         txt = $('#' + inputBoxNameByID)[0].value;
     return txt;
 }
-function setStatusOutputByControl(inputBoxID, inputBoxWarningMessage) {
-
+/*
+ * This function accepts the input box ID, warningm message, and the regular expression for that input box,
+ * and determines the current user input's validity status for that input for that control.
+ * @param {String} inputBoxID is the string representation for each input box control
+ * @param {String} inputBoxWarningMessage is the warning message to print if any
+ * @param {String} inputBoxRegularExpression is the regular expression with which to parse the present user input
+ * @returns {Boolean} true if the validation of the present user input succeeded, otherwise false.
+ */
+function setInputStatusByControl(inputBoxID, inputBoxWarningMessage, inputBoxRegularExpression) {
+    var txt = getInputBoxText(inputBoxID);
+    var matchArray = txt.match(inputBoxRegularExpression);
+    if (null === matchArray) {
+        showValidityStatusOutput(inputBoxID, inputBoxWarningMessage, 'txtWarning');
+        return false;
+    } else {
+        showValidityStatusOutput(inputBoxID, '', 'statusOkay');
+        return true;
+    }
+}
+/*
+ * This function accepts the status warning mesage if any, and the corresponding CSS error status style to
+ * alert the user of their current input error status to the #formStatus control.
+ * @param {String} inputBoxID is the string representation for each input box control
+ * @param {String} inputBoxRegularExpression is the regular expression with which to parse the present user input
+ * @param {String} cssStyleToSet is the visible style of the warning text to set as output should an error, of if the status is okay.
+ */
+function showValidityStatusOutput(inputBoxID, inputBoxWarningMessage, cssStyleToSet) {
+    $('#' + inputBoxID).attr('class', cssStyleToSet);
+    $('#formStatus').text(inputBoxWarningMessage);
 }
 /*
  * This function is the delegate callback for registerTxtFullNameInputHandler, and establishes if the #txtFullName
@@ -47,20 +74,8 @@ function setStatusOutputByControl(inputBoxID, inputBoxWarningMessage) {
  * This is an output creation function, not data transform.
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateFullName() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var txt = getInputBoxText('txtFullName');
-    var matchArray = txt.match('([a-zA-Z].+)[ ]([a-zA-Z].+)');
-    var isValid = false;
-    if (null === matchArray) {
-        $('#txtFullName').attr('class', 'txtWarning');
-        $('#formStatus').text('Full name is not valid.');
-        isValid = false;
-    } else {
-        $('#txtFullName').attr('class', 'statusOkay');
-        $('#formStatus').text("");
-        isValid = true;
-    }
-    return isValid;
+function validateFullName() {
+    return setInputStatusByControl('txtFullName', 'Full name is not valid.', '([a-zA-Z].+)[ ]([a-zA-Z].+)');
 }
 
 /*
@@ -69,20 +84,8 @@ function validateFullName() { // TODO: This function is doing 3 steps in one, an
  * This is an output creation function, not data transform.
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validateAge() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var txt = getInputBoxText('txtAge');
-    var matchArray = txt.match('([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})');
-    var isValid = false;
-    if (null === matchArray) {
-        $('#txtAge').attr('class', 'txtWarning');
-        $('#formStatus').text('Age is not valid.');
-        isValid = false;
-    } else {
-        $('#txtAge').attr('class', 'statusOkay');
-        $('#formStatus').text('');
-        isValid = true;
-    }
-    return isValid;
+function validateAge() {
+    return setInputStatusByControl('txtAge', 'Age is not valid.', '([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})');
 }
 
 /*
@@ -91,20 +94,8 @@ function validateAge() { // TODO: This function is doing 3 steps in one, and not
  * This is an output creation function, not data transform.
  * @returns {Boolean} true if the input validation succeeded, otherwise false
  */
-function validatePhone() { // TODO: This function is doing 3 steps in one, and not modular enough for unit testing. If unit testing this, then will need to re-do.
-    var txt = getInputBoxText('txtPhone');
-    var matchArray = txt.match("([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})");
-    var isValid = false;
-    if (null === matchArray) {
-        $("#txtPhone").attr("class", "txtWarning");
-        $("#formStatus").text("Phone is not valid.");
-        isValid = false;
-    } else {
-        $("#txtPhone").attr("class", "statusOkay");
-        $("#formStatus").text("");
-        isValid = true;
-    }
-    return isValid;
+function validatePhone() {
+    return setInputStatusByControl('txtPhone', 'Phone is not valid.', '([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})');
 }
 
 /*
