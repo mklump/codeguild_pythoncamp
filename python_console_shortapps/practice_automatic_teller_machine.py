@@ -244,4 +244,5 @@ def main():
         break
     ATMBankAccount.write_out_account_numbers_and_balances(list_of_all_accounts_known)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

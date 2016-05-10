@@ -114,4 +114,5 @@ def main():
     user_search_again = input('Enter a user name\n: ')
     search_user_name(review_class_list, user_search_again)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

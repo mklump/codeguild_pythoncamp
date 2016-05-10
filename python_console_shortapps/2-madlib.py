@@ -36,8 +36,10 @@ def print_madlib(madlib):
 	"""
 	print(madlib)
 
-# begin main_program/test
-word_list = get_3_random_words()
-madlib = get_madlib_str()
-print_madlib(madlib)
-# end main_program/test
+def main():
+    word_list = get_3_random_words()
+    madlib = get_madlib_str()
+    print_madlib(madlib)
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

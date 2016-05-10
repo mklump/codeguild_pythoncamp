@@ -65,11 +65,13 @@ def print_dice_mean(dice_mean):
 	"""
 	print('The mean of the dice that was rolled was: {}'.format(dice_mean))
 
-# begin main_program/test
-total_dice = get_number_dice()
-dice_rolled = get_dice_rolled(total_dice)
-dice_sum = get_dice_sum(dice_rolled)
-dice_mean = calculate_mean(dice_sum, total_dice)
-print_dice_rolled(dice_rolled)
-print_dice_mean(dice_mean)
-# end main_program/test
+def main():
+    total_dice = get_number_dice()
+    dice_rolled = get_dice_rolled(total_dice)
+    dice_sum = get_dice_sum(dice_rolled)
+    dice_mean = calculate_mean(dice_sum, total_dice)
+    print_dice_rolled(dice_rolled)
+    print_dice_mean(dice_mean)
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

@@ -232,4 +232,5 @@ def main():
                                                                    # make up the Hand.
     test_drawing_exact_user_defined_hand(user_defined_hand_of_cards)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

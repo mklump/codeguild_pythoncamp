@@ -78,4 +78,5 @@ def main():
     snake_case = convert_camel_case_to_snake_case(camel_case)
     print_case_output(snake_case)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

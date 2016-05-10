@@ -124,20 +124,22 @@ def print_cities_reached_in_two_hops(start_city, two_hop_cities):
 		cities_connected.append(city + ', ')
 	print('The cities that can be reached in two hops starting at {} are: {}.'.format(start_city, ''.join(cities_connected).strip(' ').rstrip(',')))
 
-# begin program main/test
-city_to_accessible_cities = {
-  'Boston': {'New York', 'Albany', 'Portland'},
-  'New York': {'Boston', 'Albany', 'Philadelphia'},
-  'Albany': {'Boston', 'New York', 'Portland'},
-  'Portland': {'Boston', 'Albany'},
-  'Philadelphia': {'New York'}, # ONLY use the added line comma at the end of these multi-line defined data structure literals
-}
+def main():
+    city_to_accessible_cities = {
+      'Boston': {'New York', 'Albany', 'Portland'},
+      'New York': {'Boston', 'Albany', 'Philadelphia'},
+      'Albany': {'Boston', 'New York', 'Portland'},
+      'Portland': {'Boston', 'Albany'},
+      'Philadelphia': {'New York'}, # ONLY use the added line comma at the end of these multi-line defined data structure literals
+    }
 
-show_program_intro()
-city = get_user_input_city()
-cities_connected = get_all_cities_connected(city, city_to_accessible_cities)
-print_all_cities_connected(city, cities_connected)
-city = get_user_input_city()
-two_hop_cities = get_all_two_hop_cities(city, city_to_accessible_cities)
-print_cities_reached_in_two_hops(city, two_hop_cities)
-# end program main/test
+    show_program_intro()
+    city = get_user_input_city()
+    cities_connected = get_all_cities_connected(city, city_to_accessible_cities)
+    print_all_cities_connected(city, cities_connected)
+    city = get_user_input_city()
+    two_hop_cities = get_all_two_hop_cities(city, city_to_accessible_cities)
+    print_cities_reached_in_two_hops(city, two_hop_cities)
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

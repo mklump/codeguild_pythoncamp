@@ -187,4 +187,5 @@ def main():
 	year_highest_rain = get_year_with_most_rain(totals_list)
 	print_year_most_rain(year_highest_rain)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

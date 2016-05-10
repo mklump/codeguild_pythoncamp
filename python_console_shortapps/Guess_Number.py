@@ -77,12 +77,14 @@ def print_guesses_output(number_guesses, secret):
 	:param 2: secret is the number being guessed as an integer 1 to 10
 	"""
 
-# begin main program/test
-number_guesses = 3
-print_secret_number_annoucement()
-secret = get_secret_number()
-if 0 == numGuesses:
-    print('No more guesses remaining.')
-elif 0 < numGuesses and secret == guess:
-    print('You found my secret number!')
-# end main program/test
+def main():
+    number_guesses = 3
+    print_secret_number_annoucement()
+    secret = get_secret_number()
+    if 0 == numGuesses:
+        print('No more guesses remaining.')
+    elif 0 < numGuesses and secret == guess:
+        print('You found my secret number!')
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))
