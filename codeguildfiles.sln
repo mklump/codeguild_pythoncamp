@@ -35,6 +35,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "codeguildfiles_html5CSS3JS"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "rotate_image", "codeguildfiles_django\rotate_image\rotate_image.pyproj", "{1D912482-8A0B-4E34-AC65-2B33A231CF16}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "web_madlib", "codeguildfiles_django\web_madlib\web_madlib.pyproj", "{60F70E34-372F-4568-A0D8-58FC48D8BD16}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DjangoWebProject1", "codeguildfiles_django\DjangoWebProject1\DjangoWebProject1.pyproj", "{93B8579C-0DCF-4529-AEEF-8AA4312CEBB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,12 @@ Global
 		{4E550506-1586-4BC8-8375-95BB1D9DD9B0}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{1D912482-8A0B-4E34-AC65-2B33A231CF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D912482-8A0B-4E34-AC65-2B33A231CF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F70E34-372F-4568-A0D8-58FC48D8BD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F70E34-372F-4568-A0D8-58FC48D8BD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B8579C-0DCF-4529-AEEF-8AA4312CEBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B8579C-0DCF-4529-AEEF-8AA4312CEBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B8579C-0DCF-4529-AEEF-8AA4312CEBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B8579C-0DCF-4529-AEEF-8AA4312CEBB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

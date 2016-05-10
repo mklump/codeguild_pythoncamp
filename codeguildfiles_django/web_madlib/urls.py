@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from . import views
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^1', views.render_madlib_1),
+    url(r'^2', views.render_madlib_2),
+    url(r'^3', views.render_madlib_3)
 ]
