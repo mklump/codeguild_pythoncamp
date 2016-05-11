@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>book_stats</Name>
     <RootNamespace>book_stats</RootNamespace>
-    <InterpreterId>{9bddec4f-fb9f-47ff-9c40-66c43458a0ad}</InterpreterId>
+    <InterpreterId>{b1078026-d2e2-4591-a056-2c25c760c81d}</InterpreterId>
     <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -53,7 +53,8 @@
     <Folder Include="book_stats\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\static\Clarissa_BigBook.txt" />
+    <Content Include=".gitignore" />
+    <Content Include="Clarissa_BigBook.txt" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -92,15 +93,15 @@
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="venv\">
-      <Id>{9bddec4f-fb9f-47ff-9c40-66c43458a0ad}</Id>
-      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
+      <Id>{b1078026-d2e2-4591-a056-2c25c760c81d}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
       <Version>3.5</Version>
-      <Description>venv (Python 64-bit 3.5)</Description>
+      <Description>venv (Python 3.5)</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <LibraryPath>Lib\</LibraryPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>Amd64</Architecture>
+      <Architecture>X86</Architecture>
     </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
