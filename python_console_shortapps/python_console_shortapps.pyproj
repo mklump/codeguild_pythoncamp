@@ -6,7 +6,7 @@
     <ProjectGuid>b6444c72-4a95-4647-a180-382235e5061f</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>hangman_nongraphical.py</StartupFile>
+    <StartupFile>practice_wordcount_file.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
