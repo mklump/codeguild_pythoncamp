@@ -16,4 +16,8 @@ def print_helloworld(name = ''):
 	greeting = 'So nice to meet you, ' + name
 	return greeting
 
-print(print_helloworld(get_username()))
+def main():
+    print(print_helloworld(get_username()))
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

@@ -206,7 +206,9 @@ def execute_main_loop():
 
 # end def execute_main_loop():
 
-# begin program main/test
-show_program_intro()
-execute_main_loop()
-# end program main/test
+def main():
+    show_program_intro()
+    execute_main_loop()
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

@@ -14,31 +14,36 @@ Instructions:
 	8) Handle punctuation
 	9) Handle capilalization
 """
-print('Please enter a sentence to translate to pig latin:')
-sentence = input()
 
-VOWELS = ('a', 'e', 'i', 'o', 'u')
-PUNCTUATION = (',','.','!','?')
+def main():
+    print('Please enter a sentence to translate to pig latin:')
+    sentence = input()
 
-word_list = sentence.split(' ')
-sentence = ''
-for word in word_list:
-    if word[0] in VOWELS:
-        word = word.join('hay')
-        continue
+    VOWELS = ('a', 'e', 'i', 'o', 'u')
+    PUNCTUATION = (',','.','!','?')
 
-    if word[0] in PUNCTUATION:
-        word.insert(len(word) - 1, word[0])
-    else:
-        word = word.join(word[0].lower())
+    word_list = sentence.split(' ')
+    sentence = ''
+    for word in word_list:
+        if word[0] in VOWELS:
+            word = word.join('hay')
+            continue
 
-    word = word[1:] #removes the first character at index 0, returns rest of string
+        if word[0] in PUNCTUATION:
+            word.insert(len(word) - 1, word[0])
+        else:
+            word = word.join(word[0].lower())
 
-    if word[0] in PUNCTUATION:
-        word.insert(len(word) - 1, 'ay')
-    else:
-        word = word.join('ay')
+        word = word[1:] #removes the first character at index 0, returns rest of string
 
-    sentence = sentence.join(word)
-    #end of for word in word_list:
-print('Your sentence tranlated to pig latin is: {}', sentence)
+        if word[0] in PUNCTUATION:
+            word.insert(len(word) - 1, 'ay')
+        else:
+            word = word.join('ay')
+
+        sentence = sentence.join(word)
+        #end of for word in word_list:
+    print('Your sentence tranlated to pig latin is: {}', sentence)
+
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

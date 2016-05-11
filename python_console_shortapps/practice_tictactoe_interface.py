@@ -283,4 +283,5 @@ def main():
     board3 = CoordsTTTBoard()
     play(board3)
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))

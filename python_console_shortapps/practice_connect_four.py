@@ -136,4 +136,5 @@ def main():
 columns = [1, 2, 3, 4, 5, 6, 7]
 rows = [1, 2, 3, 4, 5, 6]
 
-main()
+if __name__ == "__main__":
+    sys.exit(int(main() or 0))
