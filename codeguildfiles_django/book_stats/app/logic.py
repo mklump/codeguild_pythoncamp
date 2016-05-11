@@ -36,7 +36,11 @@ def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add ad
             line_of_raw_booktext_list = line.strip().split()
             if True == pairing:
                 line_of_raw_booktext_list = get_word_pairs_sep_by_space_not_single_words(line_of_raw_booktext_list)
-            dictionary_of_collected_keywords_and_their_counts = get_count_by_each_parsed_word_as_dictionary_key(line_of_raw_booktext_list)
+                dictionary_of_collected_keywords_and_their_counts = \
+                get_count_by_each_parsed_word_as_dictionary_key(
+                    dictionary_of_collected_keywords_and_their_counts,
+                    line_of_raw_booktext_list
+                    )
     # end with block/close file
     return dictionary_of_collected_keywords_and_their_counts
 # end def read_booktxt_to_dictionary(book_title):
@@ -51,19 +55,20 @@ def get_word_pairs_sep_by_space_not_single_words(line_of_raw_singlewords_list):
     removed_singles_parsed_wordpairs_list = remove_singlewords_from_pairings(line_of_parsed_wordpairs_list)
     return removed_singles_parsed_wordpairs_list
 
-def get_count_by_each_parsed_word_as_dictionary_key(list_of_each_line_split_words):
-    """
-    This helper function accepts each parsed line from the book text, and counts each individual word as each word or phrase occurs.
-    :param 1: list_of_each_line_split_words is the parsed incomming text line already split up by delimited spaces
-    :returns: The dictionary of individual words as the keys collected and each individual one word's count occurance.
-    """
-    individual_words_dictionary_collector = {}
-    for word in list_of_each_line_split_words:
-        if word not in individual_words_dictionary_collector:
-            individual_words_dictionary_collector[word] = 1
-        else:
-            individual_words_dictionary_collector[word] += 1
-    return individual_words_dictionary_collector
+def get_count_by_each_parsed_word_as_dictionary_key(dictionary_of_collected_keywords_and_their_counts, list_of_each_line_split_words):
+	"""
+	This helper function accepts each parsed line from the book text, and counts each individual word as each word or phrase occurs.
+    :param 1: dictionary_of_collected_keywords_and_their_counts as the on going dictionary word count collector
+	:param 2: list_of_each_line_split_words is the parsed incomming text line already split up by delimited spaces
+	:returns: The dictionary of individual words as the keys collected and each individual one word's count occurance.
+	"""
+	individual_words_dictionary_collector = dictionary_of_collected_keywords_and_their_counts
+	for word in list_of_each_line_split_words:
+		if word not in individual_words_dictionary_collector:
+			individual_words_dictionary_collector[word] = 1
+		else:
+			individual_words_dictionary_collector[word] += 1
+	return individual_words_dictionary_collector
 
 def remove_singlewords_from_pairings(word_pairs_with_singles):
     """
@@ -101,12 +106,12 @@ def get_top_ten_frequent(data, pairing=False):
     """
     return_string = ''
     if False == pairing:
-         return_string = 'The top ten most frequest words are:'
+         return_string = '\nThe top ten most frequest words are:'
     else:
         return_string += '\n'
-        return_string += 'The top ten most frequest word pairings are:'
+        return_string += '\nThe top ten most frequest word pairings are:'
     for item in range(10):
-        return_string += '{} : occured {} times'.format(data[item][0], data[item][1])
+        return_string += '\n{} : occured {} times'.format(data[item][0], data[item][1])
     return return_string
 
 def get_dict_of_dicts_from_pairings(list_of_pairs):
@@ -134,14 +139,16 @@ def print_first_ten_on_dict_of_dicts(dicts):
     This help function prints to console standard out the first ten data elements of the
     dictionary of dictionaries data structure.
     :param 1: dictionary of dictionary data structure to print
+    :returns: the String representation of what was first before printed to standard out.
     """
-    print('\nThe first ten data elements of the constructed dictonary were:')
+    return_string = '\nThe first ten data elements of the constructed dictonary were:'
     print_count = 0
     for element in dicts:
-        print('{ '+ '{} : {}'.format(element, dicts[element]) + ' }')
+        return_string += '\n{ '+ '{} : {}'.format(element, dicts[element]) + ' }'
         print_count += 1
         if print_count > 10:
             break
+    return return_string
 
 def get_next_most_frequent_word(word_input, list_word_pairings):
     """
@@ -158,23 +165,26 @@ def get_next_most_frequent_word(word_input, list_word_pairings):
 def print_word_pair(word_pair):
     """
     This helper function prints the next most likely word pair.
+    :param 1: word_pair as the found word that will appear next most likely to the word being search
+    :returns: a String stating the next most likely found word
     """
-    print('The most likely pair is \"{}\".'.format(word_pair))
+    print('\nThe most likely pair is \"{}\".'.format(word_pair))
 
-def get_word_input_for_print_next():
+def get_word_input_for_print_next(word_to_search):
     """
-    This helper function ask the user for a word input, and return that as a string.
+    This helper function asks the user for a word input, and return that as a string.
     :returns: word input for print next pairing as a string
     """
-    print('Input word before as most likely pairing?:')
-    return input()
+    return '\nInput word before as most likely pairing?: {}'.format(word_to_search)
 
-def execute_main_loop():
+def execute_main_loop(word_to_search):
     """
     Executes the main loop body of the main/test program
+    :param 1: word_to_search is the single word input for this version of Practice: Book_Stats: Word Count
+    :returns: the string output of what should have been printed to the python console, instead now using response.Write()
     """
     text_file_book = './Clarissa_BigBook.txt' # Default text book to load currently testing with
-    top_ten_words = ''
+    top_ten_words = '\nWORD: COUNT NUMBER STATS ON {} -->'.format(word_to_search)
     listsort = []
     for x in range(2):
         data = read_booktxt_to_dictionary(text_file_book, 0 != x % 2)
@@ -182,10 +192,11 @@ def execute_main_loop():
         top_ten_words += get_top_ten_frequent(listsort, 0 != x % 2)
 
     dictionary = get_dict_of_dicts_from_pairings(listsort)
-    print_first_ten_on_dict_of_dicts(dictionary)
-    word_before = get_word_input_for_print_next()
-    word_after = get_next_most_frequent_word(word_before, listsort)  # listsort variable should still contain the dual word list as pairs
-    print_word_pair(word_after)
+    top_ten_dictionary_of_dictionaries = print_first_ten_on_dict_of_dicts(dictionary)
+    word_before = get_word_input_for_print_next(word_to_search)
+    word_after = get_next_most_frequent_word(word_to_search, listsort)  # listsort variable should still contain the dual word list as pairs
+    most_likely_word_pair = print_word_pair(word_after)
+    return top_ten_words + top_ten_dictionary_of_dictionaries + most_likely_word_pair
 # end def execute_main_loop():
 
 def main():

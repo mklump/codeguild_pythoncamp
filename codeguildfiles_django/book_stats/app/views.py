@@ -40,8 +40,8 @@ def render_count(request):
     else:
         word_to_count = request.GET['w']
         response = HttpResponse(status = 200)
-
-
+        response.write(logic.execute_main_loop(word_to_count))
+        return response
 
 #def home(request):
 #    """Renders the home page."""

@@ -42,7 +42,11 @@ def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add ad
 			line_of_raw_booktext_list = line.strip().split()
 			if True == pairing:
 				line_of_raw_booktext_list = get_word_pairs_sep_by_space_not_single_words(line_of_raw_booktext_list)
-			dictionary_of_collected_keywords_and_their_counts = get_count_by_each_parsed_word_as_dictionary_key(line_of_raw_booktext_list)
+			dictionary_of_collected_keywords_and_their_counts = \
+                get_count_by_each_parsed_word_as_dictionary_key(
+                    dictionary_of_collected_keywords_and_their_counts,
+                    line_of_raw_booktext_list
+                    )
 	# end with block/close file
 	return dictionary_of_collected_keywords_and_their_counts
 # end def read_booktxt_to_dictionary(book_title):
@@ -57,13 +61,14 @@ def get_word_pairs_sep_by_space_not_single_words(line_of_raw_singlewords_list):
 	removed_singles_parsed_wordpairs_list = remove_singlewords_from_pairings(line_of_parsed_wordpairs_list)
 	return removed_singles_parsed_wordpairs_list
 
-def get_count_by_each_parsed_word_as_dictionary_key(list_of_each_line_split_words):
+def get_count_by_each_parsed_word_as_dictionary_key(dictionary_of_collected_keywords_and_their_counts, list_of_each_line_split_words):
 	"""
 	This helper function accepts each parsed line from the book text, and counts each individual word as each word or phrase occurs.
-	:param 1: list_of_each_line_split_words is the parsed incomming text line already split up by delimited spaces
+    :param 1: dictionary_of_collected_keywords_and_their_counts as the on going dictionary word count collector
+	:param 2: list_of_each_line_split_words is the parsed incomming text line already split up by delimited spaces
 	:returns: The dictionary of individual words as the keys collected and each individual one word's count occurance.
 	"""
-	individual_words_dictionary_collector = {}
+	individual_words_dictionary_collector = dictionary_of_collected_keywords_and_their_counts
 	for word in list_of_each_line_split_words:
 		if word not in individual_words_dictionary_collector:
 			individual_words_dictionary_collector[word] = 1
