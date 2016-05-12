@@ -19,6 +19,7 @@ Advanced:
     • Chain together that ability to generate random sentences, one word at a time. From a given starting word. This is a language model.
 """
 import operator
+import sys
 
 def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add additional boolean flag to execute additional logic, instead refactor again.
     """
@@ -35,12 +36,12 @@ def read_booktxt_to_dictionary(book_title, pairing=False): # Note: Do not add ad
         for line in data_book:
             line_of_raw_booktext_list = line.strip().split()
             if True == pairing:
+                line_of_raw_booktext_list = line.strip().split()
                 line_of_raw_booktext_list = get_word_pairs_sep_by_space_not_single_words(line_of_raw_booktext_list)
-                dictionary_of_collected_keywords_and_their_counts = \
-                get_count_by_each_parsed_word_as_dictionary_key(
-                    dictionary_of_collected_keywords_and_their_counts,
-                    line_of_raw_booktext_list
-                    )
+            dictionary_of_collected_keywords_and_their_counts = get_count_by_each_parsed_word_as_dictionary_key(
+                dictionary_of_collected_keywords_and_their_counts,
+                line_of_raw_booktext_list
+                )
     # end with block/close file
     return dictionary_of_collected_keywords_and_their_counts
 # end def read_booktxt_to_dictionary(book_title):
@@ -141,7 +142,7 @@ def print_first_ten_on_dict_of_dicts(dicts):
     :param 1: dictionary of dictionary data structure to print
     :returns: the String representation of what was first before printed to standard out.
     """
-    return_string = '\nThe first ten data elements of the constructed dictonary were:'
+    return_string = '\n\nThe first ten data elements of the constructed dictonary were:'
     print_count = 0
     for element in dicts:
         return_string += '\n{ '+ '{} : {}'.format(element, dicts[element]) + ' }'
@@ -168,7 +169,7 @@ def print_word_pair(word_pair):
     :param 1: word_pair as the found word that will appear next most likely to the word being search
     :returns: a String stating the next most likely found word
     """
-    print('\nThe most likely pair is \"{}\".'.format(word_pair))
+    return '\n\nThe most likely pair is \"{}\".'.format(word_pair)
 
 def get_word_input_for_print_next(word_to_search):
     """
@@ -200,7 +201,7 @@ def execute_main_loop(word_to_search):
 # end def execute_main_loop():
 
 def main():
-    execute_main_loop()
+    print(execute_main_loop('the'))
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))
