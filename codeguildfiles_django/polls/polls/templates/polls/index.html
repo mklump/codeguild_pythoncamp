@@ -1,0 +1,29 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>IceCream Poll</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+  </head>
+  <body>
+
+    <table class="results">
+      <tr>
+        <th>Flavor</th>
+        <th>Percentage</th>
+      </tr>
+
+      {% for flavor, percentage in flavor_to_percentage.items %}
+      <tr>
+        <td>{{ flavor }}</td>
+        <td>{{ percentage }}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    <a href="{% url 'poll' %}">Click Here to Return to Poll Screen</a>
+  <script src="{% static 'polls/polls.js' %}"></script>
+  </body>
+</html>

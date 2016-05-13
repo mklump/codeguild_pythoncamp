@@ -14,6 +14,10 @@ from datetime import datetime
 from no_jokes_here_only_dry import logic
 
 def render_index(request):
+    """
+    This function renders the presentation of jokes for index.html main page.
+    That page also containts the submission form for jokes.
+    """
     assert isinstance(request, HttpRequest)
     story_setups = logic.get_all_story_setups()
     punch_lines = logic.get_all_punch_lines()
@@ -28,3 +32,8 @@ def render_index(request):
             'time':str(datetime.now()),
         })
     )
+
+def submit_dry_dock_joke(request):
+    """
+    This function 
+    """

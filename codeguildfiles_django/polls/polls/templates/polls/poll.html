@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>IceCream Poll</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    <form action="{% url 'summary' %}" method="post">
+      {% csrf_token %}
+      <label for="ice-cream">What is your favorite ice cream flavor?</label>
+
+      <select name="ice-cream">
+        <option value="chocolate">Chocolate</option>
+        <option value="vanilla">Vanilla</option>
+        <option value="strawberry">Strawberry</option>
+      </select>
+
+      <input type="submit">
+    </form>
+    <script src="{% static 'polls.js' %}"></script>
+  </body>
+</html>
