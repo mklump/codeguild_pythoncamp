@@ -20,14 +20,34 @@ Advanced:
     <link rel="stylesheet" type="text/css" href="{% static 'no_jokes_here_only_dry/style.css' %}" />
 </head>
 <body>
-    <blockquote class="halfwidth">
-        <header><h1>{{ title }}</h1></header>
-    </blockquote>
-    <blockquote>
-        <form>
-            <div>Selectable Joke setups:<textarea>{{ story_setups }}</textarea></div>
-            <div>Here are the Punch Lines:<textarea>{{ punch_lines }}</textarea></div>
+    <section class="width">
+        <header>
+            <h1>{{ title }}</h1>
+        </header>
+    </section>
+    <section>
+        <form action="/form/submit" method="post">
+            {% csrf_token %}
+            <section>
+                <span>Joke setup story:</span><input type="text" id="setup_story" />
+            </section>
+            <section>
+                <span>Joke punch line :</span><input type="text" id="punch_line" />
+            </section>
+            <input type="submit" value="SUBMIT" />
         </form>
-    </blockquote>
+        <div>Selectable Joke setup stories:<textarea>{{ story_setups }}</textarea></div>
+        <div id="hideable" hidden="hidden">
+            Here are the Punch Lines:
+            {% for punched in punch_lines %}
+            <section>
+                <blockquote>{{ punched }}</blockquote>
+            </section>
+            {% endfor %}
+        </div>
+    </section>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="{% static 'no_jokes_here_only_dry/dry_dock_punch_you_programmer_jokes.js' %}"></script>
 </body>
 </html>

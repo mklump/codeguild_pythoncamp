@@ -91,7 +91,7 @@ function main() {
     var intervalID = setMoleGridTimer(); // Start the timer of the mole appearing as soon as the page is loaded and ready.
     setTimeout(stopMoleGridTimer, 600000, intervalID); // Stop the timer of the mole appearing after 10 minutes have elapsed.
     clearAllMoleLocations();
-    isInteger(0);
+    //isInteger(0);
 }
 /*
  * This statement registers main() to be called when the associated page is 'ready'.

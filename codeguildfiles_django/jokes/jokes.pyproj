@@ -44,6 +44,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="db.sqlite3" />
+    <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js" />
     <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\style.css" />
     <Content Include="no_jokes_here_only_dry\templates\no_jokes_here_only_dry\index.html" />
     <Content Include="requirements.txt" />

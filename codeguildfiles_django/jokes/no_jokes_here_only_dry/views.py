@@ -22,7 +22,7 @@ def render_index(request):
         'no_jokes_here_only_dry/index.html', # navigate to this page for this request handling
         context_instance = RequestContext(request, # use THIS context_instance for these context variables for the index.html template
         {
-            'setups':story_setups,
+            'story_setups':story_setups,
             'punch_lines':punch_lines,
             'title':'Not quite so - Jokes Form',
             'time':str(datetime.now()),
