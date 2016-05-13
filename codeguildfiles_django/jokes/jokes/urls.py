@@ -1,4 +1,10 @@
-"""jokes URL Configuration
+# -*- coding: utf-8 -*-
+"""
+Python Coding Bootcamp (pdxcodeguild)
+Program exercise file <![CDATA[jokes/urls.py]]>
+by Matthew James K on 5/12/2016
+
+jokes URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -16,6 +22,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from no_jokes_here_only_dry import views
+from no_jokes_here_only_dry import ajax_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.render_index, name='index'),
 ]

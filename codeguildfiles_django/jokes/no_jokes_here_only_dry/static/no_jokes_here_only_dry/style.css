@@ -1,0 +1,22 @@
+﻿/*
+    Python Coding Bootcamp (pdxcodeguild)
+    Program exercise file no_jokes_here_only_dry/style.css
+    by Matthew James K on 5/12/2016
+*/
+body
+{
+    margin: 0;
+}
+
+.halfwidth {
+    max-width: 50%;
+}
+
+div {
+    -ms-align-content: flex-start;
+    -webkit-align-content: flex-start;
+
+    align-content: flex-start;
+    display: flex;
+    margin: 10px;
+}

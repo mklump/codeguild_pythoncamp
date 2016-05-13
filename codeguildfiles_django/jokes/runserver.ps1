@@ -1,1 +1,2 @@
-python manage.py runserver 3245
+.\venv\Scripts\activate
+PowerShell -NoExit python manage.py runserver 3245

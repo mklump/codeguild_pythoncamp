@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<!--
+    Python Coding Bootcamp (pdxcodeguild)
+    Program exercise file static/no_jokes_here_only_dry/index.html
+    by Matthew James K on 5/12/2016
+
+Practice: Jokes -
+    Save your solution as jokes.
+    Have a page to submit jokes via a form. A joke has a "setup" and a "punchline" input. Submitted
+    jokes should be saved in a global array in your logic module.
+    Have a listing page where jokes are shown. Hide the punch lines until someone clicks on the setup.
+Advanced:
+    Use AJAX to submit your jokes.
+-->
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'no_jokes_here_only_dry/style.css' %}" />
+</head>
+<body>
+    <blockquote class="halfwidth">
+        <header><h1>{{ title }}</h1></header>
+    </blockquote>
+    <blockquote>
+        <form>
+            <div>Selectable Joke setups:<textarea>{{ story_setups }}</textarea></div>
+            <div>Here are the Punch Lines:<textarea>{{ punch_lines }}</textarea></div>
+        </form>
+    </blockquote>
+</body>
+</html>

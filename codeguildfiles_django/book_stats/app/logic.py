@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Python Coding Bootcamp (pdxcodeguild)
-Program exercise file input/output in Python
+Program exercise file \book_stats\app\logic.py
 by Matthew James K
+
 LAB/STEP requirements:
 Find a book on Project Gutenberg. Download it as a UTF-8 text file.
     • Count how often each unique word is used, then print the most frequent top 10 out with their counts.
