@@ -1,4 +1,8 @@
-
+"""
+Python Coding Bootcamp (pdxcodeguild)
+Program exercise file polls/views.py
+by Andrew, Justin, and Matthew James K on 5/13/2016
+"""
 from django.http import HttpResponse
 from django.shortcuts import render
 from . import logic
@@ -13,4 +17,4 @@ def render_summary(request):
     context = {
         'flavor_to_percentage': flavor_to_percentage,
     }
-    return render(request, 'polls/index.html', context)s
+    return render(request, 'polls/index.html', context)

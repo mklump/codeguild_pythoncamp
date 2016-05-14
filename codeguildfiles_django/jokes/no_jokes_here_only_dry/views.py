@@ -35,5 +35,11 @@ def render_index(request):
 
 def submit_dry_dock_joke(request):
     """
-    This function 
+    This function accepts the form post parameters from the index.html form control,
+    and updates the storage place currently as the global variable logic.jokes list.
     """
+    assert isinstance(request, HttpRequest)
+    setup_story = request.POST['setup_story']
+    punch_line = request.POST['punch_line']
+    logic.save_submitted_joke(setup_story, punch_line)
+    return render() # Or use HttpResponse('') blank response after saving to the datasource is accomplished

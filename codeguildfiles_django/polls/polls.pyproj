@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>0dca00d8-88ce-4bf1-9b55-4065a9fc8266</ProjectGuid>
+    <ProjectGuid>{4795c3b3-96ad-495c-90a7-fd8619c03d4b}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>
@@ -47,8 +47,10 @@
     <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js" />
     <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\style.css" />
     <Content Include="no_jokes_here_only_dry\templates\no_jokes_here_only_dry\index.html" />
-    <Content Include="requirements.txt" />
-    <Content Include="runserver.ps1" />
+    <Content Include="polls\static\polls\polls.js" />
+    <Content Include="polls\static\polls\style.css" />
+    <Content Include="polls\templates\polls\index.html" />
+    <Content Include="polls\templates\polls\poll.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="jokes\settings.py" />
@@ -64,6 +66,12 @@
     <Compile Include="no_jokes_here_only_dry\tests.py" />
     <Compile Include="no_jokes_here_only_dry\views.py" />
     <Compile Include="no_jokes_here_only_dry\__init__.py" />
+    <Compile Include="polls\logic.py" />
+    <Compile Include="polls\settings.py" />
+    <Compile Include="polls\urls.py" />
+    <Compile Include="polls\views.py" />
+    <Compile Include="polls\wsgi.py" />
+    <Compile Include="polls\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="jokes\" />
@@ -72,6 +80,11 @@
     <Folder Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\" />
     <Folder Include="no_jokes_here_only_dry\templates\" />
     <Folder Include="no_jokes_here_only_dry\templates\no_jokes_here_only_dry\" />
+    <Folder Include="polls\" />
+    <Folder Include="polls\static\" />
+    <Folder Include="polls\static\polls\" />
+    <Folder Include="polls\templates\" />
+    <Folder Include="polls\templates\polls\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

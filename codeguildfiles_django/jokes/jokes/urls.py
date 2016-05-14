@@ -28,5 +28,5 @@ from no_jokes_here_only_dry import ajax_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.render_index, name='index'),
-    url(r'^form/submit$', views.render_ack),
+    url(r'^form/submit$', views.submit_dry_dock_joke, name='submit'),
 ]

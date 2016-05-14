@@ -1,3 +1,8 @@
+"""
+Python Coding Bootcamp (pdxcodeguild)
+Program exercise file polls/logic.py
+by Andrew, Justin, and Matthew James K on 5/13/2016
+"""
 
 flavor_to_count = {
     'chocolate': 0,

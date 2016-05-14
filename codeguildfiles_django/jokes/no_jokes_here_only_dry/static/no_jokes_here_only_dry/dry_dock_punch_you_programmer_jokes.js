@@ -17,6 +17,19 @@ function makePunchLinesVisible() {
     return null;
 }
 
-function registerTextAreaClickEvent() {
-    return null;
+/*
+ * This function registers the click event handler and delegate call back from for when a select list
+ * is clicked on.
+ */
+function registerSelectItemClickEvent() {
+    $('option').on('click', function (event) {
+        selectItemClick(event.target);
+    });
+}
+
+/*
+ * This function make visible the punchline control and the associated setup story that was clicked on.
+ */
+function selectItemClick(selectItemClicked) {
+
 }

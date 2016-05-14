@@ -27,17 +27,23 @@ Advanced:
         </header>
     </section>
     <section>
-        <form action="/form/submit" method="post">
+        <form action="{% url 'submit' %}" method="post">
             {% csrf_token %}
             <section>
-                <span>Joke setup story:</span><input type="text" id="setup_story" />
+                <span>Joke setup story:</span><input type="text" name="setup_story" />
             </section>
             <section>
-                <span>Joke punch line :</span><input type="text" id="punch_line" />
+                <span>Joke punch line :</span><input type="text" name="punch_line" />
             </section>
             <input type="submit" value="SUBMIT" />
         </form>
-        <div>Selectable Joke setup stories:<textarea>{{ story_setups }}</textarea></div>
+        <div>Selectable Joke setup stories:
+            <select multiple="multiple">
+                {% for setup in story_setups %}
+                <option id="{{ setup }}">{{ setup }}</option>
+                {% endfor %}
+            </select>
+        </div>
         <div id="hideable" hidden="hidden">
             Here are the Punch Lines:
             {% for punched in punch_lines %}
