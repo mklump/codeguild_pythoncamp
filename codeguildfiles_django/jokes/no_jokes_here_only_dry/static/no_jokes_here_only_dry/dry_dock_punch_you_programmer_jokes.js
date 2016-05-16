@@ -13,10 +13,6 @@ Advanced:
  */
 'use strict';
 
-function makePunchLinesVisible() {
-    return null;
-}
-
 /*
  * This function registers the click event handler and delegate call back from for when a select list
  * is clicked on.
