@@ -1,2 +1,2 @@
 .\venv\Scripts\activate
-PowerShell -NoExit python manage.py runserver 27554
+python manage.py runserver 27554

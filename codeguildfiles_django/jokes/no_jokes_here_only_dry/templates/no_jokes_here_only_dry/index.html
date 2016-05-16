@@ -37,21 +37,15 @@ Advanced:
             </section>
             <input type="submit" value="SUBMIT" />
         </form>
+        <input type="hidden" id="json_serialized_string_array_of_jokes" value="{{ serialized_string }}"/>
         <div>Selectable Joke setup stories:
             <select multiple="multiple">
                 {% for setup in story_setups %}
-                <option id="{{ setup }}">{{ setup }}</option>
+                <option>{{ setup }}</option>
                 {% endfor %}
             </select>
         </div>
-        <div id="hideable" hidden="hidden">
-            Here are the Punch Lines:
-            {% for punched in punch_lines %}
-            <section>
-                <blockquote>{{ punched }}</blockquote>
-            </section>
-            {% endfor %}
-        </div>
+        <div id="hideable" hidden="hidden" />
     </section>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>

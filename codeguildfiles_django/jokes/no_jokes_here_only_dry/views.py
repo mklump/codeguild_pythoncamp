@@ -20,14 +20,14 @@ def render_index(request):
     """
     assert isinstance(request, HttpRequest)
     story_setups = logic.get_all_story_setups()
-    punch_lines = logic.get_all_punch_lines()
+    serialized_string = logic.get_json_repr_of_jokes()
     return render(
         request, # use this request object for this rendering
         'no_jokes_here_only_dry/index.html', # navigate to this page for this request handling
         context_instance = RequestContext(request, # use THIS context_instance for these context variables for the index.html template
         {
             'story_setups':story_setups,
-            'punch_lines':punch_lines,
+            'serialized_string':serialized_string,
             'title':'Not quite so - Jokes Form',
             'time':str(datetime.now()),
         })
@@ -42,4 +42,4 @@ def submit_dry_dock_joke(request):
     setup_story = request.POST['setup_story']
     punch_line = request.POST['punch_line']
     logic.save_submitted_joke(setup_story, punch_line)
-    return render() # Or use HttpResponse('') blank response after saving to the datasource is accomplished
+    return render_index(request) # Do not call render() here as response unless calling HttpResponse('') without request, template_name, and context!
