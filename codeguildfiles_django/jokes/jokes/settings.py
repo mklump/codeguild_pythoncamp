@@ -37,14 +37,13 @@ STATIC_URL = '/static/'
 
 # Application definition
 INSTALLED_APPS = [
-    'no_jokes_here_only_dry',
+    'jokes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jokes',
 ]
 
 MIDDLEWARE_CLASSES = [

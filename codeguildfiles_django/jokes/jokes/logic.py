@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Python Coding Bootcamp (pdxcodeguild)
-Program exercise file no_jokes_here_only_dry/logic.py
+Program exercise file jokes/logic.py
 by Matthew James K on 5/12/2016
 """
 from datetime import datetime

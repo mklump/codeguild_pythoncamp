@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """
 Python Coding Bootcamp (pdxcodeguild)
-Program exercise file no_jokes_here_only_dry/views.py
+Program exercise file jokes/view.py
 by Matthew James K on 5/12/2016
 """
 
 from django.shortcuts import render
-from django.http import HttpRequest
 from django.http import HttpResponse
+from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
 
-from no_jokes_here_only_dry import logic
+from . import logic
 
 def render_index(request):
     """

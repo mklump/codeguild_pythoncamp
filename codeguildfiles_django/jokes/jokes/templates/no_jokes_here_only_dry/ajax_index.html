@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+    Python Coding Bootcamp (pdxcodeguild)
+    Program exercise file templates/no_jokes_here_only_dry/index.html
+    by Matthew James K on 5/12/2016
+
+Practice: Jokes -
+    Save your solution as jokes.
+    Have a page to submit jokes via a form. A joke has a "setup" and a "punchline" input. Submitted
+    jokes should be saved in a global array in your logic module.
+    Have a listing page where jokes are shown. Hide the punch lines until someone clicks on the setup.
+Advanced:
+    Use AJAX to submit your jokes.
+-->
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'no_jokes_here_only_dry/style.css' %}" />
+</head>
+<body>
+    <section class="width">
+        <header>
+            <h1>{{ title }}</h1>
+            <h3>For this day: {{ time }}</h3>
+        </header>
+    </section>
+    <section>
+        <form>
+            <!--{% csrf_token %}-->
+            <section>
+                <span>Joke setup story:</span><input type="text" name="setup_story" />
+            </section>
+            <section>
+                <span>Joke punch line :</span><input type="text" name="punch_line" />
+            </section>
+            <input type="submit" value="SUBMIT" />
+        </form>
+        <div>Selectable Joke setup stories:
+            <select multiple="multiple">
+                {% for story_setup in story_setups %}
+                <option>{{ story_setup }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!--<div id="hideable" hidden="hidden" />-->
+    </section>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="{% static 'no_jokes_here_only_dry/dry_dock_punch_you_programmer_jokes.js' %}"></script>
+</body>
+</html>

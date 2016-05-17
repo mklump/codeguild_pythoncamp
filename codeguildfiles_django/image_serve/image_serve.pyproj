@@ -17,8 +17,10 @@
     <PythonWsgiHandler>app.wsgi_app</PythonWsgiHandler>
     <Name>image_serve</Name>
     <RootNamespace>image_serve</RootNamespace>
-    <InterpreterId>{d236a612-7566-420b-8f8a-630723ca9c88}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterId>
+    </InterpreterId>
+    <InterpreterVersion>
+    </InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,19 +30,6 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
-  <ItemGroup>
-    <Interpreter Include="venv\">
-      <Id>{d236a612-7566-420b-8f8a-630723ca9c88}</Id>
-      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
-      <Version>3.5</Version>
-      <Description>venv (Python 3.5)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X86</Architecture>
-    </Interpreter>
-  </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="db.sqlite3" />
@@ -57,17 +46,18 @@
     <Compile Include="image_serve\wsgi.py" />
     <Compile Include="image_serve\__init__.py" />
     <Compile Include="manage.py" />
-    <Compile Include="not_serving_images\logic.py" />
-    <Compile Include="not_serving_images\models.py" />
-    <Compile Include="not_serving_images\tests.py" />
-    <Compile Include="not_serving_images\views.py" />
+    <Compile Include="image_serve\logic.py" />
+    <Compile Include="image_serve\models.py" />
+    <Compile Include="image_serve\tests.py" />
+    <Compile Include="image_serve\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="image_serve\" />
+    <Folder Include="image_serve\static\image_serve\" />
+    <Folder Include="image_serve\templates\image_serve\" />
     <Folder Include="image_serve\__pycache__\" />
-    <Folder Include="not_serving_images\" />
-    <Folder Include="not_serving_images\static\" />
-    <Folder Include="not_serving_images\templates\" />
+    <Folder Include="image_serve\static\" />
+    <Folder Include="image_serve\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
