@@ -22,15 +22,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from . import views
+#from . import views
 from . import ajax_view
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    #url(r'^$', views.render_index, name='index'),
-    url(r'^$', ajax_view.render_listing_index, name='index'),
-    url(r'^form/submit$', views.submit_dry_dock_joke, name='submit'),
+    #url(r'^$', views.render_index, name='index'), #not used
+    #url(r'^form/submit$', views.submit_dry_dock_joke, name='submit'), #not used
 
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', ajax_view.render_listing_index, name='index'),
     url(r'^ajax/$', ajax_view.render_listing_index, name = 'ajax_index'),
     url(r'^ajax/submit$', ajax_view.render_acknowledgement, name = 'joke_listing'),
 ]

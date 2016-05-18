@@ -32,11 +32,11 @@
     <Content Include=".gitignore" />
     <Content Include="db.sqlite3" />
     <Content Include="jokes\static\no_jokes_here_only_dry\ajax_form_submit.js" />
-    <Content Include="jokes\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js" />
+    <Content Include="jokes\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js_notused" />
     <Content Include="jokes\static\no_jokes_here_only_dry\style.css" />
     <Content Include="jokes\templates\no_jokes_here_only_dry\acknowledgement_listing.html" />
     <Content Include="jokes\templates\no_jokes_here_only_dry\ajax_index.html" />
-    <Content Include="jokes\templates\no_jokes_here_only_dry\index.html" />
+    <Content Include="jokes\templates\no_jokes_here_only_dry\index.html_notused" />
     <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js" />
     <Content Include="no_jokes_here_only_dry\static\no_jokes_here_only_dry\style.css" />
     <Content Include="no_jokes_here_only_dry\templates\no_jokes_here_only_dry\index.html" />
@@ -52,7 +52,7 @@
     <Compile Include="jokes\settings.py" />
     <Compile Include="jokes\tests.py" />
     <Compile Include="jokes\urls.py" />
-    <Compile Include="jokes\views.py" />
+    <Compile Include="jokes\views.py_notused" />
     <Compile Include="jokes\wsgi.py" />
     <Compile Include="jokes\__init__.py" />
     <Compile Include="manage.py" />

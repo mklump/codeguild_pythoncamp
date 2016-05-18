@@ -5,31 +5,13 @@ Program exercise file jokes/logic.py
 by Matthew James K on 5/12/2016
 """
 from datetime import datetime
-import json
+#import json
 
 jokes = []
 """
 This jokes jagged array global variable will have the first item of each inner array as the story
 setups, and the second as the punch lines.
 """
-
-def get_json_repr_of_jokes():
-    """
-    This function returns back the json serialized representation of the jokes global array.
-    :returns: jokes array as a json serialized string
-    """
-    serialized_string = json.dumps(jokes) # Serialize this array into a string to be stored into a hidden html control.
-    return serialized_string;
-
-def get_all_story_setups():
-    """
-    This function retrieves all the story setups from the first item of the inner array of the jokes outer array.
-    :returns: an array of the story setups from the jokes array
-    """
-    story_setups = []
-    for story in jokes:
-        story_setups.append(story[0])
-    return story_setups
 
 def save_submitted_joke(setup_story, punch_line):
     """
@@ -52,3 +34,21 @@ def ajax_save_submitted_joke(story_setup, punch_line):
     global list 'backend' data structure here.
     """
     save_submitted_joke(story_setup, punch_line)
+
+#def get_json_repr_of_jokes():
+#    """
+#    This function returns back the json serialized representation of the jokes global array.
+#    :returns: jokes array as a json serialized string
+#    """
+#    serialized_string = json.dumps(jokes) # Serialize this array into a string to be stored into a hidden html control.
+#    return serialized_string;
+
+#def get_all_story_setups():
+#    """
+#    This function retrieves all the story setups from the first item of the inner array of the jokes outer array.
+#    :returns: an array of the story setups from the jokes array
+#    """
+#    story_setups = []
+#    for story in jokes:
+#        story_setups.append(story[0])
+#    return story_setups

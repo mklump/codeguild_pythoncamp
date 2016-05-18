@@ -13,7 +13,7 @@ Advanced:
     Use AJAX to submit your jokes.
 -->
 {% load staticfiles %}
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>{{ title }}</title>
@@ -51,4 +51,4 @@ Advanced:
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
     <script type="text/javascript" src="{% static 'no_jokes_here_only_dry/dry_dock_punch_you_programmer_jokes.js' %}"></script>
 </body>
-</html>
+</html>-->
