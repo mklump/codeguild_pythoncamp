@@ -39,3 +39,16 @@ def save_submitted_joke(setup_story, punch_line):
     :param 2: punch_line string represents the part that is supposed to make you laugh or slap your knee
     """
     jokes.append([setup_story, punch_line, str(datetime.now())])
+
+def get_all_jokes_data():
+    """
+    This ajax use function retrieves the entire jokes array "backend" both story setups and punch lines.
+    """
+    return jokes
+
+def ajax_save_submitted_joke(story_setup, punch_line):
+    """
+    This ajax use function saved the sent story_setup, and the punch_line from the ajax form save to the
+    global list 'backend' data structure here.
+    """
+    save_submitted_joke(story_setup, punch_line)

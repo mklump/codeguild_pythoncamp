@@ -1,6 +1,6 @@
 /*
     Python Coding Bootcamp (pdxcodeguild)
-    Program exercise file static/no_jokes_here_only_dry/index.html
+    Program exercise file static/no_jokes_here_only_dry/dry_dock_punch_you_programmer_jokes.html
     by Matthew James K on 5/12/2016
 
 Practice: Jokes -

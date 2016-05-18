@@ -19,12 +19,13 @@ def render_listing_index(request):
         'all_jokes_data':all_jokes_data
     }
     return render(request, 'no_jokes_here_only_dry/ajax_index.html', context)
-
+    
 def render_acknowledgement(request):
     """
     This view will accept POST for a joke and a punch line, and show an achnowledgement that the joke was saved.
     :param 1: request is the incomming HttpRequest object from the urls.py page routes
     """
-    joke_submission = request.GET['ajax_joke_submission']
-    logic.ajax_save_submitted_joke(joke_submission)
+    story_setup = request.GET['story_setup']
+    punch_line = request.GET['punch_line']
+    logic.ajax_save_submitted_joke(story_setup, punch_line)
     return HttpResponse('')

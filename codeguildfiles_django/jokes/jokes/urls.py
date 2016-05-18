@@ -27,9 +27,10 @@ from . import ajax_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.render_index, name='index'),
+    #url(r'^$', views.render_index, name='index'),
+    url(r'^$', ajax_view.render_listing_index, name='index'),
     url(r'^form/submit$', views.submit_dry_dock_joke, name='submit'),
 
-    url(r'^ajax/$', ajax_view.render_index, name = 'ajax_index'),
-    url(r'^ajax/submit$', ajax_view.render_acknowledgement_listing, name = 'joke_listing'),
+    url(r'^ajax/$', ajax_view.render_listing_index, name = 'ajax_index'),
+    url(r'^ajax/submit$', ajax_view.render_acknowledgement, name = 'joke_listing'),
 ]

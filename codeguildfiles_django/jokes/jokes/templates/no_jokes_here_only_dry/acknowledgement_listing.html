@@ -3,9 +3,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Comment Form - Submitted!</title>
+    <link rel="stylesheet" href="{% static 'no_jokes_here_only_dry/style.css' %}" />
 </head>
 <body>
+    <h1>Your joke was submitted!</h1>
+    <a href="{% url 'index' %}">Back to List</a>
+    <blockquote>{{ story_setup }}</blockquote>
+    <blockquote>{{ punch_line }}</blockquote>
 
 </body>
 </html>

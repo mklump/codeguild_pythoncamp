@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
     Python Coding Bootcamp (pdxcodeguild)
-    Program exercise file templates/no_jokes_here_only_dry/index.html
+    Program exercise file templates/no_jokes_here_only_dry/ajax_index.html
     by Matthew James K on 5/12/2016
 
 Practice: Jokes -
@@ -30,24 +30,30 @@ Advanced:
         <form>
             <!--{% csrf_token %}-->
             <section>
-                <span>Joke setup story:</span><input type="text" name="setup_story" />
+                <span>Joke setup story:</span><input type="text" id="setup_story" />
             </section>
             <section>
-                <span>Joke punch line :</span><input type="text" name="punch_line" />
+                <span>Joke punch line :</span><input type="text" id="punch_line" />
             </section>
             <input type="submit" value="SUBMIT" />
         </form>
         <div>Selectable Joke setup stories:
             <select multiple="multiple">
-                {% for story_setup in story_setups %}
-                <option>{{ story_setup }}</option>
+                {% for story_setup in all_jokes_data %} <!-- Show the story setup part of the joke here. -->
+                <option>{{ story_setup[0] }}</option>
                 {% endfor %}
             </select>
         </div>
-        <!--<div id="hideable" hidden="hidden" />-->
+        <div id="hideable" hidden="hidden">
+            <select multiple="multiple">
+                {% for punch_line in all_jokes_data %} <!-- Show the hidden punch line part of the joke here. -->
+                <option>{{ punch_line[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </section>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.2/lodash.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
-    <script type="text/javascript" src="{% static 'no_jokes_here_only_dry/dry_dock_punch_you_programmer_jokes.js' %}"></script>
+    <script type="text/javascript" src="{% static 'no_jokes_here_only_dry/ajax_form_submit.js' %}"></script>
 </body>
 </html>
