@@ -33,7 +33,7 @@ def ajax_save_submitted_joke(story_setup, punch_line):
     This ajax use function saved the sent story_setup, and the punch_line from the ajax form save to the
     global list 'backend' data structure here.
     """
-    save_submitted_joke(story_setup, punch_line)
+    return save_submitted_joke(story_setup, punch_line)
 
 #def get_json_repr_of_jokes():
 #    """
