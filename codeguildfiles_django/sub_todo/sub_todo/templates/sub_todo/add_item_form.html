@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Item to {{ list.name }}</title>
+  </head>
+  <body>
+    <h1>Add item to list {{ list.name }}</h1>
+    <form action="{% url 'add_item_submit' indv_list.id %}" method="post">
+      {% csrf_token %}
+      <label>List item: <input type="text" name="item"></label>
+      <input type="submit">
+    </form>
+  </body>
+</html>

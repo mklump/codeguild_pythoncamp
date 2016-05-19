@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>0dca00d8-88ce-4bf1-9b55-4065a9fc8266</ProjectGuid>
+    <ProjectGuid>{dfc68d65-bca0-4a65-bbb6-6ac097128f67}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>
@@ -33,35 +33,37 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="db.sqlite3" />
-    <Content Include="jokes\static\no_jokes_here_only_dry\ajax_form_submit.js" />
-    <Content Include="jokes\static\no_jokes_here_only_dry\dry_dock_punch_you_programmer_jokes.js_notused" />
-    <Content Include="jokes\static\no_jokes_here_only_dry\style.css" />
-    <Content Include="jokes\templates\no_jokes_here_only_dry\acknowledgement_listing.html" />
-    <Content Include="jokes\templates\no_jokes_here_only_dry\ajax_index.html" />
-    <Content Include="jokes\templates\no_jokes_here_only_dry\index.html_notused" />
     <Content Include="requirements.txt" />
     <Content Include="runserver.ps1" />
+    <Content Include="sub_todo\static\sub_todo\style.css" />
+    <Content Include="sub_todo\templates\sub_todo\add_item_form.html" />
+    <Content Include="sub_todo\templates\sub_todo\add_list_form.html" />
+    <Content Include="sub_todo\templates\sub_todo\index.html" />
+    <Content Include="sub_todo\templates\sub_todo\item_ack.html" />
+    <Content Include="sub_todo\templates\sub_todo\list_ack.html" />
+    <Content Include="web.config" />
+    <None Include="web.debug.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="jokes\ajax_view.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="jokes\logic.py" />
-    <Compile Include="jokes\models.py" />
-    <Compile Include="jokes\settings.py" />
-    <Compile Include="jokes\tests.py" />
-    <Compile Include="jokes\urls.py" />
-    <Compile Include="jokes\views.py_notused" />
-    <Compile Include="jokes\wsgi.py" />
-    <Compile Include="jokes\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="sub_todo\admin.py" />
+    <Compile Include="sub_todo\logic.py" />
+    <Compile Include="sub_todo\migrations\0001_initial.py" />
+    <Compile Include="sub_todo\migrations\__init__.py" />
+    <Compile Include="sub_todo\models.py" />
+    <Compile Include="sub_todo\settings.py" />
+    <Compile Include="sub_todo\urls.py" />
+    <Compile Include="sub_todo\views.py" />
+    <Compile Include="sub_todo\wsgi.py" />
+    <Compile Include="sub_todo\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="jokes\" />
-    <Folder Include="jokes\static\" />
-    <Folder Include="jokes\static\no_jokes_here_only_dry\" />
-    <Folder Include="jokes\templates\" />
-    <Folder Include="jokes\templates\no_jokes_here_only_dry\" />
+    <Folder Include="sub_todo\" />
+    <Folder Include="sub_todo\migrations\" />
+    <Folder Include="sub_todo\static\" />
+    <Folder Include="sub_todo\static\sub_todo\" />
+    <Folder Include="sub_todo\templates\" />
+    <Folder Include="sub_todo\templates\sub_todo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

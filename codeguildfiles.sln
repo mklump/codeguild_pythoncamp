@@ -47,6 +47,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "codeguildfiles_django", "co
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "polls", "codeguildfiles_django\polls\polls.pyproj", "{4795C3B3-96AD-495C-90A7-FD8619C03D4B}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "sub_todo", "codeguildfiles_django\sub_todo\sub_todo.pyproj", "{DFC68D65-BCA0-4A65-BBB6-6AC097128F67}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "flutter_twitterclone", "codeguildfiles_django\flutter_twitterclone\flutter_twitterclone.pyproj", "{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{4795C3B3-96AD-495C-90A7-FD8619C03D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4795C3B3-96AD-495C-90A7-FD8619C03D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4795C3B3-96AD-495C-90A7-FD8619C03D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFC68D65-BCA0-4A65-BBB6-6AC097128F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC68D65-BCA0-4A65-BBB6-6AC097128F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC68D65-BCA0-4A65-BBB6-6AC097128F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC68D65-BCA0-4A65-BBB6-6AC097128F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +102,7 @@ Global
 		{0DCA00D8-88CE-4BF1-9B55-4065A9FC8266} = {3AEDBB3C-8C6C-46EA-B609-08B1B58360C9}
 		{143ED18B-44E3-47C2-95B3-268A3FCA3AE7} = {3AEDBB3C-8C6C-46EA-B609-08B1B58360C9}
 		{4795C3B3-96AD-495C-90A7-FD8619C03D4B} = {3AEDBB3C-8C6C-46EA-B609-08B1B58360C9}
+		{DFC68D65-BCA0-4A65-BBB6-6AC097128F67} = {3AEDBB3C-8C6C-46EA-B609-08B1B58360C9}
+		{AE262E74-D6CE-4FEA-9BF5-E5A399F0BC1D} = {3AEDBB3C-8C6C-46EA-B609-08B1B58360C9}
 	EndGlobalSection
 EndGlobal

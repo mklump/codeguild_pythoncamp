@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>To-Do</title>
+    <link rel="stylesheet" href="{% static 'sub_todo/style.css' %}">
+  </head>
+  <body>
+    <h1><a href="{% url 'index' %}">Lists!</a></h1>
+    <a href="{% url 'add_list' %}">Add top-level list</a>
+    {% block content %}
+    {% endblock %}
+    {% for list, item in list_to_items.items %}
+    <blockquote class="list">{{ list.name }}<a href="{% url 'add_item' list.id %}"> +</a>
+    </blockquote>
+    <ul>
+      {% for ind_item in item %}
+      <li class="item">{{ ind_item.item }}<form action="{% url 'delete_sub_item' list.id ind_item.id %}" method="submit"><button type="submit">X</button></form></li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </body>
+</html>
