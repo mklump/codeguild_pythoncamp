@@ -4,7 +4,7 @@ Definition of urls for flutter_twitterclone.
 
 from datetime import datetime
 from django.contrib import admin
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from . import views
 
 # Uncomment the next lines to enable the admin:
@@ -12,7 +12,7 @@ from . import views
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     url(r'^$', views.home, name='home'),
 
@@ -22,4 +22,4 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-)
+]

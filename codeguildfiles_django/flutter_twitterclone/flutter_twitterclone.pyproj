@@ -53,7 +53,6 @@
     <Content Include=".gitignore" />
     <Content Include="flutter_twitterclone\static\flutter_twitterclone\content\style.css" />
     <Content Include="web.config" />
-    <None Include="web.debug.config" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\_references.js" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery.validate-vsdoc.js" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery-1.10.2.intellisense.js" />
