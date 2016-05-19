@@ -29,6 +29,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="flutter_twitterclone\admin.py" />
+    <Compile Include="flutter_twitterclone\logic.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="flutter_twitterclone\migrations\0001_initial.py" />
+    <Compile Include="flutter_twitterclone\migrations\__init__.py" />
     <Compile Include="flutter_twitterclone\models.py" />
     <Compile Include="flutter_twitterclone\tests.py" />
     <Compile Include="flutter_twitterclone\views.py" />
@@ -41,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="flutter_twitterclone\" />
+    <Folder Include="flutter_twitterclone\migrations\" />
+    <Folder Include="flutter_twitterclone\migrations\__pycache__\" />
     <Folder Include="flutter_twitterclone\static\" />
     <Folder Include="flutter_twitterclone\static\flutter_twitterclone\" />
     <Folder Include="flutter_twitterclone\static\flutter_twitterclone\content\" />
@@ -51,13 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="flutter_twitterclone\migrations\__pycache__\0001_initial.cpython-35.pyc" />
+    <Content Include="flutter_twitterclone\migrations\__pycache__\__init__.cpython-35.pyc" />
     <Content Include="flutter_twitterclone\static\flutter_twitterclone\content\style.css" />
+    <Content Include="flutter_twitterclone\templates\flutter_twitterclone\acknowledgement.html" />
+    <Content Include="flutter_twitterclone\templates\flutter_twitterclone\index.html" />
     <Content Include="web.config" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\_references.js" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery.validate-vsdoc.js" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="flutter_twitterclone\templates\flutter_twitterclone\index.html_notused" />
-    <Content Include="flutter_twitterclone\templates\flutter_twitterclone\layout.html_notused" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
   </ItemGroup>

@@ -18,7 +18,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/$', admin.site.urls),
     url(r'^$', views.render_index, name='index'),
     url(r'^add$', views.render_add_list, name='add_list'),
     url(r'^submit$', views.render_add_list_ack, name='add_list_submit'),
