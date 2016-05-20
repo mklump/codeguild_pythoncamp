@@ -4,8 +4,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>flutter_twitterclone</Name>
     <RootNamespace>flutter_twitterclone</RootNamespace>
-    <InterpreterId>{f534084f-daf3-4afd-ac6b-976585fed924}</InterpreterId>
-    <InterpreterVersion>3.4</InterpreterVersion>
+    <InterpreterId>{54114667-65fd-4bb5-a07b-97f21e26c09e}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -78,10 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="venv\">
-      <Id>{f534084f-daf3-4afd-ac6b-976585fed924}</Id>
+      <Id>{54114667-65fd-4bb5-a07b-97f21e26c09e}</Id>
       <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
-      <Version>3.4</Version>
-      <Description>venv (Python 3.4)</Description>
+      <Version>3.5</Version>
+      <Description>venv (Python 3.5)</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <LibraryPath>Lib\</LibraryPath>

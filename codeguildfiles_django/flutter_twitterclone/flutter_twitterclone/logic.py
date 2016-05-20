@@ -5,6 +5,7 @@ by Matthew James K on 5/19/2016
 """
 from . import models
 from django.db.models import Count
+import datetime
 
 def get_ten_latest_flutts():
     """
@@ -37,7 +38,11 @@ def save_submitted_user_flut_post(user_name, flut_text):
     :returns: the object model representing the flut details recently saved
     """
     user_object = models.User(user = user_name)
-    flut_object = models.Flut(user_author = user_object, text = flut_text)
+    flut_object = models.Flut(user_author = user_object, text = flut_text, timestamp = datetime.datetime.now())
     user_object.save()
+    if None == flut_object.user_author_id: # attempt to explicitely assign to the foreign key, until I find a better way to handle this
+        flut_object.user_author_id = 0;
+    else:
+        flut_object.user_author_id += 1;
     flut_object.save()
     return flut_object
