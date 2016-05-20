@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="db.sqlite3" />
     <Content Include="requirements.txt" />
     <Content Include="runserver.ps1" />
     <Content Include="sub_todo\static\sub_todo\style.css" />

@@ -69,7 +69,6 @@
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery.validate-vsdoc.js" />
     <None Include="flutter_twitterclone\static\flutter_twitterclone\scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="requirements.txt" />
-    <Content Include="db.sqlite3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.mht">

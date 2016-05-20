@@ -34,7 +34,7 @@ Change the /USER_NAME route to a /USER_ID route with the same functionality.
     <ul>
         {% for flut_entry in found_fluts %}
 		<li>
-            <blockquote>{{ flut_entry }}</blockquote>
+            <blockquote>User: {{ flut_entry.user_author }}, Flut or Post: {{ flut_entry.text }}, Time stamp: {{ flut_entry.timestamp }}</blockquote>
         </li>
         {% endfor %}
     </ul>

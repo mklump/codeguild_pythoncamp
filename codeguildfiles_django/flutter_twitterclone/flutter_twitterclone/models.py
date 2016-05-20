@@ -26,7 +26,7 @@ class Flut(models.Model):
     """
     Flut class represents a each new posting or tweet by a User.
     """
-    user_author = models.ForeignKey(User, blank = False, null = False)
+    user_author = models.ForeignKey(User, blank = False, null = False, on_delete=models.CASCADE)
     text = models.TextField(unique = False, null = False)
     timestamp = models.DateTimeField(auto_now_add = True, blank = False, unique = True, null = True)
 

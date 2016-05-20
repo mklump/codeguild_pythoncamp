@@ -30,6 +30,20 @@ def get_ten_fluts_by_user(search_by_user):
     """
     return models.Flut.objects.all().filter(user_author = search_by_user).order_by('timestamp')[:10]
 
+def get_user_by_id(id):
+    """
+    This database function queries the database model for one specific Flut, and returns the matching object,
+    :returns: the one matching result query object by its id
+    """
+    return models.User.objects.all().filter(id=id)
+
+def get_flut_by_id(id):
+    """
+    This database function queries the database model for one specific Flut, and returns the matching object,
+    :returns: the one matching result query object by its id
+    """
+    return models.Flut.objects.all().filter(id=id)
+
 def save_submitted_user_flut_post(user_name, flut_text):
     """
     This database function submits the posted data for the user and their associated flut text post with an auto time stamp.
@@ -43,6 +57,6 @@ def save_submitted_user_flut_post(user_name, flut_text):
     if None == flut_object.user_author_id: # attempt to explicitely assign to the foreign key, until I find a better way to handle this
         flut_object.user_author_id = 0;
     else:
-        flut_object.user_author_id += 1;
+        flut_object.user_author_id = flut_object.pk;
     flut_object.save()
     return flut_object
