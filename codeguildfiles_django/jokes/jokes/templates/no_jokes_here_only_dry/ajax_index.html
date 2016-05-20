@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <!--
-    Python Coding Bootcamp (pdxcodeguild)
-    Program exercise file templates/no_jokes_here_only_dry/ajax_index.html
-    by Matthew James K on 5/12/2016
+Python Coding Bootcamp (pdxcodeguild)
+Program exercise file templates/no_jokes_here_only_dry/ajax_index.html
+by: Matthew James K on 5/12/2016
 
-Practice: Jokes -
-    Save your solution as jokes.
-    Have a page to submit jokes via a form. A joke has a "setup" and a "punchline" input. Submitted
-    jokes should be saved in a global array in your logic module.
-    Have a listing page where jokes are shown. Hide the punch lines until someone clicks on the setup.
+Practice: Jokes
+Save your solution as jokes.
+Have a page to submit jokes via a form. A joke has a 'setup' and a 'punchline' input.
+Submitted jokes should be saved in a global array in your logic module.
+Have a listing page where jokes are shown. Hide the punch lines until someone clicks on the setup.
+
 Advanced:
-    Use AJAX to submit your jokes.
+Use AJAX to submit your jokes.
 -->
 {% load staticfiles %}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -35,19 +36,22 @@ Advanced:
             <section>
                 <span>Joke punch line :</span><input type="text" id="punch_line" />
             </section>
-            <input type="submit" value="SUBMIT" />
+            <input type="submit" value="SUBMIT" id="ajax_submit"/>
         </form>
-        <div>Selectable Joke setup stories:
+        <div>
+            Selectable Joke setup stories:
             <select multiple="multiple">
-                {% for story_setup in all_jokes_data %} <!-- Show the story setup part of the joke here. -->
-                <option>{{ story_setup[0] }}</option>
+                {% for story_setup in all_jokes_data %}
+                <!-- Show the story setup part of the joke here. -->
+                <option>{{ story_setup }}</option>
                 {% endfor %}
             </select>
         </div>
         <div id="hideable" hidden="hidden">
             <select multiple="multiple">
-                {% for punch_line in all_jokes_data %} <!-- Show the hidden punch line part of the joke here. -->
-                <option>{{ punch_line[1] }}</option>
+                {% for punch_line in all_jokes_data %}
+                <!-- Show the hidden punch line part of the joke here. -->
+                <option>{{ punch_line }}</option>
                 {% endfor %}
             </select>
         </div>

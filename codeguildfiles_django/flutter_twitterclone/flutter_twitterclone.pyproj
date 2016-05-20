@@ -4,8 +4,10 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>flutter_twitterclone</Name>
     <RootNamespace>flutter_twitterclone</RootNamespace>
-    <InterpreterId>{54114667-65fd-4bb5-a07b-97f21e26c09e}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterId>
+    </InterpreterId>
+    <InterpreterVersion>
+    </InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -74,19 +76,6 @@
     <None Include="readme.mht">
       <SubType>WebBrowser</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Interpreter Include="venv\">
-      <Id>{54114667-65fd-4bb5-a07b-97f21e26c09e}</Id>
-      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
-      <Version>3.5</Version>
-      <Description>venv (Python 3.5)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X86</Architecture>
-    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
