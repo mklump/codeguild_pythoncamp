@@ -1,14 +1,18 @@
 """
+Python Coding Bootcamp (pdxcodeguild)
+Program exercise file flutter_twitterclone/models.py
+by Matthew James K on 5/19/2016
+
 Definition of models.
 """
 
 from django.db import models
-import datetime
 
 # Create your models here.
-
 class User(models.Model):
-    """docstring for User"""
+    """
+    User class represnets a user with many fluts text posts.
+    """
     user = models.TextField(unique = False, null = False)
 
     def __str__(self):
@@ -19,7 +23,7 @@ class User(models.Model):
 
 class Flut(models.Model):
     """
-    Flut represents a each new posting or tweet by a User.
+    Flut class represents a each new posting or tweet by a User.
     """
     user_author = models.ForeignKey(User, unique = False, null = False)
     text = models.TextField(unique = False, null = False)

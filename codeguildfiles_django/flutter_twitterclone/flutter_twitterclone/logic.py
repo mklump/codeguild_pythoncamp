@@ -19,5 +19,25 @@ def get_ten_fluts_by_query(query):
     :param 1: query is a string query for text to search for in the fluts presently persisted in the database.
     :returns: a string [] array that is the query result set of this data query
     """
-    return models.Flut.objects.all().filter(text__contains='query').order_by('timestamp')[:10]
+    return models.Flut.objects.all().filter(text__contains = query).order_by('timestamp')[:10]
 
+def get_ten_fluts_by_user(search_by_user):
+    """
+    This database function queries the database model for 10 fluts having the specified text.
+    :param 1: query is a string query for text to search for in the fluts presently persisted in the database.
+    :returns: a string [] array that is the query result set of this data query
+    """
+    return models.Flut.objects.all().filter(user_author = search_by_user).order_by('timestamp')[:10]
+
+def save_submitted_user_flut_post(user_name, flut_text):
+    """
+    This database function submits the posted data for the user and their associated flut text post with an auto time stamp.
+    :param 1: user_name is a string representing the user who is saving this flut text post
+    :param 2: flut_text is a string representing the user's flut text post
+    :returns: the object model representing the flut details recently saved
+    """
+    user_object = models.User(user = user_name)
+    flut_object = models.Flut(user_author = user_object, text = flut_text)
+    user_object.save()
+    flut_object.save()
+    return flut_object

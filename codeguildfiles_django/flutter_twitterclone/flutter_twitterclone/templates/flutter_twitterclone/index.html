@@ -34,20 +34,28 @@ Change the /USER_NAME route to a /USER_ID route with the same functionality.
     <ul>
         {% for flut_entry in found_fluts %}
 		<li>
-            <blockquote>{% flut_entry %}</blockquote>
+            <blockquote>{{ flut_entry }}</blockquote>
         </li>
         {% endfor %}
     </ul>
     <blockquote>
         <form action="{% url 'home' %}" method="get">
-            <label for="search_flut">Enter flut to search:<input type="text" name="q" /></label>
-            <input type="submit" name="Search" />
+            <label for="q">Enter flut to search:<input type="text" name="q" /></label>
+            <input type="submit" name="Search_Fluts" value="SEARCH"/>
+        </form>
+    </blockquote>
+	<blockquote>
+        <form action="{% url 'posts_by_user' %}" method="get">
+            <label for="search_by_user">Enter user to get their fluts:<input type="text" name="search_by_user" /></label>
+            <input type="submit" name="Search_by_User" value="SEARCH"/>
         </form>
     </blockquote>
     <blockquote>
         <form action="{% url 'add_flut' %}" method="post">
-            <label for="post_flut">Enter flut to search:<input type="text" name="q" /></label>
-            <input type="submit" name="Search" />
+			{% csrf_token %}
+            <label for="post_flut">Enter user name:<input type="text" name="user_name" /></label>
+			<label for="post_flut">Enter flut text:<input type="text" name="flut_text" /></label>
+            <input type="submit" name="Submit" value="SUBMIT"/>
         </form>
     </blockquote>
 </body>

@@ -12,13 +12,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$', views.show_ten_latest, name='home'),
+    url(r'^USER_NAME/$', views.show_ten_latest, name='posts_by_user'),
     url(r'^post/$', views.render_add_flut, name='add_flut'),
+    url(r'^post/submit/$', views.render_add_flut, name='post_submit'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 ]

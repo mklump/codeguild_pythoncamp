@@ -25,9 +25,11 @@ Change the /USER_NAME route to a /USER_ID route with the same functionality.
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>{{ title }}</title>
 </head>
 <body>
-
+	<header><h1>{{ title }}</h1></header>
+	<p>Your flut that has your user name: {{ user_name }}, your flut text: {{ flut_text }}, at the time stamp: {{ timestamp }} has been saved.</p>
+	<p><a href="{% url 'home' %}">Return to home</a></p>
 </body>
 </html>
