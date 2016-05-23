@@ -13,42 +13,61 @@ Advanced:
  */
 'use strict';
 
+/*
+ * This function returns the text string entered by the user for the #story_setup textbox.
+ * @returns {String} value of the #story_setup textbox
+ */
 function getStorySetupText() {
-    return $('#setup_story').val()
+  return $('#setup_story').val();
 }
 
+/*
+ * This function returns the text string entered by the user for the #punch_line textbox.
+ * @returns {String} value of the #punch_line textbox
+ */
 function getPunchlineText() {
-    return $('#punch_line').val();
+  return $('#punch_line').val();
 }
 
+/*
+ * This function is a work in progress, please stay tunned...
+ */
 function appendStoryText(storyText) {
-    var blockquote = $('<blockquote></blockquote>');
-    blockquote.text(commentText);
-    $('body').append(blockquote);
+  var blockquote = $('<blockquote></blockquote>');
+  blockquote.text(commentText);
+  $('body').append(blockquote);
 }
 
+/*
+ * This function is a work in progress, please stay tunned...
+ */
 function appendPunchlineText(punchlineText) {
-    var blockquote = $('<blockquote></blockquote>');
-    blockquote.text(punchlineText);
-    $('body').append(blockquote);
+  var blockquote = $('<blockquote></blockquote>');
+  blockquote.text(punchlineText);
+  $('body').append(blockquote);
 }
 
+/*
+ * This function takes the text input from two textbox inputs and places them into a
+ * JQuery style HTTP GET request, and builds the html output for viewing back to the
+ * attached ajax_index.html file for viewing.
+ */
 function postJokeText(storyText, punchlineText) {
-    var jokes_data = {
-        'story_setup': storyText,
-        'punch_line': punchlineText
-    };
-    $.get('/ajax/submit', jokes_data, function () {
-        appendJoke(storyText, punchlineText);
-        appendStoryText(storyText);
-        appendPunchlineText(punchlineText);
-    });
+  var jokesData = {
+    'story_setup': storyText,
+    'punch_line': punchlineText
+  };
+  $.get('/ajax/submit', jokesData, function() {
+    //appendJoke(storyText, punchlineText);
+    appendStoryText(storyText);
+    appendPunchlineText(punchlineText);
+  });
 }
 
 function submitJoke() {
-    var storyText = getStorySetupText();
-    var punchlineText = getPunchlineText();
-    postJokeText(storyText, punchlineText);
+  var storyText = getStorySetupText();
+  var punchlineText = getPunchlineText();
+  postJokeText(storyText, punchlineText);
 }
 
 /*
@@ -57,16 +76,16 @@ function submitJoke() {
  * @param {Object: <img>} is the object representation of mole's image on the grid
  */
 function registerGlobalEventHandlers() {
-    $('#ajax_submit').on('click', function (event) {
-        submitJoke();
-    });
+  $('#ajax_submit').on('click', function(event) {
+    submitJoke();
+  });
 }
 
 /*
  * This is the main entry point for this file.
  */
 function main() {
-    registerGlobalEventHandlers();
+  registerGlobalEventHandlers();
 }
 /*
  * This statement registers main() to be called when the associated page is 'ready'.

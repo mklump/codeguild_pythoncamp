@@ -40,16 +40,17 @@ Use AJAX to submit your jokes.
         </form>
         <div>
             Selectable Joke setup stories:
-            <select multiple="multiple">
-                {% for story_setup in all_jokes_data %}
+            <select multiple="multiple" id="storySetups">
+                {% for story_setup in story_setups_data %}
                 <!-- Show the story setup part of the joke here. -->
                 <option>{{ story_setup }}</option>
                 {% endfor %}
             </select>
         </div>
-        <div id="hideable" hidden="hidden">
-            <select multiple="multiple">
-                {% for punch_line in all_jokes_data %}
+        <div>
+			Click a story setup to see these punch lines:
+            <select multiple="multiple" id="punchLines" hidden="hidden">
+                {% for punch_line in punch_lines_data %}
                 <!-- Show the hidden punch line part of the joke here. -->
                 <option>{{ punch_line }}</option>
                 {% endfor %}

@@ -14,9 +14,11 @@ def render_listing_index(request):
     This view will render a listing of the joke and its associated punchline in a list format.
     :param 1: request is the incomming HttpRequest object from the urls.py page routes
     """
-    all_jokes_data = logic.get_all_jokes_data()
+    story_setups_data = logic.get_story_setups_data()
+    punch_lines_data = logic.get_punch_lines_data()
     context = {
-        'all_jokes_data':all_jokes_data
+        'story_setups_data':story_setups_data,
+        'punch_lines_data':punch_lines_data,
     }
     return render(request, 'no_jokes_here_only_dry/ajax_index.html', context)
     
