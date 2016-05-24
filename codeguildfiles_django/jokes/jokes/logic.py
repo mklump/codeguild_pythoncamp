@@ -32,9 +32,9 @@ def get_story_setups_data():
     This function retrieves the story setup part of the jokes global array data.
     :returns: an array [] of the story setup part of the jokes global array data with the associated time stamp
     """
-    story_setups = ''
+    story_setups = []
     for joke in jokes:
-        story_setups += joke[0] + ' ' + joke[2]
+        story_setups.append('{0} {1}'.format(joke[0], joke[2]))
     return story_setups
 
 def get_punch_lines_data():
@@ -42,9 +42,9 @@ def get_punch_lines_data():
     This function retrieves the punch line part of the jokes global array data.
     :returns: an array [] of the punch line part of the jokes global array data with the associated time stamp
     """
-    punch_lines = ''
+    punch_lines = []
     for joke in jokes:
-        punch_lines += joke[1] + ' ' + joke[2]
+        punch_lines.append('{0} {1}'.format(joke[1], joke[2]))
     return punch_lines
 
 def ajax_save_submitted_joke(story_setup, punch_line):

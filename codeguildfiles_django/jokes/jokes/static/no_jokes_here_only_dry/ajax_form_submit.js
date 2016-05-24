@@ -29,28 +29,11 @@ function getPunchlineText() {
   return $('#punch_line').val();
 }
 
-/*
- * This function is a work in progress, please stay tunned...
- */
-function appendStoryText(storyText) {
-  var blockquote = $('<blockquote></blockquote>');
-  blockquote.text(commentText);
-  $('body').append(blockquote);
-}
 
 /*
- * This function is a work in progress, please stay tunned...
- */
-function appendPunchlineText(punchlineText) {
-  var blockquote = $('<blockquote></blockquote>');
-  blockquote.text(punchlineText);
-  $('body').append(blockquote);
-}
-
-/*
- * This function takes the text input from two textbox inputs and places them into a
- * JQuery style HTTP GET request, and builds the html output for viewing back to the
- * attached ajax_index.html file for viewing.
+ * This is the first of two functions that takes the text input from two textbox inputs
+ * and places them into a JQuery style HTTP GET request, and builds the html output for
+ * viewing back to the attached ajax_index.html file for viewing.
  */
 function postJokeText(storyText, punchlineText) {
   var jokesData = {
@@ -58,16 +41,24 @@ function postJokeText(storyText, punchlineText) {
     'punch_line': punchlineText
   };
   $.get('/ajax/submit', jokesData, function() {
-    //appendJoke(storyText, punchlineText);
-    appendStoryText(storyText);
-    appendPunchlineText(punchlineText);
   });
 }
 
+/*
+ * This is the second of two functions that takes the text input from two textbox inputs
+ * and places them into a JQuery style HTTP GET request, and builds the html output for
+ * viewing back to the attached ajax_index.html file for viewing.
+ */
 function submitJoke() {
   var storyText = getStorySetupText();
   var punchlineText = getPunchlineText();
   postJokeText(storyText, punchlineText);
+}
+
+function registerSelectOptionClick() {
+  $('option').on('click', function(event) {
+    $('#punchLines').hidden = '';
+  });
 }
 
 /*
@@ -78,7 +69,9 @@ function submitJoke() {
 function registerGlobalEventHandlers() {
   $('#ajax_submit').on('click', function(event) {
     submitJoke();
+    $('#punchLines').hidden = 'hidden';
   });
+  registerSelectOptionClick();
 }
 
 /*
