@@ -19,6 +19,7 @@ def render_listing_index(request):
     context = {
         'story_setups_data':story_setups_data,
         'punch_lines_data':punch_lines_data,
+        'title':'Joke Submit Form',
     }
     return render(request, 'no_jokes_here_only_dry/ajax_index.html', context)
     

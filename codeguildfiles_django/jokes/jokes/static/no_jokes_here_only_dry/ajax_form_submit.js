@@ -1,4 +1,4 @@
-﻿/*
+/*
     Python Coding Bootcamp (pdxcodeguild)
     Program exercise file static/no_jokes_here_only_dry/ajax_form_submit.js
     by Matthew James K on 5/12/2016
@@ -29,7 +29,6 @@ function getPunchlineText() {
   return $('#punch_line').val();
 }
 
-
 /*
  * This is the first of two functions that takes the text input from two textbox inputs
  * and places them into a JQuery style HTTP GET request, and builds the html output for
@@ -57,7 +56,7 @@ function submitJoke() {
 
 function registerSelectOptionClick() {
   $('option').on('click', function(event) {
-    $('#punchLines').hidden = '';
+    $('#punchLines')[0].hidden = ''; // Make the punchLines select control visible in the click event.
   });
 }
 
@@ -69,7 +68,7 @@ function registerSelectOptionClick() {
 function registerGlobalEventHandlers() {
   $('#ajax_submit').on('click', function(event) {
     submitJoke();
-    $('#punchLines').hidden = 'hidden';
+    $('#punchLines')[0].hidden = 'hidden';
   });
   registerSelectOptionClick();
 }
