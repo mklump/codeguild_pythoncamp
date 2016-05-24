@@ -12,7 +12,8 @@ def get_ten_latest_flutts():
     This database function queries the database model and returns back the latest 10 flutt entries.
     :returns: a list [] of the latest ten flutt enties from the database.
     """
-    return models.Flut.objects.all().order_by('timestamp')[:10]
+    models.User.objects.all()
+    return models.Flut.objects.all().filter(user_author__user).order_by('timestamp')[:10]
 
 def get_ten_fluts_by_query(query):
     """

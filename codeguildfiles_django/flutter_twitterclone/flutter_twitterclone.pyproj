@@ -45,7 +45,6 @@
     <Compile Include="flutter_twitterclone\settings.py" />
     <Compile Include="flutter_twitterclone\urls.py" />
     <Compile Include="flutter_twitterclone\wsgi.py" />
-    <Compile Include="ptvs_virtualenv_proxy.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="flutter_twitterclone\" />
