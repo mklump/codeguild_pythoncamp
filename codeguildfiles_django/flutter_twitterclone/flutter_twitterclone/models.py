@@ -20,7 +20,7 @@ class User(models.Model):
         return self.user
 
     def __repr__(self):
-        return 'User(user={!r}'.format(self.user)
+        return 'User(user={!r})'.format(self.user)
 
 class Flut(models.Model):
     """
